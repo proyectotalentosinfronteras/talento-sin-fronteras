@@ -6,6 +6,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const sendChatBtn = document.getElementById('send-chat-btn');
     const chatMessages = document.getElementById('chat-messages');
 
+    // Variable de memoria interna para guiar las respuestas continuas
+    let ultimoContexto = ""; 
+
     if (openChatBtn) {
         openChatBtn.addEventListener('click', (e) => {
             e.preventDefault();
@@ -66,8 +69,76 @@ document.addEventListener('DOMContentLoaded', () => {
         const oceania = ['australia', 'nueva zelanda', 'fiyi', 'samoa', 'oceania', 'oceanía'];
         const orienteMedio = ['egipto', 'iran', 'irán', 'irak', 'iraq', 'arabia', 'emiratos', 'dubai', 'dúbai', 'qatar', 'catar', 'turquia', 'turquía', 'israel', 'jordania', 'oriente medio'];
 
-        // 1. SALUDO INICIAL INTERACTIVO CON LAS 3 OPCIONES PRINCIPALES
+        // =========================================================================
+        // SISTEMA DE RESPUESTAS AUTOMÁTICAS A LAS PREGUNTAS DE CIERRE
+        // =========================================================================
+        
+        // Respuesta al Bloque 1 (Pregunta de Selección de Tema Inicial)
+        if (ultimoContexto === "pregunta_saludo") {
+            ultimoContexto = ""; 
+            if (input.includes('papeles') || input.includes('regularizar') || input.includes('masiva') || input.includes('primero') || input.includes('1')) {
+                return getAIResponse("requisitos"); 
+            } else if (input.includes('titulo') || input.includes('homologar') || input.includes('estudios') || input.includes('segundo') || input.includes('2')) {
+                return getAIResponse("homologar");
+            } else if (input.includes('derechos') || input.includes('trabajo') || input.includes('laboral') || input.includes('tercero') || input.includes('3')) {
+                return getAIResponse("derechos");
+            }
+        }
+
+        // Respuestas al Bloque 2 (Derechos en el Trabajo / Renovación)
+        if (ultimoContexto === "pregunta_contrato_renovacion") {
+            ultimoContexto = "";
+            if (input.includes('si') || input.includes('sí') || input.includes('tengo') || input.includes('activo') || input.includes('claro')) {
+                return "¡Excelente! Al estar de alta con un contrato activo, tu renovación para conseguir la tarjeta de 4 años en este 2026 está bien encaminada. Solo necesitas aportar el contrato actual, tu pasaporte completo y pagar la tasa correspondiente. ¿Deseas saber el código de la tasa oficial?";
+            } else {
+                return "No te preocupes si no tienes un contrato activo en este momento. La normativa de 2026 te permite renovar demostrando que estás buscando empleo activamente (inscrito en el SEPE), aportando un nuevo informe de inserción social, o si demuestres que tu anterior baja fue involuntaria. ¿Te gustaría saber cómo inscribirte correctamente?";
+            }
+        }
+        if (ultimoContexto === "pregunta_duda_contrato") {
+            ultimoContexto = "";
+            if (input.includes('si') || input.includes('sí') || input.includes('tengo') || input.includes('duda')) {
+                return "Dime detalladamente cuál es tu duda (horas, salario, tipo de contrato). Recuerda que en 2026 el salario estipulado obligatoriamente debe estar ligado al Salario Mínimo Interprofesional (SMI) proporcional a tus horas de jornada.";
+            } else {
+                return "¡Perfecto! Mantener tus condiciones claras es clave. Si estás bajo un Arraigo Socioformativo, vigila bien no superar las 30 horas semanales permitidas para no tener problemas con la oficina de extranjería.";
+            }
+        }
+
+        // Respuestas al Bloque 3 (Arraigos Ordinarios de 2 años)
+        if (ultimoContexto === "pregunta_curso_socioformativo") {
+            ultimoContexto = "";
+            if (input.includes('si') || input.includes('sí') || input.includes('tengo') || input.includes('pensado') || input.includes('idea')) {
+                return "¡Estupendo! Ten en cuenta que para validar el Arraigo Socioformativo este año, el curso debe impartirse obligatoriamente por un centro acreditado (grados de FP, certificados de profesionalidad oficiales o cursos específicos universitarios). En cuanto te matricules, podrás tramitarlo. ¿Quieres que veamos el trámite digital?";
+            } else {
+                return "No pasa nada si no lo tienes claro aún. Servicios Sociales y organizaciones como Cruz Roja disponen de listados de cursos gratuitos que habilitan para este arraigo en 2026. Lo vital es que sumes los 2 años previos de permanencia en España. ¿Quieres que comprobemos tus documentos de permanencia?";
+            }
+        }
+        if (ultimoContexto === "pregunta_tiempo_social") {
+            ultimoContexto = "";
+            if (input.includes('2') || input.includes('dos') || input.includes('3') || input.includes('tres') || input.includes('año') || input.includes('mas') || input.includes('más') || input.includes('si') || input.includes('sí')) {
+                return "¡Enhorabuena! Al cumplir la nueva barrera de los 2 años establecida en 2026, ya puedes iniciar el Arraigo Social clásico. El siguiente paso urgente es solicitar cita en tu ayuntamiento para la entrevista del informe de inserción social y ligarlo a una propuesta de contrato. ¿Sabes cómo pedir esa cita local?";
+            } else {
+                return "Si llevas menos de 2 años, debes seguir recopilando con mucho cuidado cada prueba de tu estancia (médicos, bancos, padrón). En cuanto alcances los 24 meses exactos, podrás aplicar de inmediato al Arraigo Social o al Socioformativo.";
+            }
+        }
+
+        // Respuestas al Bloque 4 (Regularización Masiva Extraordinaria)
+        if (ultimoContexto === "pregunta_requisitos_masiva") {
+            ultimoContexto = "";
+            if (input.includes('si') || input.includes('sí') || input.includes('todos') || input.includes('cumplo') || input.includes('tengo')) {
+                return "¡Magnífico! Si ya tienes preparados tu pasaporte, tus antecedentes penales de origen legalizados, tu informe de vulnerabilidad y tus pruebas (como extractos de banco o folios médicos públicos), debes presentar el expediente digital YA. El plazo máximo cierra de forma tajante el 9 de junio de 2026. ¿Dispones de firma electrónica o certificado digital para subirlo de inmediato?";
+            } else {
+                return "¡Hay que darse prisa! Si te falta el certificado de vulnerabilidad, ve mañana a primera hora sin falta a Cáritas, Cruz Roja o a los Servicios Sociales de tu zona. Si te faltan meses de padrón, busca hoy mismo tus extractos bancarios o citas médicas de la sanidad pública. Todo cuenta para justificar la permanencia antes del cierre del 9 de junio de 2026. ¿Cuál de los documentos te falta?";
+            }
+        }
+
+
+        // =========================================================================
+        // CUERPO DE BLOQUES PRINCIPALES
+        // =========================================================================
+
+        // --- BLOQUE 1: SALUDO INICIAL INTERACTIVO ---
         if (input.includes('hola') || input.includes('buenas')) {
+            ultimoContexto = "pregunta_saludo";
             return "¡Hola! Soy tu consultor de inclusión y extranjería para este año 2026. 🌍 Escribe el tema que te interesa consultar:\n\n" +
                    "👉 REGULARIZACIÓN DE TUS PAPELES (Para conocer el proceso extraordinario que vence pronto o las vías de Arraigo de 2 años).\n\n" +
                    "👉 HOMOLOGACIÓN DE TÍTULOS (Para saber cómo convalidar tus estudios según tu país de origen).\n\n" +
@@ -75,30 +146,33 @@ document.addEventListener('DOMContentLoaded', () => {
                    "¿Cuál de estos temas deseas explorar hoy?";
         }
 
-        // 2. BLOQUE DE DERECHOS EN EL TRABAJO Y RENOVACIONES LABORALES (2026)
+        // --- BLOQUE 2: DERECHOS EN EL TRABAJO Y RENOVACIONES ---
         if (input.includes('derechos') || input.includes('trabajo') || input.includes('laboral') || input.includes('contrato') || input.includes('seguridad social')) {
-            // Sub-caso específico de renovación
             if (input.includes('renovar') || input.includes('renovacion') || input.includes('nie') || input.includes('año')) {
+                ultimoContexto = "pregunta_contrato_renovacion";
                 return "¡Excelente pregunta laboral! Al renovar tu residencia por Arraigo por primera vez en 2026, la nueva tarjeta que te otorgarán tendrá una validez directa de 4 AÑOS (siempre que sigas de alta en la Seguridad Social o cuentes con medios propios). ¿Tienes un contrato de trabajo activo en este momento?";
             }
-            // Sub-caso del antiguo arraigo laboral
             if (input.includes('segunda oportunidad') || input.includes('antiguo laboral')) {
-                return "En 2026, el antiguo Arraigo Laboral pasó a llamarse oficialmente 'Arraigo de Segunda Oportunidad'. Exige 2 años de permanencia previa y está específicamente diseñado para personas que tuvieron un permiso de trabajo legal en el pasado pero lo perdieron quedando en situación irregular. ¿Es tu caso?";
+                return "En 2026, el antiguo Arraigo Laboral pasó a llamarse oficialmente 'Arraigo de Segunda Oportunidad'. Exige 2 años de permanencia previa y está diseñado para personas que tuvieron un permiso de trabajo legal en el pasado pero lo perdieron quedando en situación irregular. Si es tu caso, puedes reactivarte laboralmente.";
             }
-            return "Tus derechos laborales en 2026 están firmemente protegidos. Si estás bajo el Arraigo Socioformativo, tienes permitido trabajar por cuenta ajena hasta 30 horas semanales. Si estás regularizándote, recuerda que ningún empleador puede abusar de tu condición. ¿Tienes alguna duda sobre las horas de tu contrato o la cotización para tu renovación?";
+            ultimoContexto = "pregunta_duda_contrato";
+            return "Tus derechos laborales en 2026 están firmemente protegidos. Si estás bajo el Arraigo Socioformativo, tienes permitido trabajar por cuenta ajena hasta 30 horas semanales de forma 100% legal. Si estás regularizándote, recuerda que la ley prohíbe el abuso laboral. ¿Tienes alguna duda específica sobre tu contrato?";
         }
 
-        // 3. BLOQUE ORDINARIO DE ARRAIGO (Alineado a 2 años por reforma)
+        // --- BLOQUE 3: VÍAS DE ARRAIGO ORDINARIO (2 AÑOS) ---
         if (input.includes('socioformativo') || input.includes('formacion') || input.includes('estudiar') || input.includes('curso')) {
-            return "El Arraigo Socioformativo (antiguo Arraigo para la Formación) exige demostrar 2 años de permanencia continua en España. En 2026, la gran ventaja es que la ley te autoriza a trabajar legalmente un máximo de 30 horas semanales mientras cursas tus estudios certificados. ¿Tienes pensado algún curso o formación reglada?";
+            ultimoContexto = "pregunta_curso_socioformativo";
+            return "El Arraigo Socioformativo exige demostrar 2 años de permanencia continua en España. En 2026, la gran ventaja es que la ley te autoriza a trabajar legalmente un máximo de 30 horas semanales mientras cursas tus estudios certificados. ¿Tienes pensado algún curso o formación reglada?";
         }
         if (input.includes('social') && !input.includes('exclusión')) {
-            return "¡Un cambio histórico para el 2026! Con la última reforma, el Arraigo Social ya NO requiere 3 años de permanencia, ¡ahora se redujo a solo 2 años! Sigues necesitando el informe de inserción social y un contrato firmado que se ajuste al Salario Mínimo Interprofesional (SMI). ¿Cuánto tiempo llevas viviendo en España?";
+            ultimoContexto = "pregunta_tiempo_social";
+            return "¡Un cambio histórico para el 2026! Con la última reforma, el Arraigo Social ya NO requiere 3 años de permanencia, ¡ahora se redujo a solo 2 años! Sigues necesitando el informe de inserción social y un contrato firmado que se ajuste al Salario Mínimo (SMI). ¿Cuánto tiempo llevas viviendo en España?";
         }
 
-        // 4. BLOQUE CRUCIAL: REGULARIZACIÓN MASIVA EXTRAORDINARIA 2026 (REQUISITOS COMPLETOS)
+        // --- BLOQUE 4: PROCESO EXTRAORDINARIO DE REGULARIZACIÓN MASIVA 2026 ---
         if (input.includes('papeles') || input.includes('regularizar') || input.includes('masiva') || input.includes('plazo') || input.includes('cuando') || input.includes('junio') || input.includes('dia') || input.includes('día') || input.includes('requisitos')) {
-            return "¡ALERTA URGENTE! El plazo máximo e improrrogable para presentar tu solicitud en el PROCESO EXTRAORDINARIO DE REGULARIZACIÓN MASIVA termina el próximo 9 DE JUNIO DE 2026. Al estar a mediados de mayo, quedan menos de 3 semanas. Los requisitos obligatorios y detallados son:\n\n" +
+            ultimoContexto = "pregunta_requisitos_masiva";
+            return "¡ALERTA URGENTE! El plazo máximo e improrrogable para presentar tu solicitud en el PROCESO EXTRAORDINARIO DE REGULARIZACIÓN MASIVA termina el próximo 9 DE JUNIO DE 2026. Al estar a mediados de mayo, quedan menos de 3 semanas para que cierre el sistema. Los requisitos obligatorios y detallados son:\n\n" +
                    "1. DOCUMENTACIÓN PERSONAL DE IDENTIDAD E HISTORIAL:\n" +
                    "- Pasaporte en vigor: Es el documento de identidad base e indispensable.\n" +
                    "- Historial de Extranjería (si aplica): Resguardo de presentación de asilo en vigor o caducado (NIE Blanco) o tarjeta de solicitante de protección internacional (NIE Rojo).\n\n" +
@@ -113,62 +187,52 @@ document.addEventListener('DOMContentLoaded', () => {
                    "Cuéntame, ¿crees que cumples con todos estos requisitos para poder aplicar a la regularización antes de que cierre el plazo?";
         }
 
-        // --- SISTEMA DE DETECCIÓN DE HOMOLOGACIÓN POR LAS 8 REGIONES ---
-
-        // Región 1: Latinoamérica
+        // --- BLOQUE 5 / REGIONES: GESTIÓN DE HOMOLOGACIONES DE TÍTULOS ---
         const detectaLatam = latinoamerica.find(reg => input.includes(reg));
         if (detectaLatam) {
             return `¡Perfecto! Para ${detectaLatam.toUpperCase()} (Latinoamérica), tus títulos de bachillerato o universitarios deben llevar la Apostilla de la Haya. En 2026, al tramitar tu homologación digital, te dan un 'volante condicional' que te permite trabajar o estudiar de inmediato. Además, recuerda que los ciudadanos de países de origen hispano y Brasil tienen el beneficio de poder solicitar la nacionalidad española con solo 2 años de residencia legal continua.`;
         }
 
-        // Región 2: Reino Unido
         const detectaUk = reinoUnido.find(reg => input.includes(reg));
         if (detectaUk) {
             return "¡Entendido, Reino Unido! Desde el Brexit, el Reino Unido se trata como un tercer país fuera de la UE. En 2026, para homologar tu bachillerato británico (A-Levels o GCSE), requieres la Apostilla de la Haya de UK y una traducción jurada oficial al castellano. Para temas de arraigo, entras bajo las condiciones generales de 2 años de permanencia en España.";
         }
 
-        // Región 3: Europa (UE y EFTA)
         const detectaEuropa = europa.find(reg => input.includes(reg));
         if (detectaEuropa) {
             return "¡Región Europea! Si tus estudios o nacionalidad son de la Unión Europea o espacio EFTA, cuentas con la mayor ventaja en 2026. Tus títulos NO necesitan la Apostilla de la Haya. El proceso de convalidación y equivalencia de notas es directo y muy rápido. Si eres ciudadano comunitario, recuerda que estás exento de arraigos; puedes solicitar el Certificado de Registro de Ciudadano de la Unión (CUE) si cuentas con empleo o medios económicos.";
         }
 
-        // Región 4: Norteamérica (EE.UU. y Canadá)
         const detectaNorteam = norteamerica.find(reg => input.includes(reg));
         if (detectaNorteam) {
             return "¡Región de Norteamérica (EE.UU. / Canadá)! Para homologar tus estudios en España en 2026, tu diploma y el registro de calificaciones (Transcripts) deben estar legalizados con la Apostilla de la Haya de tu país/estado y llevar traducción jurada oficial. Con el resguardo digital del trámite obtienes el 'volante condicional' válido para incorporarte al mercado laboral o iniciar tu formación.";
         }
 
-        // Región 5: Asia
         const detectaAsia = asia.find(reg => input.includes(reg));
         if (detectaAsia) {
             return "¡Región de Asia! En 2026, la homologación de títulos de países asiáticos requiere la Apostilla de la Haya (o legalización diplomática por vía consular si tu país no está en el convenio) junto con una traducción jurada obligatoria al castellano. Nota especial: si eres de FILIPINAS, por lazos históricos, tienes derecho preferencial a solicitar la nacionalidad española con solo 2 años de residencia legal.";
         }
 
-        // Región 6: África
         const detectaAfrica = africa.find(reg => input.includes(reg));
         if (detectaAfrica) {
             return "¡Continente Africano! En 2026, para convalidar tus estudios, si tu país firmó el Convenio de la Haya (como Marruecos o Sudáfrica) necesitas la Apostilla; si no (como Senegal o Gambia), tus documentos deben legalizarse por vía diplomática en el Consulado de España local, sumado a la traducción jurada. Con la nueva ley de extranjería, los trabajadores de estos orígenes aplican con alto éxito a los Arraigos de Segunda Oportunidad o Socioformativos al cumplir los 2 años.";
         }
 
-        // Región 7: Oceanía
         const detectaOceania = oceania.find(reg => input.includes(reg));
         if (detectaOceania) {
             return "¡Región de Oceanía (Australia / Nueva Zelanda)! Al ser países miembros del Convenio de la Haya, tus diplomas académicos deben estar Apostillados y contar con una traducción jurada oficial al castellano en este 2026. Al iniciar el proceso digital de homologación, se te expedirá el 'volante condicional' que te habilita legalmente para trabajar o matricularte en cursos superiores.";
         }
 
-        // Región 8: Oriente Medio
         const detectaOriente = orienteMedio.find(reg => input.includes(reg));
         if (detectaOriente) {
             return "¡Región de Oriente Medio! En 2026, para homologar tus títulos, la mayoría de los países (como Turquía o Emiratos) emiten la Apostilla de la Haya, mientras que otros requieren legalización por vía consular. Es indispensable que los documentos vengan con traducción jurada oficial al castellano. Sus profesionales técnicos suelen ser perfiles muy demandados para modificar arraigos hacia autorizaciones de profesionales altamente cualificados.";
         }
 
-        // 5. BLOQUE GENERAL DE HOMOLOGACIÓN (Si escribe la palabra pero no el país en la frase)
         if (input.includes('titulo') || input.includes('homologar') || input.includes('estudios') || input.includes('bachiller') || input.includes('bachillerato') || input.includes('universidad')) {
             return "Para homologar tu Bachillerato o título universitario en 2026, el trámite se realiza de forma 100% digital ante el Ministerio de Educación. Requieres tu título y notas debidamente legalizados o apostillados. Al tramitarlo te otorgan un 'volante condicional' inmediato que te permite estudiar o trabajar mientras esperas la resolución. ¿De qué país o región (como Latinoamérica, Reino Unido, Europa, etc.) es tu título?";
         }
 
-        // Respuesta por defecto adaptada a las 3 opciones si el bot se pierde
+        // Respuesta genérica de respaldo
         return "Comprendo tu mensaje. Para darte la información legal exacta en este 2026, indícame cuál de nuestras áreas principales te interesa consultar: 'Regularización de papeles', 'Homologación de títulos' o 'Derechos en el trabajo', o indícame directamente tu país de procedencia.";
     }
 });
