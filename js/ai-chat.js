@@ -149,4 +149,80 @@ document.addEventListener('DOMContentLoaded', () => {
                    "- Informe de Exclusión Social o Vulnerabilidad: Documento obligatorio emitido por los Servicios Sociales municipales de tu ayuntamiento o por entidades y ONGs oficialmente acreditadas para este proceso extraordinario.\n\n" +
                    "4. AUSENCIA DE ANTECEDENTES PENALES:\n" +
                    "- Certificado de Antecedentes Penales: Emitido por las autoridades de tu país de origen (debidamente apostillado o legalizado, y traducido si corresponde), además de carecer de antecedentes penales dentro de España.\n\n" +
-                   "Cuéntame, ¿crees que cumples con todos estos requisitos para poder aplicar
+                   "Cuéntame, ¿crees que cumples con todos estos requisitos para poder aplicar a la regularización antes de que cierre el plazo?";
+        }
+
+        // --- BLOQUE 2: DERECHOS EN EL TRABAJO Y RENOVACIONES ---
+        // Filtro unificado: Si escribe 3, o contiene "trabajo", "derechos", "laboral", etc.
+        if (input === '3' || input.includes('opcion 3') || input.includes('opción 3') || input.includes('derechos') || input.includes('trabajo') || input.includes('laboral') || input.includes('contrato') || input.includes('seguridad social')) {
+            if (input.includes('renovar') || input.includes('renovacion') || input.includes('nie') || input.includes('año')) {
+                ultimoContexto = "pregunta_contrato_renovacion";
+                return "¡Excelente pregunta laboral! Al renovar tu residencia por Arraigo por primera vez en 2026, la nueva tarjeta que te otorgarán tendrá una validez directa de 4 AÑOS (siempre que sigas de alta en la Seguridad Social o cuentes con medios propios). ¿Tienes un contrato de trabajo activo en este momento?";
+            }
+            if (input.includes('segunda oportunidad') || input.includes('antiguo laboral')) {
+                return "En 2026, el antiguo Arraigo Laboral pasó a llamarse oficialmente 'Arraigo de Segunda Oportunidad'. Exige 2 años de permanencia previa y está diseñado para personas que tuvieron un permiso de trabajo legal en el pasado pero lo perdieron quedando en situación irregular. Si es tu caso, puedes reactivarte laboralmente.";
+            }
+            ultimoContexto = "pregunta_duda_contrato";
+            return "Tus derechos laborales en 2026 están firmemente protegidos. Si estás bajo el Arraigo Socioformativo, tienes permitido trabajar por cuenta ajena hasta 30 horas semanales de forma 100% legal. Si estás regularizándote, recuerda que la ley prohíbe el abuso laboral. ¿Tienes alguna duda específica sobre tu contrato?";
+        }
+
+        // --- BLOQUE 3: OTRAS VÍAS DE ARRAIGO ORDINARIO (2 AÑOS) ---
+        if (input.includes('socioformativo') || input.includes('formacion') || input.includes('curso')) {
+            ultimoContexto = "pregunta_curso_socioformativo";
+            return "El Arraigo Socioformativo exige demostrar 2 años de permanencia continua en España. En 2026, la gran ventaja es que la ley te autoriza a trabajar legalmente un máximo de 30 horas semanales mientras cursas tus estudios certificados. ¿Tienes pensado algún curso o formación reglada?";
+        }
+        if (input.includes('social') && !input.includes('exclusión')) {
+            ultimoContexto = "pregunta_tiempo_social";
+            return "¡Un cambio histórico para el 2026! Con la última reforma, el Arraigo Social ya NO requiere 3 años de permanencia, ¡ahora se redujo a solo 2 años! Sigues necesitando el informe de inserción social y un contrato firmado que se ajuste al Salario Mínimo (SMI). ¿Cuánto tiempo llevas viviendo en España?";
+        }
+
+        // --- BLOQUE 5 / REGIONES: GESTIÓN DE HOMOLOGACIONES DE TÍTULOS ---
+        // Filtro unificado: Si escribe 2, o contiene países, "titulo", "homologar", "estudios", etc.
+        const detectaLatam = latinoamerica.find(reg => input.includes(reg));
+        if (detectaLatam) {
+            return `¡Perfecto! Para ${detectaLatam.toUpperCase()} (Latinoamérica), tus títulos de bachillerato o universitarios deben llevar la Apostilla de la Haya. En 2026, al tramitar tu homologación digital, te dan un 'volante condicional' que te permite trabajar o estudiar de inmediato. Además, recuerda que los ciudadanos de países de origen hispano y Brasil tienen el beneficio de poder solicitar la nacionalidad española con solo 2 años de residencia legal continua.`;
+        }
+
+        const detectaUk = reinoUnido.find(reg => input.includes(reg));
+        if (detectaUk) {
+            return "¡Entendido, Reino Unido! Desde el Brexit, el Reino Unido se trata como un primer país fuera de la UE. En 2026, para homologar tu bachillerato británico (A-Levels o GCSE), requieres la Apostilla de la Haya de UK y una traducción jurada oficial al castellano. Para temas de arraigo, entras bajo las condiciones generales de 2 años de permanencia en España.";
+        }
+
+        const detectaEuropa = europa.find(reg => input.includes(reg));
+        if (detectaEuropa) {
+            return "¡Región Europea! Si tus estudios o nacionalidad son de la Unión Europea o espacio EFTA, cuentas con la mayor ventaja en 2026. Tus títulos NO necesitan la Apostilla de la Haya. El proceso de convalidación y equivalencia de notas es directo y muy rápido. Si eres ciudadano comunitario, recuerda que estás exento de arraigos; puedes solicitar el Certificado de Registro de Ciudadano de la Unión (CUE) si cuentas con empleo o medios económicos.";
+        }
+
+        const detectaNorteam = norteamerica.find(reg => input.includes(reg));
+        if (detectaNorteam) {
+            return "¡Región de Norteamérica (EE.WW. / Canadá)! Para homologar tus estudios en España en 2026, tu diploma y el registro de calificaciones (Transcripts) deben estar legalizados con la Apostilla de la Haya de tu país/estado y llevar traducción jurada oficial. Con el resguardo digital del trámite obtienes el 'volante condicional' válido para incorporarte al mercado laboral o iniciar tu formación.";
+        }
+
+        const detectaAsia = asia.find(reg => input.includes(reg));
+        if (detectaAsia) {
+            return "¡Región de Asia! En 2026, la homologación de títulos de países asiáticos requiere la Apostilla de la Haya (o legalización diplomática por vía consular si tu país no está en el convenio) junto con una traducción jurada obligatoria al castellano. Nota especial: si eres de FILIPINAS, por lazos históricos, tienes derecho preferencial a solicitar la nacionalidad española con solo 2 años de residencia legal.";
+        }
+
+        const detectaAfrica = africa.find(reg => input.includes(reg));
+        if (detectaAfrica) {
+            return "¡Continente Africano! En 2026, para convalidar tus estudios, si tu país firmó el Convenio de la Haya (como Marruecos o Sudáfrica) necesitas la Apostilla; si no (como Senegal o Gambia), tus documentos deben legalizarse por vía diplomática en el Consulado de España local, sumado a la traducción jurada. Con la nueva ley de extranjería, los trabajadores de estos orígenes aplican con alto éxito a los Arraigos de Segunda Oportunidad o Socioformativos al cumplir los 2 años.";
+        }
+
+        const detectaOceania = oceania.find(reg => input.includes(reg));
+        if (detectaOceania) {
+            return "¡Región de Oceanía (Australia / Nueva Zelanda)! Al ser países miembros del Convenio de la Haya, tus diplomas académicos deben estar Apostillados y contar con una traducción jurada oficial al castellano en este 2026. Al iniciar el proceso digital de homologación, se te expedirá el 'volante condicional' que te habilita legalmente para trabajar o matricularte en cursos superiores.";
+        }
+
+        const detectaOriente = orienteMedio.find(reg => input.includes(reg));
+        if (detectaOriente) {
+            return "¡Región de Oriente Medio! En 2026, para homologar tus títulos, la mayoría de los países (como Turquía o Emiratos) emiten la Apostilla de la Haya, mientras que otros requieren legalización por vía consular. Es indispensable que los documentos vengan con traducción jurada oficial al castellano. Sus profesionales técnicos suelen ser perfiles muy demandados para modificar arraigos hacia autorizaciones de profesionales altamente cualificados.";
+        }
+
+        if (input === '2' || input.includes('opcion 2') || input.includes('opción 2') || input.includes('titulo') || input.includes('homologar') || input.includes('estudios') || input.includes('bachiller') || input.includes('bachillerato') || input.includes('universidad')) {
+            return "Para homologar tu Bachillerato o título universitario en 2026, el trámite se realiza de forma 100% digital ante el Ministerio de Educación. Requieres tu título y notas debidamente legalizados o apostillados. Al tramitarlo te otorgan un 'volante condicional' inmediato que te permite estudiar o trabajar mientras esperas la resolución. ¿De qué país o región (como Latinoamérica, Reino Unido, Europa, etc.) es tu título?";
+        }
+
+        // Respuesta genérica de respaldo si el sistema no identifica nada claro
+        return "Comprendo tu mensaje. Para darte la información legal exacta en este 2026, indícame cuál de nuestras áreas principales te interesa consultar: '1. Regularización de papeles', '2. Homologación de títulos' o '3. Derechos en el trabajo', o indícame directamente tu país de procedencia.";
+    }
+});
