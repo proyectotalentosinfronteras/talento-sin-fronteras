@@ -116,9 +116,9 @@ document.addEventListener('DOMContentLoaded', () => {
         if (ultimoContexto === "pregunta_contrato_renovacion") {
             ultimoContexto = "";
             if (input.includes('si') || input.includes('sí') || input.includes('tengo') || input.includes('activo') || input.includes('claro')) {
-                return "¡Excelente! Al estar de alta con un contrato activo, tu renovación para conseguir la tarjeta de 4 años en este 2026 está bien encaminada. Solo necesitas aportar el contrato actual, tu pasaporte completo y pagar la tasa correspondiente. ¿Deseas saber el código de la tasa oficial?";
+                return "¡Excelente! Al estar de alta con un contrato activo, tu renovación para conseguir la tarjeta de 4 años en este 2026 está bien encaminada. Solo necesitas aportar el contrato actual, tu pasaporte completo y pagar la tasa correspondiente;
             } else {
-                return "No te preocupes si no tienes un contrato activo en este momento. La normativa de 2026 te permite renovar demostrando que estás buscando empleo activamente (inscrito en el SEPE), aportando un nuevo informe de inserción social, o si demuestres que tu anterior baja fue involuntaria. ¿Te gustaría saber cómo inscribirte correctamente?";
+                return "No te preocupes si no tienes un contrato activo en este momento. La normativa de 2026 te permite renovar demostrando que estás buscando empleo activamente (inscrito en el SEPE), aportando un nuevo informe de inserción social, o si demuestres que tu anterior baja fue involuntaria;
             }
         }
         if (ultimoContexto === "pregunta_duda_contrato") {
@@ -134,15 +134,15 @@ document.addEventListener('DOMContentLoaded', () => {
         if (ultimoContexto === "pregunta_curso_socioformativo") {
             ultimoContexto = "";
             if (input.includes('si') || input.includes('sí') || input.includes('tengo') || input.includes('pensado') || input.includes('idea')) {
-                return "¡Estupendo! Ten en cuenta que para validar el Arraigo Socioformativo este año, el curso debe impartirse obligatoriamente por un centro acreditado (grados de FP, certificados de profesionalidad oficiales o cursos específicos universitarios). En cuanto te matricules, podrás tramitarlo. ¿Quieres que veamos el trámite digital?";
+                return "¡Estupendo! Ten en cuenta que para validar el Arraigo Socioformativo este año, el curso debe impartirse obligatoriamente por un centro acreditado (grados de FP, certificados de profesionalidad oficiales o cursos específicos universitarios). En cuanto te matricules, podrás tramitarlo;
             } else {
-                return "No pasa nada si no lo tienes claro aún. Servicios Sociales y organizaciones como Cruz Roja disponen de listados de cursos gratuitos que habilitan para este arraigo en 2026. Lo vital es que sumes los 2 años previos de permanencia en España. ¿Quieres que comprobemos tus documentos de permanencia?";
+                return "No pasa nada si no lo tienes claro aún. Servicios Sociales y organizaciones como Cruz Roja disponen de listados de cursos gratuitos que habilitan para este arraigo en 2026. Lo vital es que sumes los 2 años previos de permanencia en España;
             }
         }
         if (ultimoContexto === "pregunta_tiempo_social") {
             ultimoContexto = "";
             if (input.includes('2') || input.includes('dos') || input.includes('3') || input.includes('tres') || input.includes('año') || input.includes('mas') || input.includes('más') || input.includes('si') || input.includes('sí')) {
-                return "¡Enhorabuena! Al cumplir la nueva barrera de los 2 años establecida en 2026, ya puedes iniciar el Arraigo Social clásico. El Administrative urgente es solicitar cita en tu ayuntamiento para la entrevista del informe de inserción social y ligarlo a una propuesta de contrato. ¿Sabes cómo pedir esa cita local?";
+                return "¡Enhorabuena! Al cumplir la nueva barrera de los 2 años establecida en 2026, ya puedes iniciar el Arraigo Social clásico. El Administrative urgente es solicitar cita en tu ayuntamiento para la entrevista del informe de inserción social y ligarlo a una propuesta de contrato;
             } else {
                 return "Si llevas menos de 2 años, debes seguir recopilando con mucho cuidado cada prueba de tu estancia (médicos, bancos, padrón). En cuanto alcances los 24 meses exactos, podrás aplicar de inmediato al Arraigo Social o al Socioformativo.";
             }
@@ -152,9 +152,9 @@ document.addEventListener('DOMContentLoaded', () => {
         if (ultimoContexto === "pregunta_requisitos_masiva") {
             ultimoContexto = "";
             if (input.includes('si') || input.includes('sí') || input.includes('todos') || input.includes('cumplo') || input.includes('tengo')) {
-                return "¡Magnífico! Si ya tienes preparados tu pasaporte, tus antecedentes penales de origen legalizados, tu informe de vulnerabilidad y tus pruebas (como extractos de banco o folios médicos públicos), debes presentar el expediente digital YA. El plazo máximo cierra de forma tajante el 9 de junio de 2026. ¿Dispones de firma electrónica o certificado digital para subirlo de inmediato?";
+                return "¡Magnífico! Si ya tienes preparados tu pasaporte, tus antecedentes penales de origen legalizados, tu informe de vulnerabilidad y tus pruebas (como extractos de banco o folios médicos públicos), debes presentar el expediente digital YA. El plazo máximo cierra de forma tajante el 9 de junio de 2026. Para este trámite es necesario: firma electrónica o certificado digital;
             } else {
-                return "¡Hay que darse prisa! Si te falta el certificado de vulnerabilidad, ve mañana a primera hora sin falta a Cáritas, Cruz Roja o a los Servicios Sociales de tu zona. Si te faltan meses de padrón, busca hoy mismo tus extractos bancarios o citas médicas de la sanidad pública. Todo cuenta para justificar la permanencia antes del cierre del 9 de junio de 2026. ¿Cuál de los documentos te falta?";
+                return "¡Hay que darse prisa! Si te falta el certificado de vulnerabilidad, ve mañana a primera hora sin falta a Cáritas, Cruz Roja o a los Servicios Sociales de tu zona. Si te faltan meses de padrón, busca hoy mismo tus extractos bancarios o citas médicas de la sanidad pública. Todo cuenta para justificar la permanencia antes del cierre del 9 de junio de 2026;
             }
         }
 
@@ -194,24 +194,20 @@ document.addEventListener('DOMContentLoaded', () => {
         if (input === '3' || input.includes('opcion 3') || input.includes('opción 3') || input.includes('derechos') || input.includes('trabajo') || input.includes('laboral') || input.includes('contrato') || input.includes('seguridad social')) {
             if (input.includes('renovar') || input.includes('renovacion') || input.includes('nie') || input.includes('año')) {
                 ultimoContexto = "pregunta_contrato_renovacion";
-                return "¡Excelente pregunta laboral! Al renovar tu residencia por Arraigo por primera vez en 2026, la nueva tarjeta que te otorgarán tendrá una validez directa de 4 AÑOS (siempre que sigas de alta en la Seguridad Social o cuentes con medios propios). ¿Tienes un contrato de trabajo activo en este momento?";
-            }
+                return "¡Excelente pregunta laboral! Al renovar tu residencia por Arraigo por primera vez en 2026, la nueva tarjeta que te otorgarán tendrá una validez directa de 4 AÑOS (siempre que sigas de alta en la Seguridad Social o cuentes con medios propios);
             if (input.includes('segunda oportunidad') || input.includes('antiguo laboral')) {
                 return "En 2026, el antiguo Arraigo Laboral pasó a llamarse oficialmente 'Arraigo de Segunda Oportunidad'. Exige 2 años de permanencia previa y está diseñado para personas que tuvieron un permiso de trabajo legal en el pasado pero lo perdieron quedando en situación irregular. Si es tu caso, puedes reactivarte laboralmente.";
             }
             ultimoContexto = "pregunta_duda_contrato";
-            return "Tus derechos laborales en 2026 están firmemente protegidos. Si estás bajo el Arraigo Socioformativo, tienes permitido trabajar por cuenta ajena hasta 30 horas semanales de forma 100% legal. Si estás regularizándose, recuerda que la ley prohíbe el abuso laboral. ¿Tienes alguna duda específica sobre tu contrato?";
-        }
+            return "Tus derechos laborales en 2026 están firmemente protegidos. Si estás bajo el Arraigo Socioformativo, tienes permitido trabajar por cuenta ajena hasta 30 horas semanales de forma 100% legal. Si estás regularizándose, recuerda que la ley prohíbe el abuso laboral;
 
         // --- BLOQUE 3: OTRAS VÍAS DE ARRAIGO ORDINARIO (2 AÑOS) ---
         if (input.includes('socioformativo') || input.includes('formacion') || input.includes('curso')) {
             ultimoContexto = "pregunta_curso_socioformativo";
-            return "El Arraigo Socioformativo exige demostrar 2 años de permanencia continua en España. En 2026, la gran ventaja es que la ley te autoriza a trabajar legalmente un máximo de 30 horas semanales mientras cursas tus estudios certificados. ¿Tienes pensado algún curso o formación reglada?";
-        }
+            return "El Arraigo Socioformativo exige demostrar 2 años de permanencia continua en España. En 2026, la gran ventaja es que la ley te autoriza a trabajar legalmente un máximo de 30 horas semanales mientras cursas tus estudios certificados;
         if (input.includes('social') && !input.includes('exclusión')) {
             ultimoContexto = "pregunta_tiempo_social";
-            return "¡Un cambio histórico para el 2026! Con la última reforma, el Arraigo Social ya NO requiere 3 años de permanencia, ¡ahora se redujo a solo 2 años! Sigues necesitando el informe de inserción social y un contrato firmado que se ajuste al Salario Mínimo (SMI). ¿Cuánto tiempo llevas viviendo en España?";
-        }
+            return "¡Un cambio histórico para el 2026! Con la última reforma, el Arraigo Social ya NO requiere 3 años de permanencia, ¡ahora se redujo a solo 2 años! Sigues necesitando el informe de inserción social y un contrato firmado que se ajuste al Salario Mínimo (SMI);
 
         // --- BLOQUE 5 / REGIONES: GESTIÓN DE HOMOLOGACIONES DE TÍTULOS ---
         const detectaLatam = latinoamerica.find(reg => input.includes(reg));
@@ -255,8 +251,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         if (input === '2' || input.includes('opcion 2') || input.includes('opción 2') || input.includes('titulo') || input.includes('homologar') || input.includes('estudios') || input.includes('bachiller') || input.includes('bachillerato') || input.includes('universidad')) {
-            return "Para homologar tu Bachillerato o título universitario en 2026, el trámite se realiza de forma 100% digital ante el Ministerio de Educación. Requieres tu título y notas debidamente legalizados o apostillados. Al tramitarlo te otorgan un 'volante condicional' inmediato que te permite estudiar o trabajar mientras esperas la resolución. ¿De qué país o región (como Latinoamérica, Reino Unido, Europa, etc.) es tu título?";
-        }
+            return "Para homologar tu Bachillerato o título universitario en 2026, el trámite se realiza de forma 100% digital ante el Ministerio de Educación. Requieres tu título y notas debidamente legalizados o apostillados. Al tramitarlo te otorgan un 'volante condicional' inmediato que te permite estudiar o trabajar mientras esperas la resolución;
 
         // Respuesta genérica de respaldo si el sistema no identifica nada claro
         return "Comprendo tu mensaje. Para darte la información legal exacta en este 2026, indícame cuál de nuestras áreas principales te interesa consultar: '1. Regularización de papeles', '2. Homologación de títulos' o '3. Derechos en el trabajo', o indícame directamente tu país de procedencia.";
