@@ -246,606 +246,391 @@ a:hover{color:var(--menta);text-decoration:none}
 </head>
 <body>
 
-<!-- NAV -->
 <nav class="nav">
   <div class="nav-inner">
     <a href="#inicio" class="logo" onclick="showMain('inicio')">
-      <div class="logo-dot"></div>
-      Talento sin Fronteras
+      <div class="logo-dot"></div> Talento sin Fronteras
     </a>
-    <ul class="nav-links" id="navLinks">
-      <li><a href="#inicio" onclick="showMain('inicio');closeMobile()">Inicio</a></li>
-      <li><a href="#guia" onclick="showMain('guia');closeMobile()">Guía</a></li>
-      <li><a href="#documentacion" onclick="showMain('documentacion');closeMobile()">Documentación</a></li>
-      <li><a href="#derechos" onclick="showMain('derechos');closeMobile()">Derechos</a></li>
-      <li><a href="#empresas" onclick="showMain('empresas');closeMobile()">Empresas</a></li>
-      <li><a href="#herramientas" onclick="showMain('herramientas');closeMobile()" class="nav-cta">Herramientas IA</a></li>
+    <button class="hamburger" onclick="toggleMenu()" aria-label="Abrir menú"><i class="ti ti-menu-2"></i></button>
+    <ul class="nav-links" id="nav-menu">
+      <li><a href="#inicio" id="m-inicio" class="active" onclick="showMain('inicio')">Inicio</a></li>
+      <li><a href="#guia" id="m-guia" onclick="showMain('guia')">Guía</a></li>
+      <li><a href="#documentacion" id="m-documentacion" onclick="showMain('documentacion')">Documentación</a></li>
+      <li><a href="#derechos" id="m-derechos" onclick="showMain('derechos')">Derechos</a></li>
+      <li><a href="#empresas" id="m-empresas" onclick="showMain('empresas')">Empresas</a></li>
+      <li><a href="#herramientas" id="m-herramientas" class="nav-cta" onclick="showMain('herramientas')">Herramientas IA</a></li>
     </ul>
-    <button class="hamburger" id="hamburger" onclick="toggleMobile()" aria-label="Menú">
-      <i class="ti ti-menu-2"></i>
-    </button>
   </div>
 </nav>
 
-<!-- INICIO -->
-<div id="sec-inicio">
-<header class="hero" id="inicio">
-  <div class="hero-inner">
-    <div class="hero-kicker">
-      <i class="ti ti-map-pin" aria-hidden="true"></i>
-      Guía Global de Relocalización, Visados y Empleo
-    </div>
-    <h1>Tu talento no tiene<br><em>fronteras</em> ni barreras</h1>
-    <p class="hero-sub">Guía completa de documentación, regularización, homologación de títulos, derechos laborales y herramientas con IA para conseguir empleo en España sin discriminación.</p>
-    <div class="hero-btns">
-      <a href="#guia" class="btn btn-blanco" onclick="showMain('guia')">
-        <i class="ti ti-map" aria-hidden="true"></i> Explorar guía completa
-      </a>
-      <a href="#herramientas" class="btn btn-outline-blanco" onclick="showMain('herramientas')">
-        <i class="ti ti-robot" aria-hidden="true"></i> Consultor con IA
-      </a>
-    </div>
-    <div class="hero-pills">
-      <span class="pill"><i class="ti ti-id" aria-hidden="true"></i> NIE activo</span>
-      <span class="pill"><i class="ti ti-id" aria-hidden="true"></i> Doble nacionalidad</span>
-      <span class="pill"><i class="ti ti-shield-check" aria-hidden="true"></i> 100% gratuito</span>
-      <span class="pill"><i class="ti ti-sparkles" aria-hidden="true"></i> Consultor IA </span>
-    </div>
-  </div>
-</header>
+<div class="main-nav-tab">
+  <button class="main-tab-btn active" id="tb-inicio" onclick="showMain('inicio')"><i class="ti ti-home"></i> Inicio</button>
+  <button class="main-tab-btn" id="tb-guia" onclick="showMain('guia')"><i class="ti ti-map"></i> Guía paso a paso</button>
+  <button class="main-tab-btn" id="tb-documentacion" onclick="showMain('documentacion')"><i class="ti ti-id"></i> Documentación</button>
+  <button class="main-tab-btn" id="tb-derechos" onclick="showMain('derechos')"><i class="ti ti-shield"></i> Derechos Laborales</button>
+  <button class="main-tab-btn" id="tb-empresas" onclick="showMain('empresas')"><i class="ti ti-building"></i> Empresas Inclusivas</button>
+  <button class="main-tab-btn" id="tb-herramientas" onclick="showMain('herramientas')"><i class="ti ti-robot"></i> Herramientas con IA</button>
+</div>
 
-<!-- Módulos -->
-<section class="section section-alt">
-  <div class="container">
-    <div class="sh">
-      <span class="sh-eyebrow">Todo en un solo lugar</span>
-      <h2>¿Qué necesitas hoy?</h2>
-      <p>Elige el módulo que más se ajusta a tu situación actual. Puedes navegar entre todos libremente.</p>
-    </div>
-    <div class="grid-3">
-      <a href="#guia" class="card" onclick="showMain('guia')" style="cursor:pointer;text-decoration:none">
-        <div class="card-icon" style="background:var(--gris-pale)"><i class="ti ti-map" style="color:var(--dorado);font-size:1.4rem" aria-hidden="true"></i></div>
-        <h3>Guía paso a paso</h3>
-        <p>El recorrido completo desde tu llegada hasta conseguir empleo. CV, entrevistas y estrategia.</p>
-        <div class="card-link"><i class="ti ti-arrow-right" aria-hidden="true"></i> Ver guía</div>
-      </a>
-      <a href="#documentacion" class="card" onclick="showMain('documentacion')" style="cursor:pointer;text-decoration:none">
-        <div class="card-icon" style="background:#FDF0E6"><i class="ti ti-id" style="color:var(--tierra);font-size:1.4rem" aria-hidden="true"></i></div>
-        <h3>Documentación y regularización</h3>
-        <p>NIE, TIE, permisos de trabajo, doble nacionalidad y homologación de títulos. Explicado paso a paso.</p>
-        <div class="card-link"><i class="ti ti-arrow-right" aria-hidden="true"></i> Ver documentación</div>
-      </a>
-      <a href="#derechos" class="card" onclick="showMain('derechos')" style="cursor:pointer;text-decoration:none">
-        <div class="card-icon" style="background:var(--gris-pale)"><i class="ti ti-shield" style="color:#a32d2d;font-size:1.4rem" aria-hidden="true"></i></div>
-        <h3>Derechos laborales</h3>
-        <p>Lo que tienes derecho a exigir, cómo denunciar discriminación y recursos legales gratuitos.</p>
-        <div class="card-link"><i class="ti ti-arrow-right" aria-hidden="true"></i> Ver derechos</div>
-      </a>
-      <a href="#empresas" class="card" onclick="showMain('empresas')" style="cursor:pointer;text-decoration:none">
-        <div class="card-icon" style="background:var(--gris-pale)"><i class="ti ti-building" style="color:#534AB7;font-size:1.4rem" aria-hidden="true"></i></div>
-        <h3>Empresas inclusivas</h3>
-        <p>Directorio de empresas en España con certificaciones reales de diversidad e inclusión.</p>
-        <div class="card-link"><i class="ti ti-arrow-right" aria-hidden="true"></i> Ver empresas</div>
-      </a>
-      <a href="#herramientas" class="card" onclick="showMain('herramientas')" style="cursor:pointer;text-decoration:none">
-        <div class="card-icon" style="background:var(--verde-pale)"><i class="ti ti-robot" style="color:var(--verde);font-size:1.4rem" aria-hidden="true"></i></div>
-        <h3>Herramientas con IA</h3>
-        <p>Consultor personalizado, generador de CV adaptado y simulador de entrevistas con inteligencia artificial.</p>
-        <div class="card-link"><i class="ti ti-arrow-right" aria-hidden="true"></i> Abrir herramientas</div>
-      </a>
-      <div class="card" style="background:var(--verde);border-color:var(--verde)">
-        <div class="card-icon" style="background:rgba(255,255,255,.15)"><i class="ti ti-users" style="color:var(--blanco);font-size:1.4rem" aria-hidden="true"></i></div>
-        <h3 style="color:var(--blanco)">Comunidad</h3>
-        <p style="color:rgba(255,255,255,.75)"Conéctate a nuestra red internacional en tiempo real. Intercambia consejos sobre visados, alojamiento y networking con profesionales de todo el mundo.</p>
-       </div>
-        <a href="https://discord.gg/tu-enlace-comunidad" target="_blank" class="btn btn-verde btn-sm" style="margin-top: 1.25rem; width: 100%; justify-content: center;">
-          <i class="ti ti-brand-discord" aria-hidden="true"></i> Unirse a la Comunidad Global
+<main>
+
+  <div id="sec-inicio" class="section-tab active">
+    <header class="hero" id="inicio">
+      <div class="hero-inner">
+        <div class="hero-kicker">
+          <i class="ti ti-world" aria-hidden="true"></i> Guía Global de Relocalización, Visados y Empleo
+        </div>
+        <h1>Tu talento no tiene<br><em>fronteras</em> ni barreras</h1>
+        <p class="hero-sub">Guía completa de documentación, regularización, homologación de títulos, derechos laborales y herramientas con IA para conseguir empleo en España sin discriminación.</p>
+        <div class="hero-btns">
+          <a href="#guia" class="btn btn-blanco" onclick="showMain('guia')">Explorar guía completa</a>
+          <a href="#herramientas" class="btn btn-outline-blanco" onclick="showMain('herramientas')">Consultor con IA</a>
+        </div>
+        <div class="hero-pills">
+          <span class="pill"><div class="logo-dot" style="background:var(--menta);box-shadow:0 0 10px var(--menta)"></div> NIE activo</span>
+          <span class="pill">Doble nacionalidad</span>
+          <span class="pill">100% gratuito</span>
+          <span class="pill">Consultor IA</span>
+        </div>
+      </div>
+    </header>
+
+    <section class="section section-alt">
+      <div class="container">
+        <div class="sh">
+          <span class="sh-eyebrow">Todo en un solo lugar</span>
+          <h2>¿Qué necesitas hoy?</h2>
+          <p>Elige el módulo que más se ajusta a tu situación actual. Puedes navegar entre todos libremente.</p>
+        </div>
+        <div class="grid-3">
+          <div class="card" onclick="showMain('guia')" style="cursor:pointer">
+            <div class="card-icon" style="background:var(--gris-pale)"><i class="ti ti-map" style="color:var(--dorado)"></i></div>
+            <h3>Guía paso a paso</h3>
+            <p>El recorrido completo desde tu llegada hasta conseguir empleo. CV, entrevistas y estrategia.</p>
+            <div class="card-link">Ver guía <i class="ti ti-arrow-right"></i></div>
+          </div>
+          <div class="card" onclick="showMain('documentacion')" style="cursor:pointer">
+            <div class="card-icon" style="background:var(--gris-pale)"><i class="ti ti-id" style="color:var(--dorado)"></i></div>
+            <h3>Documentación y regularización</h3>
+            <p>NIE, TIE, permisos de trabajo, doble nacionalidad y homologación de títulos. Explicado paso a paso.</p>
+            <div class="card-link">Ver documentación <i class="ti ti-arrow-right"></i></div>
+          </div>
+          <div class="card" onclick="showMain('derechos')" style="cursor:pointer">
+            <div class="card-icon" style="background:var(--gris-pale)"><i class="ti ti-shield" style="color:var(--menta)"></i></div>
+            <h3>Derechos laborales</h3>
+            <p>Lo que tienes derecho a exigir, cómo denunciar discriminación y recursos legales gratuitos.</p>
+            <div class="card-link">Ver derechos <i class="ti ti-arrow-right"></i></div>
+          </div>
+          <div class="card" onclick="showMain('empresas')" style="cursor:pointer">
+            <div class="card-icon" style="background:var(--gris-pale)"><i class="ti ti-building"></i></div>
+            <h3>Empresas inclusivas</h3>
+            <p>Directorio de empresas en España con certificaciones reales de diversidad e inclusión.</p>
+            <div class="card-link">Ver empresas <i class="ti ti-arrow-right"></i></div>
+          </div>
+          <div class="card" onclick="showMain('herramientas')" style="cursor:pointer">
+            <div class="card-icon" style="background:var(--gris-pale)"><i class="ti ti-robot" style="color:var(--menta)"></i></div>
+            <h3>Herramientas con IA</h3>
+            <p>Consultor personalizado, generador de CV adaptado y simulador de entrevistas con inteligencia artificial.</p>
+            <div class="card-link">Abrir herramientas <i class="ti ti-arrow-right"></i></div>
+          </div>
+          <div class="card" style="background:linear-gradient(135deg, var(--verde-mid), var(--fondo-premium)); border-color:var(--dorado)">
+            <div class="card-icon" style="background:rgba(255,255,255,0.1)"><i class="ti ti-users" style="color:var(--dorado)"></i></div>
+            <h3>Comunidad</h3>
+            <p>Únete de forma gratuita a nuestra red de apoyo para compartir experiencias y resolver dudas reales.</p>
+            <a href="#" class="btn btn-blanco btn-sm" style="margin-top:1rem; width:100%; justify-content:center">Unirse a la Comunidad Global</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <div id="sec-guia" class="section-tab">
+    <section class="section">
+      <div class="container-sm">
+        <div class="sh">
+          <span class="sh-eyebrow">Estrategia</span>
+          <h2>Tu plan de acción en España</h2>
+          <p>Un itinerario lógico diseñado para saltarse las barreras invisibles del mercado laboral.</p>
+        </div>
+        <div class="steps">
+          <div class="step">
+            <div class="step-left"><div class="step-num">1</div><div class="step-line"></div></div>
+            <div class="step-body">
+              <h3>Regularización Base</h3>
+              <p>Antes de buscar empleo necesitas activar tu NIE, empadronarte y conseguir tu número de la Seguridad Social. Sin estos tres pilares, los sistemas automatizados descartan tu perfil.</p>
+              <div class="tip"><strong>Tip premium:</strong> Si posees doble nacionalidad (ej. italiana o española), sácate el certificado de registro de ciudadano de la Unión inmediatamente al llegar.</div>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-left"><div class="step-num">2</div><div class="step-line"></div></div>
+            <div class="step-body">
+              <h3>Adaptación de Currículum (Modelo ATS)</h3>
+              <p>Los reclutadores españoles pasan una media de 6 segundos revisando un CV. Tu formato debe omitir datos innecesarios y centrarse en logros medibles.</p>
+              <div class="alert"><strong>¡Cuidado!:</strong> No incluyas pretensiones económicas ni estado civil. Usa nuestra herramienta de IA abajo para adaptarlo automáticamente.</div>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-left"><div class="step-num">3</div></div>
+            <div class="step-body">
+              <h3>Canales de Búsqueda de Empleo</h3>
+              <p>LinkedIn e InfoJobs lideran el mercado. Configura tus alertas con palabras clave específicas como "Híbrido", "Junior" o tu sector técnico.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <div id="sec-documentacion" class="section-tab">
+    <section class="section">
+      <div class="container-sm">
+        <div class="sh">
+          <span class="sh-eyebrow">Trámites Legales</span>
+          <h2>Guía de Documentación</h2>
+          <p>La burocracia explicada de manera clara, interactiva y accesible.</p>
+        </div>
+        
+        <div class="tabs">
+          <button class="tab-btn active" onclick="openTab(event, 'tab-nie')">NIE y TIE</button>
+          <button class="tab-btn" onclick="openTab(event, 'tab-seg-social')">Seguridad Social</button>
+          <button class="tab-btn" onclick="openTab(event, 'tab-homologacion')">Homologación</button>
+        </div>
+
+        <div id="tab-nie" class="tab-panel active">
+          <p style="margin-bottom:1rem; line-height:1.75">El <strong>NIE</strong> (Número de Identidad de Extranjero) es tu número secuencial de identificación personal. La <strong>TIE</strong> es la tarjeta física que acredita tu residencia legal.</p>
+          <div class="hl-tierra"><strong>Importante:</strong> Tener NIE no implica permiso de trabajo automático. Revisa siempre las restricciones de tu visado o autorización.</div>
+          <div class="accordion">
+            <button class="acc-btn" onclick="toggleAcc(this)">¿Cómo solicitar cita previa? <i class="ti ti-chevron-down chevron"></i></button>
+            <div class="acc-body">Se solicita a través de la Sede Electrónica de Administraciones Públicas. Elige tu provincia y el trámite de "Policía - Toma de huellas". El sistema abre citas generalmente a primera hora de la mañana.</div>
+            <button class="acc-btn" onclick="toggleAcc(this)">Requisitos para ciudadanos comunitarios <i class="ti ti-chevron-down chevron"></i></button>
+            <div class="acc-body">Pasaporte vigente, contrato de trabajo o demostración de fondos suficientes, y seguro médico completo en España si no estás trabajando.</div>
+          </div>
+        </div>
+
+        <div id="tab-seg-social" class="tab-panel">
+          <p style="margin-bottom:1rem; line-height:1.75">El <strong>Número de Afiliación (NAF)</strong> es obligatorio para que cualquier empresa pueda darte de alta e iniciar tu contrato laboral legal.</p>
+          <div class="hl-verde">Puedes solicitar tu número de la Seguridad Social de manera 100% telemática en el portal "Importass" si cuentas con Cl@ve o certificado digital.</div>
+        </div>
+
+        <div id="tab-homologacion" class="tab-panel">
+          <p style="margin-bottom:1rem; line-height:1.75">Para ejercer profesiones reguladas (médicos, ingenieros, abogados), es obligatorio tramitar la homologación ante el Ministerio de Universidades.</p>
+          <p style="line-height:1.75">Para profesiones no reguladas (como desarrollo de software o analistas de datos), suele bastar con la <strong>equivalencia</strong> o la demostración directa de portafolios y experiencia técnica.</p>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <div id="sec-derechos" class="section-tab">
+    <section class="section">
+      <div class="container-sm">
+        <div class="sh">
+          <span class="sh-eyebrow">Marco Legal</span>
+          <h2>Tus Derechos en el Entorno Laboral</h2>
+          <p>Conoce las leyes que te protegen contra abusos, sesgos o tratos discriminatorios.</p>
+        </div>
+        <div class="grid-2">
+          <div class="card">
+            <h3 style="display:flex; align-items:center; gap:8px"><i class="ti ti-gavel" style="color:var(--dorado)"></i> Principio de Igualdad</h3>
+            <p>El Artículo 14 de la Constitución Española y el Estatuto de los Trabajadores prohíben cualquier tipo de discriminación por origen, raza, religión u orientación.</p>
+          </div>
+          <div class="card">
+            <h3 style="display:flex; align-items:center; gap:8px"><i class="ti ti-clock" style="color:var(--dorado)"></i> Jornada y Salario Mínimo</h3>
+            <p>Ningún contrato a jornada completa puede pagar menos del Salario Mínimo Interprofesional (SMI) vigente por ley. Las horas extra deben ser siempre registradas y remuneradas.</p>
+          </div>
+        </div>
+
+        <h3 style="margin:3rem 0 1rem; font-family:var(--font-display)">Canales institucionales oficiales de ayuda:</h3>
+        <a href="https://www.igualdad.gob.es/cedre" target="_blank" class="resource-link">
+          <div class="resource-icon" style="background:#22170c"><i class="ti ti-alert-triangle" style="color:var(--dorado)"></i></div>
+          <div>
+            <div class="resource-name">CEDRE — Red de Asistencia a Víctimas de Discriminación</div>
+            <div class="resource-desc">Ofrece asesoramiento gratuito e intermediación ante situaciones de racismo u origen étnico.</div>
+          </div>
         </a>
-</section>
-</div>
-
-<!-- GUÍA -->
-<div id="sec-guia" style="display:none">
-<header style="background:var(--verde);padding:3rem 2rem;text-align:center">
-  <div class="container">
-    <span style="display:inline-block;background:rgba(255,255,255,.15);color:#9FE1CB;font-size:.75rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;padding:4px 14px;border-radius:20px;margin-bottom:.875rem">El recorrido</span>
-    <h1 style="font-family:var(--font-display);font-size:clamp(1.8rem,4vw,2.8rem);color:var(--blanco);margin-bottom:.75rem">Guía paso a paso</h1>
-    <p style="color:rgba(255,255,255,.75);max-width:520px;margin:0 auto">Desde tu documentación hasta firmar el contrato. Todo lo que necesitas saber sobre el mercado laboral español.</p>
+        <a href="https://www.mites.gob.es/itss" target="_blank" class="resource-link">
+          <div class="resource-icon" style="background:#0a2922"><i class="ti ti-file-shield" style="color:var(--menta)"></i></div>
+          <div>
+            <div class="resource-name">Inspección de Trabajo y Seguridad Social (ITSS)</div>
+            <div class="resource-desc">Buzón formal para denunciar de forma anónima o formal los abusos empresariales e irregularidades en contratos.</div>
+          </div>
+        </a>
+      </div>
+    </section>
   </div>
-</header>
-<section class="section section-alt">
-<div class="container-sm">
-  <div class="steps">
 
-    <div class="step">
-      <div class="step-left"><div class="step-num">1</div><div class="step-line"></div></div>
-      <div class="step-body">
-        <h3>Verifica y comprende tu documentación</h3>
-        <p>Antes de postular a cualquier empleo, necesitas tener claro qué documento tienes y qué derechos te otorga. No todos los NIE son iguales — algunos permiten trabajar y otros no.</p>
-        <div class="tip"><strong>Clave:</strong> Con DNI español por doble nacionalidad tienes exactamente los mismos derechos que cualquier ciudadano español. No estás obligado/a a mencionar tu origen en ningún proceso de selección.</div>
-        <div class="accordion" style="margin-top:.875rem">
-          <button class="acc-btn" onclick="toggleAcc(this)">¿Qué documentos permiten trabajar en España? <i class="ti ti-chevron-down chevron" aria-hidden="true"></i></button>
-          <div class="acc-body">
-            <ul>
-              <li><strong>DNI español</strong> (doble nacionalidad): acceso total al mercado, como cualquier español.</li>
-              <li><strong>NIE + Autorización de trabajo por cuenta ajena</strong>: para empleados por empresa.</li>
-              <li><strong>NIE + Autorización de trabajo por cuenta propia</strong>: para autónomos.</li>
-              <li><strong>Tarjeta de larga duración (TLD)</strong>: tras 5 años de residencia, permite trabajar libremente.</li>
-              <li><strong>Tarjeta UE por familiar comunitario</strong>: si tienes familiar con ciudadanía UE.</li>
-            </ul>
-          </div>
-          <button class="acc-btn" onclick="toggleAcc(this)">¿Qué hago si mi permiso está a punto de vencer? <i class="ti ti-chevron-down chevron" aria-hidden="true"></i></button>
-          <div class="acc-body">Puedes solicitar la renovación hasta 60 días antes de la caducidad. Una vez presentada la solicitud, el permiso se prorroga automáticamente (silencio administrativo positivo) hasta que se resuelva. Guarda siempre el resguardo de presentación — es tu justificante legal para seguir trabajando.</div>
-          <button class="acc-btn" onclick="toggleAcc(this)">¿Puedo postular a empleos mientras tramito el NIE? <i class="ti ti-chevron-down chevron" aria-hidden="true"></i></button>
-          <div class="acc-body">Sí. Puedes postular y pasar entrevistas. El contrato puede firmarse una vez tengas la autorización. Algunos empleadores comprometidos con la inclusión aceptan iniciar el proceso con el resguardo de solicitud. Sé transparente sobre tu situación y muestra el comprobante del trámite.</div>
+  <div id="sec-empresas" class="section-tab">
+    <section class="section">
+      <div class="container">
+        <div class="sh">
+          <span class="sh-eyebrow">Directorios</span>
+          <h2>Empresas con Compromiso Real</h2>
+          <p>Compañías operando en España reconocidas por sus entornos multiculturales y procesos de selección inclusivos.</p>
         </div>
-        <div style="margin-top:1rem"><a href="#documentacion" class="btn btn-verde btn-sm" onclick="showMain('documentacion')"><i class="ti ti-arrow-right" aria-hidden="true"></i> Ver guía completa de documentación</a></div>
-      </div>
-    </div>
 
-    <div class="step">
-      <div class="step-left"><div class="step-num">2</div><div class="step-line"></div></div>
-      <div class="step-body">
-        <h3>Crea un CV sin sesgos en formato europeo</h3>
-        <p>El CV es tu primera impresión. En España hay información que no estás obligado/a a incluir y que puede generar sesgos inconscientes en los reclutadores.</p>
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin:.875rem 0">
-          <div class="hl-verde">
-            <div style="font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em;margin-bottom:8px">✓ Incluir</div>
-            Nombre · Email y teléfono español · Ciudad en España · LinkedIn · Logros con métricas · Formación equivalente
-          </div>
-          <div class="hl-rojo">
-            <div style="font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em;margin-bottom:8px">✗ No es obligatorio</div>
-            Foto · Nacionalidad · Número NIE · País de nacimiento · Estado civil · Edad · Dirección completa
-          </div>
+        <div class="filter-bar">
+          <button class="filter-btn active" onclick="filterSector('todos')">Todos los sectores</button>
+          <button class="filter-btn" onclick="filterSector('tecnologia')">Tecnología y Software</button>
+          <button class="filter-btn" onclick="filterSector('consultoria')">Consultoría y Gestión</button>
+          <button class="filter-btn" onclick="filterSector('atencion')">Atención al Cliente</button>
         </div>
-        <div class="accordion">
-          <button class="acc-btn" onclick="toggleAcc(this)">Cómo "traducir" tu experiencia latina al mercado español <i class="ti ti-chevron-down chevron" aria-hidden="true"></i></button>
-          <div class="acc-body">
-            <div style="margin-bottom:10px"><div style="font-size:.75rem;font-weight:700;color:#a32d2d;margin-bottom:4px">❌ Evita:</div>"Coordiné área de RRHH en empresa pública de México con 200 empleados"</div>
-            <div><div style="font-size:.75rem;font-weight:700;color:var(--verde);margin-bottom:4px">✓ Escribe:</div>"Lideré la gestión de RRHH para una organización de 200 personas, implementando sistemas de control de KPIs y digitalización de procesos documentales, reduciendo errores en un 30%."</div>
-            <div class="tip" style="margin-top:.75rem"><strong>Principio:</strong> El impacto no tiene fronteras. Habla en métricas y resultados — no en geografías ni contextos locales.</div>
-          </div>
-          <button class="acc-btn" onclick="toggleAcc(this)">¿Debo homologar mi título universitario? <i class="ti ti-chevron-down chevron" aria-hidden="true"></i></button>
-          <div class="acc-body">Depende del sector. Para <strong>profesiones reguladas</strong> (medicina, arquitectura, abogacía, farmacia) la homologación es obligatoria y tramita en el Ministerio de Universidades (plazo: 6-18 meses). Para la <strong>empresa privada en general</strong>, no es necesaria. Puedes indicar: "Licenciatura en Administración — equivalente a Grado universitario". Para reconocimiento parcial, el proceso se llama <strong>convalidación</strong>.</div>
-        </div>
-        <div style="margin-top:1rem"><a href="#herramientas" class="btn btn-verde btn-sm" onclick="showMain('herramientas');setTimeout(()=>showTool('cv'),100)"><i class="ti ti-sparkles" aria-hidden="true"></i> Generar mi CV con IA</a></div>
-      </div>
-    </div>
 
-    <div class="step">
-      <div class="step-left"><div class="step-num">3</div><div class="step-line"></div></div>
-      <div class="step-body">
-        <h3>Elige dónde postular con criterio</h3>
-        <p>No todas las empresas tienen el mismo nivel de inclusión real. Usar criterios estratégicos para elegir dónde postular multiplica tus posibilidades y ahorra tiempo.</p>
-        <div class="accordion">
-          <button class="acc-btn" onclick="toggleAcc(this)">Señales de empresa inclusiva <i class="ti ti-chevron-down chevron" aria-hidden="true"></i></button>
-          <div class="acc-body"><ul>
-            <li>Tienen el <strong>Distintivo de Igualdad en la Empresa (DIE)</strong> del Ministerio de Igualdad</li>
-            <li>Aparecen en el ranking <strong>Top Employer España</strong></li>
-            <li>Sus ofertas NO piden foto ni preguntan por nacionalidad</li>
-            <li>Mencionan D&I (Diversidad e Inclusión) activamente en su web</li>
-            <li>Tienen política de trabajo remoto o híbrido (señal de cultura moderna)</li>
-            <li>Publican informes de diversidad anuales</li>
-          </ul></div>
-          <button class="acc-btn" onclick="toggleAcc(this)">Señales de alerta en ofertas <i class="ti ti-chevron-down chevron" aria-hidden="true"></i></button>
-          <div class="acc-body"><ul>
-            <li>Piden foto adjunta al CV</li>
-            <li>El formulario pregunta por tu nacionalidad o país de nacimiento</li>
-            <li>"Español nativo imprescindible" cuando el trabajo no lo requiere objetivamente</li>
-            <li>No tienen información clara de la empresa en la oferta</li>
-            <li>Salario muy por debajo del mercado sin justificación</li>
-            <li>Piden documentos de identidad antes de la primera entrevista</li>
-          </ul></div>
-        </div>
-        <div style="margin-top:1rem"><a href="#empresas" class="btn btn-verde btn-sm" onclick="showMain('empresas')"><i class="ti ti-building" aria-hidden="true"></i> Ver directorio de empresas</a></div>
-      </div>
-    </div>
-
-    <div class="step">
-      <div class="step-left"><div class="step-num">4</div><div class="step-line"></div></div>
-      <div class="step-body">
-        <h3>Prepara tu narrativa con confianza</h3>
-        <p>Los primeros 2 minutos de una entrevista son determinantes. Tener una historia profesional clara y estructurada es tu mejor herramienta contra los prejuicios.</p>
-        <div class="hl-verde" style="margin:.875rem 0">
-          <div style="font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em;margin-bottom:10px">Estructura del "háblame de ti" (2 minutos exactos)</div>
-          <ol style="padding-left:1.2rem;line-height:2.1">
-            <li>Quién eres <strong>profesionalmente</strong> (no dónde naciste)</li>
-            <li>Tu mayor logro con <strong>una métrica concreta</strong></li>
-            <li>Por qué <strong>este puesto</strong> y <strong>esta empresa</strong> ahora</li>
-            <li>Lo que puedes aportar en los <strong>primeros 90 días</strong></li>
-          </ol>
-        </div>
-        <div class="accordion">
-          <button class="acc-btn" onclick="toggleAcc(this)">Cómo redirigir preguntas discriminatorias <i class="ti ti-chevron-down chevron" aria-hidden="true"></i></button>
-          <div class="acc-body">
-            <div style="margin-bottom:12px;padding:10px 14px;background:#FCEBEB;border-radius:8px;font-size:.875rem;color:#7a1f1f"><strong>Pregunta:</strong> "¿De dónde eres exactamente?"</div>
-            <div style="padding:10px 14px;background:var(--verde-pale);border-radius:8px;font-size:.875rem;color:#085c3f"><strong>Respuesta:</strong> "Resido en España y mi experiencia es completamente aplicable aquí. Lo que más me entusiasma de este rol es [tu logro o habilidad clave]."</div>
-            <div class="tip" style="margin-top:.75rem"><strong>Técnica:</strong> No negar, no disculparse. Simplemente redirigir hacia tu valor profesional. La confianza es tu mejor escudo.</div>
+        <div class="company-grid" id="lista-empresas">
+          <div class="company-card" data-sector="tecnologia">
+            <div class="company-name">Glovo / Delivery Hero</div>
+            <div class="company-sector">Tecnología & Hub Digital</div>
+            <div class="company-badges">
+              <span class="tag tag-verde">Sede Multicultural</span>
+              <span class="tag tag-gris">Barcelona / Madrid</span>
+            </div>
+            <div class="company-desc">Equipos globales con más de 40 nacionalidades distintas y procesos estandarizados en inglés y español.</div>
+          </div>
+          <div class="company-card" data-sector="consultoria">
+            <div class="company-name">Accenture España</div>
+            <div class="company-sector">Consultoría Tecnológica</div>
+            <div class="company-badges">
+              <span class="tag tag-tierra">Plan de Diversidad</span>
+              <span class="tag tag-gris">Nacional</span>
+            </div>
+            <div class="company-desc">Políticas corporativas explícitas para la integración laboral de talento internacional y auditorías de igualdad salarial.</div>
+          </div>
+          <div class="company-card" data-sector="atencion">
+            <div class="company-name">Webhelp / Concentrix</div>
+            <div class="company-sector">Atención al Cliente e Idiomas</div>
+            <div class="company-badges">
+              <span class="tag tag-verde">Native Speakers</span>
+              <span class="tag tag-gris">Multisite</span>
+            </div>
+            <div class="company-desc">Contratación masiva de perfiles internacionales con alta valoración de idiomas nativos y facilidades de acogida inicial.</div>
           </div>
         </div>
-        <div style="margin-top:1rem"><a href="#herramientas" class="btn btn-verde btn-sm" onclick="showMain('herramientas');setTimeout(()=>showTool('interview'),100)"><i class="ti ti-microphone" aria-hidden="true"></i> Practicar con el simulador IA</a></div>
       </div>
-    </div>
-
-    <div class="step">
-      <div class="step-left"><div class="step-num">5</div></div>
-      <div class="step-body">
-        <h3>Conoce y usa tus derechos</h3>
-        <p>La discriminación laboral por origen está prohibida por la Constitución española. Si la sufres, tienes recursos legales gratuitos y efectivos.</p>
-        <div class="hl-tierra" style="margin:.875rem 0"><strong>Base legal:</strong> El artículo 14 de la Constitución y el artículo 4.2c del Estatuto de los Trabajadores prohíben expresamente la discriminación por origen racial o étnico. Cualquier empresa que discrimine en la contratación puede ser sancionada.</div>
-        <div style="margin-top:1rem"><a href="#derechos" class="btn btn-verde btn-sm" onclick="showMain('derechos')"><i class="ti ti-shield" aria-hidden="true"></i> Ver todos los derechos y recursos</a></div>
-      </div>
-    </div>
-
-  </div>
-</div>
-</section>
-</div>
-
-<!-- DOCUMENTACIÓN -->
-<div id="sec-documentacion" style="display:none">
-<header style="background:var(--tierra);padding:3rem 2rem;text-align:center">
-  <div class="container">
-    <span style="display:inline-block;background:rgba(255,255,255,.15);color:#fcd9b6;font-size:.75rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;padding:4px 14px;border-radius:20px;margin-bottom:.875rem">Trámites oficiales</span>
-    <h1 style="font-family:var(--font-display);font-size:clamp(1.8rem,4vw,2.8rem);color:var(--blanco);margin-bottom:.75rem">Documentación y regularización</h1>
-    <p style="color:rgba(255,255,255,.75);max-width:520px;margin:0 auto">NIE, TIE, permisos de trabajo, doble nacionalidad y homologación de títulos. Todo explicado sin tecnicismos.</p>
-  </div>
-</header>
-<section class="section section-alt">
-<div class="container-sm">
-
-  <div class="tabs" id="docTabs">
-    <button class="tab-btn active" onclick="showDocTab('nie',this)">NIE y TIE</button>
-    <button class="tab-btn" onclick="showDocTab('permisos',this)">Permisos de trabajo</button>
-    <button class="tab-btn" onclick="showDocTab('doble',this)">Doble nacionalidad</button>
-    <button class="tab-btn" onclick="showDocTab('homologacion',this)">Homologación de títulos</button>
-    <button class="tab-btn" onclick="showDocTab('renovacion',this)">Renovaciones</button>
+    </section>
   </div>
 
-  <div id="tab-nie" class="tab-panel active">
-    <div class="card" style="margin-bottom:1rem">
-      <h3 style="margin-bottom:.75rem">¿Qué es el NIE y para qué sirve?</h3>
-      <p style="font-size:.875rem;color:var(--gris);line-height:1.75;margin-bottom:1rem">El <strong>Número de Identificación de Extranjero (NIE)</strong> es tu identificación fiscal y legal en España. Es un número único que comienza por X, Y o Z seguido de 7 dígitos y una letra. El NIE en sí mismo NO autoriza a trabajar — necesitas además una autorización específica.</p>
-      <div class="hl-verde" style="margin-bottom:1rem"><strong>Importante:</strong> El NIE es permanente y no caduca. Lo que caduca es la tarjeta que lo acredita (TIE) o el permiso de residencia asociado.</div>
-      <div class="accordion">
-        <button class="acc-btn" onclick="toggleAcc(this)">Cómo solicitar el NIE por primera vez <i class="ti ti-chevron-down chevron" aria-hidden="true"></i></button>
-        <div class="acc-body">
-          <ol style="padding-left:1.2rem;line-height:2.1">
-            <li>Solicitar cita previa en <strong>sede.administracionespublicas.gob.es</strong> (sección Extranjería)</li>
-            <li>Presentarse en la Comisaría de Policía con: formulario EX-15 cumplimentado, pasaporte original + fotocopia, justificante del motivo (contrato de trabajo, matrícula universitaria, etc.), tasa 012 pagada (~10€)</li>
-            <li>Recoger el NIE (en ocasiones se entrega el mismo día)</li>
-          </ol>
-          <div class="tip" style="margin-top:.75rem"><strong>Consejo:</strong> Las citas son escasas. Configura alertas en servicios como "Alertacita" para conseguir cita más rápido.</div>
+  <div id="sec-herramientas" class="section-tab">
+    <section class="section section-alt">
+      <div class="container">
+        <div class="sh">
+          <span class="sh-eyebrow">Tecnología Inteligente</span>
+          <h2>Potencia tu Perfil Profesional</h2>
+          <p>Utiliza nuestros tres módulos interactivos con IA para resolver dudas de visado, optimizar tu CV y ensayar entrevistas.</p>
         </div>
-        <button class="acc-btn" onclick="toggleAcc(this)">¿Qué es la TIE (Tarjeta de Identidad de Extranjero)? <i class="ti ti-chevron-down chevron" aria-hidden="true"></i></button>
-        <div class="acc-body">La TIE es la tarjeta física que acredita tu residencia legal en España. Contiene tu NIE, foto y los datos de tu autorización. Se renueva según el tipo de permiso que tengas (1, 2 o 5 años generalmente). Con la TIE vigente puedes trabajar, abrir cuentas bancarias, empadronarte y acceder a servicios públicos.</div>
-        <button class="acc-btn" onclick="toggleAcc(this)">¿Qué hago si pierdo el NIE o la TIE? <i class="ti ti-chevron-down chevron" aria-hidden="true"></i></button>
-        <div class="acc-body">En caso de pérdida o robo: denuncia en Policía, solicita cita para duplicado (formulario EX-17), presenta pasaporte + denuncia + foto + tasa. El número NIE es el mismo — solo se reexpide la tarjeta. El trámite tarda entre 2-6 semanas.</div>
-      </div>
-    </div>
-  </div>
 
-  <div id="tab-permisos" class="tab-panel">
-    <div class="card" style="margin-bottom:1rem">
-      <h3 style="margin-bottom:.75rem">Tipos de autorización de trabajo</h3>
-      <p style="font-size:.875rem;color:var(--gris);line-height:1.75;margin-bottom:1rem">Existen diferentes autorizaciones según tu situación. Conocer la tuya exacta es fundamental para saber qué empleos puedes aceptar.</p>
-      <div class="accordion">
-        <button class="acc-btn" onclick="toggleAcc(this)">Autorización de residencia y trabajo por cuenta ajena <i class="ti ti-chevron-down chevron" aria-hidden="true"></i></button>
-        <div class="acc-body"><strong>Para:</strong> Trabajar como empleado en empresa española.<br><strong>Quién la tramita:</strong> La empresa empleadora (no tú). La empresa necesita demostrar que no encontró candidato español/UE adecuado.<br><strong>Duración inicial:</strong> 1 año, renovable.<br><strong>Limitación:</strong> Inicialmente puede estar limitada a un sector o actividad concreta.<br><strong>Tras 5 años:</strong> Accedes a autorización de larga duración sin limitaciones.</div>
-        <button class="acc-btn" onclick="toggleAcc(this)">Autorización de residencia y trabajo por cuenta propia <i class="ti ti-chevron-down chevron" aria-hidden="true"></i></button>
-        <div class="acc-body"><strong>Para:</strong> Trabajar como autónomo en España.<br><strong>Requisitos:</strong> Plan de negocio viable, recursos económicos suficientes, alta en Seguridad Social como autónomo.<br><strong>Costo:</strong> Cuota de autónomo (~300€/mes, reducida los primeros años con tarifa plana).<br><strong>Ventaja:</strong> Mayor flexibilidad que la cuenta ajena — no dependes de una empresa específica.</div>
-        <button class="acc-btn" onclick="toggleAcc(this)">Arraigo social y familiar — para irregulares <i class="ti ti-chevron-down chevron" aria-hidden="true"></i></button>
-        <div class="acc-body"><strong>Arraigo social:</strong> Si llevas 3 años en España de forma continuada (con padrón) y tienes oferta de trabajo o medios propios. Requiere informe de integración del ayuntamiento.<br><strong>Arraigo familiar:</strong> Si tienes hijos españoles o cónyuge español con residencia legal.<br><strong>Arraigo laboral:</strong> Si puedes demostrar relación laboral de al menos 6 meses (aunque haya sido irregular).<br><div class="tip" style="margin-top:.75rem"><strong>Recurso:</strong> ACCEM y Cruz Roja ofrecen asesoría jurídica gratuita para estos trámites.</div></div>
-        <button class="acc-btn" onclick="toggleAcc(this)">Tarjeta de larga duración — tras 5 años <i class="ti ti-chevron-down chevron" aria-hidden="true"></i></button>
-        <div class="acc-body">Tras 5 años de residencia legal y continuada en España puedes solicitar la residencia de larga duración. Ventajas: <ul><li>No tiene sector de actividad limitado — puedes trabajar en cualquier área</li><li>Se renueva cada 5 años (mucho menos frecuente)</li><li>Acceso a casi todos los servicios públicos como un ciudadano español</li><li>Movilidad dentro de la UE facilitada</li></ul></div>
-      </div>
-    </div>
-  </div>
-
-  <div id="tab-doble" class="tab-panel">
-    <div class="card" style="margin-bottom:1rem">
-      <h3 style="margin-bottom:.75rem">Doble nacionalidad: la opción más poderosa</h3>
-      <p style="font-size:.875rem;color:var(--gris);line-height:1.75;margin-bottom:1rem">España tiene convenios de doble nacionalidad con la mayoría de países latinoamericanos. Si la obtienes, tendrás DNI español y los mismos derechos laborales que cualquier ciudadano español, sin necesidad de permiso de trabajo.</p>
-      <div class="hl-verde" style="margin-bottom:1rem"><strong>Países con convenio:</strong> Argentina, Bolivia, Chile, Colombia, Costa Rica, Cuba, Ecuador, Guatemala, Honduras, México, Nicaragua, Paraguay, Perú, República Dominicana, Uruguay y Venezuela.</div>
-      <div class="accordion">
-        <button class="acc-btn" onclick="toggleAcc(this)">Vía 1: Residencia legal durante 2 años <i class="ti ti-chevron-down chevron" aria-hidden="true"></i></button>
-        <div class="acc-body"><strong>Requisito:</strong> 2 años de residencia legal y continuada en España (con algunas interrupciones permitidas).<br><strong>Proceso:</strong> Solicitud ante el Ministerio de Justicia con JURA acreditativo.<br><strong>Documentación:</strong> Certificado de nacimiento apostillado, antecedentes penales apostillados de país de origen, certificado de empadronamiento, tasas administrativas.<br><strong>Plazo:</strong> 12-24 meses de resolución. <div class="tip" style="margin-top:.75rem"><strong>Nota:</strong> Durante el trámite puedes seguir residiendo y trabajando normalmente con tu NIE.</div></div>
-        <button class="acc-btn" onclick="toggleAcc(this)">Vía 2: Por matrimonio con español/a <i class="ti ti-chevron-down chevron" aria-hidden="true"></i></button>
-        <div class="acc-body">El período de residencia requerido se reduce a <strong>1 año</strong> si estás casado/a con un ciudadano/a español/a. El matrimonio debe ser válido y real — las autoridades pueden verificar la convivencia efectiva.</div>
-        <button class="acc-btn" onclick="toggleAcc(this)">Vía 3: Descendiente de español <i class="ti ti-chevron-down chevron" aria-hidden="true"></i></button>
-        <div class="acc-body">Si tu padre o madre es español/a de origen, puedes obtener la nacionalidad española sin necesidad de residencia previa. Requiere: certificado de nacimiento del progenitor español, tu propio certificado de nacimiento apostillado y certificado de registro del progenitor español.</div>
-        <button class="acc-btn" onclick="toggleAcc(this)">Ley de Memoria Democrática — nietos del exilio <i class="ti ti-chevron-down chevron" aria-hidden="true"></i></button>
-        <div class="acc-body">Si eres nieto/a de españoles que emigraron como exiliados del franquismo, puedes solicitar la nacionalidad española sin necesidad de residencia. Esta vía está disponible hasta 2025-2026 según las ampliaciones vigentes. Requiere demostrar el origen y la condición de exiliado del abuelo/a.</div>
-      </div>
-    </div>
-  </div>
-
-  <div id="tab-homologacion" class="tab-panel">
-    <div class="card" style="margin-bottom:1rem">
-      <h3 style="margin-bottom:.75rem">Homologación y reconocimiento de títulos</h3>
-      <p style="font-size:.875rem;color:var(--gris);line-height:1.75;margin-bottom:1rem">Tener tu título reconocido en España puede abrirte puertas, especialmente en sectores regulados. Pero para la mayoría de trabajos privados, no es obligatorio.</p>
-      <div class="accordion">
-        <button class="acc-btn" onclick="toggleAcc(this)">¿Cuándo es OBLIGATORIO homologar? <i class="ti ti-chevron-down chevron" aria-hidden="true"></i></button>
-        <div class="acc-body">Solo para <strong>profesiones reguladas</strong> donde existe colegiación obligatoria:<ul><li>Medicina y especialidades sanitarias</li><li>Arquitectura y arquitectura técnica</li><li>Derecho y abogacía</li><li>Farmacia</li><li>Ingeniería (en algunas especialidades)</li><li>Veterinaria</li><li>Trabajo social (en algunos contextos)</li></ul>Para el resto de trabajos en empresa privada <strong>NO es obligatorio</strong> — puedes trabajar con tu título original describiendo su equivalencia.</div>
-        <button class="acc-btn" onclick="toggleAcc(this)">¿Cuándo es RECOMENDABLE homologar? <i class="ti ti-chevron-down chevron" aria-hidden="true"></i></button>
-        <div class="acc-body">Es muy recomendable en estos casos:<ul><li>Quieres acceder a la función pública española (oposiciones)</li><li>Tu sector tiene alta competencia y el título homologado da ventaja</li><li>La empresa pide explícitamente titulación española</li><li>Quieres ejercer en colegios profesionales</li></ul></div>
-        <button class="acc-btn" onclick="toggleAcc(this)">Proceso de homologación — paso a paso <i class="ti ti-chevron-down chevron" aria-hidden="true"></i></button>
-        <div class="acc-body">
-          <ol style="padding-left:1.2rem;line-height:2.2">
-            <li>Obtener el título original + apostilla de La Haya en tu país</li>
-            <li>Traducción jurada al español (si el título no está en español)</li>
-            <li>Solicitud online en el <strong>Ministerio de Universidades</strong> (sede.educacion.gob.es)</li>
-            <li>Pago de tasa (~50-100€ según tipo)</li>
-            <li>Esperar resolución (entre 6 meses y 2 años)</li>
-          </ol>
-          <div class="alert" style="margin-top:.75rem"><strong>Realidad:</strong> Los plazos son largos. Si necesitas trabajar urgentemente en un sector no regulado, hazlo con tu título original mientras tramitas la homologación.</div>
-        </div>
-        <button class="acc-btn" onclick="toggleAcc(this)">Convalidación vs Homologación — diferencias <i class="ti ti-chevron-down chevron" aria-hidden="true"></i></button>
-        <div class="acc-body"><strong>Homologación:</strong> Reconocimiento completo del título con plenos efectos en España. Ideal para profesiones reguladas.<br><br><strong>Convalidación:</strong> Reconocimiento parcial o de materias cursadas. Más útil para continuar estudios en España (máster, doctorado) que para trabajar directamente.</div>
-      </div>
-    </div>
-  </div>
-
-  <div id="tab-renovacion" class="tab-panel">
-    <div class="card" style="margin-bottom:1rem">
-      <h3 style="margin-bottom:.75rem">Renovaciones y trámites recurrentes</h3>
-      <p style="font-size:.875rem;color:var(--gris);line-height:1.75;margin-bottom:1rem">Mantener tu documentación al día es crucial. Un permiso caducado puede afectar tu situación laboral aunque tengas empleo.</p>
-      <div class="accordion">
-        <button class="acc-btn" onclick="toggleAcc(this)">¿Cuándo y cómo renovar el permiso? <i class="ti ti-chevron-down chevron" aria-hidden="true"></i></button>
-        <div class="acc-body"><strong>Cuándo:</strong> Puedes iniciar la renovación desde 60 días antes de la caducidad.<br><strong>Clave:</strong> Una vez presentada la solicitud, tu permiso se prorroga automáticamente hasta resolución. <strong>Guarda siempre el resguardo de presentación</strong>.<br><strong>Documentación típica:</strong> Formulario EX-17, pasaporte vigente, contrato de trabajo o nóminas recientes, tasa 052, certificado de empadronamiento actualizado.</div>
-        <button class="acc-btn" onclick="toggleAcc(this)">Cambio de empleador — ¿tengo que renovar? <i class="ti ti-chevron-down chevron" aria-hidden="true"></i></button>
-        <div class="acc-body">Depende de tu permiso. Si tienes un permiso inicial limitado a una empresa, necesitas tramitar una modificación de las condiciones de la autorización al cambiar de empleador. Si tienes TLD (larga duración) o tu permiso no especifica empresa concreta, puedes cambiar libremente de trabajo. Consulta siempre tu tarjeta o resolución para ver si tiene limitaciones.</div>
-        <button class="acc-btn" onclick="toggleAcc(this)">¿Qué pasa si me quedo sin empleo? <i class="ti ti-chevron-down chevron" aria-hidden="true"></i></button>
-        <div class="acc-body">Si pierdes el empleo, la situación varía:<ul><li>Con permiso vigente: puedes buscar otro empleo durante el período de vigencia</li><li>Si el permiso caduca sin nuevo empleo: puedes solicitar prórroga por búsqueda activa de empleo</li><li>Tienes derecho a prestación por desempleo (paro) si cotizaste suficiente tiempo</li><li>El SEPE puede ayudarte con orientación laboral gratuita</li></ul></div>
-      </div>
-    </div>
-  </div>
-
-</div>
-</section>
-</div>
-
-<!-- DERECHOS -->
-<div id="sec-derechos" style="display:none">
-<header style="background:#7a1f1f;padding:3rem 2rem;text-align:center">
-  <div class="container">
-    <span style="display:inline-block;background:rgba(255,255,255,.15);color:#fcd9d9;font-size:.75rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;padding:4px 14px;border-radius:20px;margin-bottom:.875rem">Marco legal</span>
-    <h1 style="font-family:var(--font-display);font-size:clamp(1.8rem,4vw,2.8rem);color:var(--blanco);margin-bottom:.75rem">Tus derechos laborales</h1>
-    <p style="color:rgba(255,255,255,.75);max-width:520px;margin:0 auto">Lo que te protege, lo que puedes exigir y cómo actuar si sufres discriminación en España.</p>
-  </div>
-</header>
-<section class="section section-alt">
-<div class="container-sm">
-
-  <div class="card" style="margin-bottom:1rem;border-left:4px solid #a32d2d;border-radius:0 var(--r-lg) var(--r-lg) 0">
-    <h3 style="margin-bottom:.75rem;display:flex;align-items:center;gap:8px"><i class="ti ti-scale" style="color:#a32d2d" aria-hidden="true"></i> Base legal que te protege</h3>
-    <div class="accordion">
-      <button class="acc-btn" onclick="toggleAcc(this)">Artículo 14 de la Constitución Española <i class="ti ti-chevron-down chevron" aria-hidden="true"></i></button>
-      <div class="acc-body">"Los españoles son iguales ante la ley, sin que pueda prevalecer discriminación alguna por razón de nacimiento, raza, sexo, religión, opinión o cualquier otra condición o circunstancia personal o social." Esta protección se extiende a todas las personas en España, no solo a ciudadanos españoles.</div>
-      <button class="acc-btn" onclick="toggleAcc(this)">Estatuto de los Trabajadores — artículos clave <i class="ti ti-chevron-down chevron" aria-hidden="true"></i></button>
-      <div class="acc-body"><strong>Art. 4.2c:</strong> Los trabajadores tienen derecho a "no ser discriminados directa o indirectamente para el empleo, o una vez empleados, por razones de origen racial o étnico, estado civil, condición social, religión, convicciones, ideas políticas, orientación sexual, afiliación o no a un sindicato."<br><br><strong>Art. 17:</strong> Declara nulos y sin efecto los preceptos en convenios colectivos, contratos individuales y decisiones unilaterales del empresario que supongan discriminación.</div>
-      <button class="acc-btn" onclick="toggleAcc(this)">Ley 15/2022 — Ley integral para la igualdad de trato <i class="ti ti-chevron-down chevron" aria-hidden="true"></i></button>
-      <div class="acc-body">Aprobada en 2022, esta ley refuerza la protección contra la discriminación en España. Puntos clave para el empleo:<ul><li>Prohíbe la discriminación en el acceso al empleo, selección, contratación, formación y promoción</li><li>Establece la <strong>inversión de la carga de la prueba</strong>: si aportas indicios de discriminación, es la empresa quien debe demostrar que no discriminó</li><li>Crea el Consejo para la Eliminación de la Discriminación Racial (CEDRE)</li><li>Prevé sanciones de hasta 300.000€ para empresas que discriminen</li></ul></div>
-    </div>
-  </div>
-
-  <div class="card" style="margin-bottom:1rem">
-    <h3 style="margin-bottom:.75rem;display:flex;align-items:center;gap:8px"><i class="ti ti-list-check" style="color:var(--verde)" aria-hidden="true"></i> Derechos laborales que tienes desde el día 1</h3>
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;font-size:.875rem;color:var(--gris);line-height:1.9">
-      <div>
-        <div class="tag tag-verde" style="margin-bottom:8px;margin-left:0">Contratación</div><br>
-        ✓ Contrato por escrito con condiciones claras<br>
-        ✓ Salario igual al convenio colectivo aplicable<br>
-        ✓ Alta en Seguridad Social desde el primer día<br>
-        ✓ No discriminación por origen en proceso de selección
-      </div>
-      <div>
-        <div class="tag tag-verde" style="margin-bottom:8px;margin-left:0">Durante el empleo</div><br>
-        ✓ Igualdad de trato respecto a compañeros españoles<br>
-        ✓ Acceso a formación y promoción sin discriminación<br>
-        ✓ Prestación por desempleo si cotizas suficiente<br>
-        ✓ Protección frente al despido discriminatorio
-      </div>
-    </div>
-    <div class="accordion" style="margin-top:1rem">
-      <button class="acc-btn" onclick="toggleAcc(this)">¿Puedo cobrar el paro si tengo NIE? <i class="ti ti-chevron-down chevron" aria-hidden="true"></i></button>
-      <div class="acc-body">Sí. Si has cotizado al menos 360 días en los últimos 6 años y tu permiso de trabajo sigue vigente, tienes derecho a la prestación por desempleo exactamente igual que un trabajador español. La prestación es del 70% de la base reguladora los primeros 6 meses y del 50% a partir del 7º mes.</div>
-      <button class="acc-btn" onclick="toggleAcc(this)">¿Puedo acceder a la Seguridad Social española? <i class="ti ti-chevron-down chevron" ca hidden="true"></i></button>
-      <div class="acc-body">Sí. Una vez dado de alta por tu empleador o como autónomo, tienes acceso a: atención sanitaria pública, baja por enfermedad, permiso de maternidad/paternidad, jubilación y pensiones. Tus cotizaciones en otros países pueden sumarse a las españolas si hay convenio bilateral (la mayoría de países latinoamericanos lo tienen).</div>
-    </div>
-  </div>
-
-  <div class="card" style="margin-bottom:1rem">
-    <h3 style="margin-bottom:.75rem;display:flex;align-items:center;gap:8px"><i class="ti ti-alert-triangle" style="color:var(--tierra)" aria-hidden="true"></i> Cómo actuar si sufres discriminación</h3>
-    <div class="steps" style="border:none">
-      <div class="step" style="padding:1rem 0">
-        <div class="step-left"><div class="step-num" style="width:36px;height:36px;font-size:.9rem">1</div><div class="step-line" style="min-height:20px"></div></div>
-        <div class="step-body"><h3 style="font-size:.9rem">Documenta todo</h3><p>Guarda emails, mensajes, capturas de pantalla y el nombre completo del entrevistador/a. Anota la fecha, hora y lo que se dijo exactamente. Esta documentación es tu evidencia.</p></div>
-      </div>
-      <div class="step" style="padding:1rem 0">
-        <div class="step-left"><div class="step-num" style="width:36px;height:36px;font-size:.9rem">2</div><div class="step-line" style="min-height:20px"></div></div>
-        <div class="step-body"><h3 style="font-size:.9rem">Contacta con CEDRE</h3><p>El Consejo para la Eliminación de la Discriminación Racial ofrece asesoría jurídica gratuita y puede iniciar una investigación formal contra la empresa.</p></div>
-      </div>
-      <div class="step" style="padding:1rem 0">
-        <div class="step-left"><div class="step-num" style="width:36px;height:36px;font-size:.9rem">3</div><div class="step-line" style="min-height:20px"></div></div>
-        <div class="step-body"><h3 style="font-size:.9rem">Denuncia ante la Inspección de Trabajo</h3><p>La Inspección puede investigar y sancionar a la empresa. La denuncia se puede presentar online en la web del Ministerio de Trabajo.</p></div>
-      </div>
-      <div class="step" style="padding:1rem 0">
-        <div class="step-left"><div class="step-num" style="width:36px;height:36px;font-size:.9rem">4</div></div>
-        <div class="step-body"><h3 style="font-size:.9rem">Acción judicial si persiste</h3><p>Con el apoyo de CEDRE o un abogado de oficio puedes interponer denuncia judicial. La Ley 15/2022 invierte la carga de la prueba — si aportas indicios, la empresa debe demostrar que no discriminó.</p></div>
-      </div>
-    </div>
-  </div>
-
-  <div class="card">
-    <h3 style="margin-bottom:1rem;display:flex;align-items:center;gap:8px"><i class="ti ti-phone" style="color:var(--verde)" aria-hidden="true"></i> Recursos de ayuda gratuita</h3>
-    <a href="https://cedre.gob.es" target="_blank" rel="noopener" class="resource-link">
-      <div class="resource-icon" style="background:var(--verde-pale)"><i class="ti ti-shield" style="color:var(--verde)" aria-hidden="true"></i></div>
-      <div><div class="resource-name">CEDRE — Discriminación racial</div><div class="resource-desc">Asesoría jurídica gratuita · cedre.gob.es · Tel: 900 900 009</div></div>
-      <i class="ti ti-external-link" style="color:var(--gris);margin-left:auto;flex-shrink:0" aria-hidden="true"></i>
-    </a>
-    <a href="https://www.defensordelpueblo.es" target="_blank" rel="noopener" class="resource-link">
-      <div class="resource-icon" style="background:#E6F1FB"><i class="ti ti-building-bank" style="color:#185FA5" aria-hidden="true"></i></div>
-      <div><div class="resource-name">Defensoría del Pueblo</div><div class="resource-desc">Quejas ante instituciones públicas · Tel: 900 101 025</div></div>
-      <i class="ti ti-external-link" style="color:var(--gris);margin-left:auto;flex-shrink:0" aria-hidden="true"></i>
-    </a>
-    <a href="https://www.accem.es" target="_blank" rel="noopener" class="resource-link">
-      <div class="resource-icon" style="background:var(--verde-pale)"><i class="ti ti-heart" style="color:var(--verde)" aria-hidden="true"></i></div>
-      <div><div class="resource-name">ACCEM</div><div class="resource-desc">Orientación jurídica y laboral para migrantes · Red nacional gratuita</div></div>
-      <i class="ti ti-external-link" style="color:var(--gris);margin-left:auto;flex-shrink:0" aria-hidden="true"></i>
-    </a>
-    <a href="https://www.mites.gob.es/itss" target="_blank" rel="noopener" class="resource-link">
-      <div class="resource-icon" style="background:#FDF0E6"><i class="ti ti-search" style="color:var(--tierra)" aria-hidden="true"></i></div>
-      <div><div class="resource-name">Inspección de Trabajo</div><div class="resource-desc">Denuncia prácticas discriminatorias de empresas · Tel: 901 502 050</div></div>
-      <i class="ti ti-external-link" style="color:var(--gris);margin-left:auto;flex-shrink:0" aria-hidden="true"></i>
-    </a>
-  </div>
-
-</div>
-</section>
-</div>
-
-<!-- EMPRESAS -->
-<div id="sec-empresas" style="display:none">
-<header style="background:#3C3489;padding:3rem 2rem;text-align:center">
-  <div class="container">
-    <span style="display:inline-block;background:rgba(255,255,255,.15);color:#CECBF6;font-size:.75rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;padding:4px 14px;border-radius:20px;margin-bottom:.875rem">Con certificación real</span>
-    <h1 style="font-family:var(--font-display);font-size:clamp(1.8rem,4vw,2.8rem);color:var(--blanco);margin-bottom:.75rem">Directorio de empresas inclusivas</h1>
-    <p style="color:rgba(255,255,255,.75);max-width:520px;margin:0 auto">Empresas en España con políticas reales de diversidad e inclusión — menor riesgo de discriminación.</p>
-  </div>
-</header>
-<section class="section section-alt">
-<div class="container">
-  <div class="hl-verde" style="margin-bottom:1.5rem"><strong>Cómo verificar una empresa:</strong> Busca el "Distintivo de Igualdad en la Empresa (DIE)" del Ministerio de Igualdad, o la certificación "Top Employer" España. Son señales fiables de políticas inclusivas reales — no solo marketing.</div>
-  <div class="filter-bar" id="filtros">
-    <button class="filter-btn active" onclick="filtrarEmpresas('todas',this)">Todas</button>
-    <button class="filter-btn" onclick="filtrarEmpresas('Tecnología',this)">Tecnología</button>
-    <button class="filter-btn" onclick="filtrarEmpresas('Consultoría',this)">Consultoría</button>
-    <button class="filter-btn" onclick="filtrarEmpresas('Banca',this)">Banca</button>
-    <button class="filter-btn" onclick="filtrarEmpresas('RRHH',this)">RRHH / ETT</button>
-    <button class="filter-btn" onclick="filtrarEmpresas('Energía',this)">Energía</button>
-  </div>
-  <div class="company-grid" id="companyGrid"></div>
-</div>
-</section>
-</div>
-
-<!-- HERRAMIENTAS -->
-<div id="sec-herramientas" style="display:none">
-<header style="background:var(--verde);padding:3rem 2rem;text-align:center">
-  <div class="container">
-    <span style="display:inline-block;background:rgba(255,255,255,.15);color:#9FE1CB;font-size:.75rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;padding:4px 14px;border-radius:20px;margin-bottom:.875rem">Inteligencia artificial</span>
-    <h1 style="font-family:var(--font-display);font-size:clamp(1.8rem,4vw,2.8rem);color:var(--blanco);margin-bottom:.75rem">Herramientas con IA</h1>
-    <p style="color:rgba(255,255,255,.75);max-width:520px;margin:0 auto">Consultor personalizado, generador de CV y simulador de entrevistas — todo gratis, todo con inteligencia artificial real.</p>
-  </div>
-</header>
-<section class="section section-alt">
-<div class="container">
-  <div class="tabs" id="toolTabs">
-    <button class="tab-btn active" id="tab-consultor-btn" onclick="showTool('consultor')">Consultor IA</button>
-    <button class="tab-btn" id="tab-cv-btn" onclick="showTool('cv')">Generador de CV</button>
-    <button class="tab-btn" id="tab-interview-btn" onclick="showTool('interview')">Simulador de entrevistas</button>
-  </div>
-
-  <div id="tool-consultor" class="tab-panel active">
-    <div class="chat-wrap">
-      <div class="chat-top">
-        <div class="chat-ava">🤝</div>
-        <div><div class="chat-name">Consultor Talento sin Fronteras</div><div class="chat-status">● Disponible · Especialista en empleo para latinos en España</div></div>
-      </div>
-      <div class="chat-msgs" id="chatMessages">
-        <div class="msg msg-bot">¡Hola! Soy tu consultor especializado en empleo para latinoamericanos en España. Puedo ayudarte con documentación, CV, entrevistas, derechos laborales o cualquier duda sobre el mercado español. ¿Por dónde empezamos?</div>
-      </div>
-      <div class="quick-btns">
-        <button class="quick-btn" onclick="quickSend('Cómo adapto mi CV latinoamericano al formato europeo español')">Adaptar mi CV</button>
-        <button class="quick-btn" onclick="quickSend('Tengo NIE, cuáles son exactamente mis derechos laborales en España')">Derechos con NIE</button>
-        <button class="quick-btn" onclick="quickSend('Cómo tramito la doble nacionalidad española siendo latinoamericano')">Doble nacionalidad</button>
-        <button class="quick-btn" onclick="quickSend('Me preguntaron de dónde soy en la entrevista, cómo respondo sin perder la oportunidad')">Pregunta de origen</button>
-        <button class="quick-btn" onclick="quickSend('Qué empresas en España son más abiertas e inclusivas con latinoamericanos')">Empresas inclusivas</button>
-        <button class="quick-btn" onclick="quickSend('Cómo homologar mi título universitario latinoamericano en España')">Homologar título</button>
-      </div>
-      <div class="chat-input-row">
-        <input type="text" id="chatInput" class="chat-input" placeholder="Escribe tu consulta aquí..." autocomplete="off" onkeydown="if(event.key==='Enter'&&!event.shiftKey){event.preventDefault();sendMsg()}">
-        <button class="chat-send" onclick="sendMsg()"><i class="ti ti-send" aria-hidden="true"></i> Enviar</button>
-      </div>
-    </div>
-  </div>
-
-  <div id="tool-cv" class="tab-panel">
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:2rem;align-items:flex-start">
-      <div class="card">
-        <h3 style="margin-bottom:1.25rem;display:flex;align-items:center;gap:8px"><i class="ti ti-user" style="color:var(--verde)" aria-hidden="true"></i> Tus datos</h3>
-        <div style="display:flex;flex-direction:column;gap:1rem">
-          <div class="form-row">
-            <div class="fg"><label>Nombre completo <span>*</span></label><input id="cv-nombre" type="text" placeholder="Tu nombre completo"></div>
-            <div class="fg"><label>Puesto objetivo <span>*</span></label><input id="cv-titulo" type="text" placeholder="Data Analyst, RRHH Manager…"></div>
+        <div class="chat-wrap" style="max-width:900px">
+          <div class="tabs" style="background:var(--verde-light); padding:0; border-bottom:none; margin-bottom:0">
+            <button class="tab-btn active" id="btn-mod-chat" onclick="switchMod('chat')" style="color:var(--negro); font-weight:600">1. Consultor IA de Visados</button>
+            <button class="tab-btn" id="btn-mod-cv" onclick="switchMod('cv')" style="color:var(--negro); font-weight:600">2. Generador de CV ATS</button>
+            <button class="tab-btn" id="btn-mod-entrevista" onclick="switchMod('entrevista')" style="color:var(--negro); font-weight:600">3. Simulador de Entrevistas</button>
           </div>
-          <div class="form-row">
-            <div class="fg"><label>Email</label><input id="cv-email" type="email" placeholder="tu@email.com"></div>
-            <div class="fg"><label>Teléfono</label><input id="cv-telefono" type="text" placeholder="+34 600 000 000"></div>
+
+          <div id="mod-chat" class="mod-panel" style="display:block">
+            <div class="chat-top">
+              <div class="chat-ava"><i class="ti ti-brand-openai" style="color:var(--dorado)"></i></div>
+              <div>
+                <div class="chat-name">Asesor Global de Extranjería</div>
+                <div class="chat-status">● Inteligencia Artificial en línea</div>
+              </div>
+            </div>
+            <div class="chat-msgs" id="chat-box">
+              <div class="msg msg-bot">¡Hola! Soy tu consultor de IA. Pregúntame lo que quieras sobre cómo regularizar tu NIE, arraigos, visas de nómada digital o cómo validar tu perfil en España.</div>
+            </div>
+            <div class="quick-btns">
+              <button class="quick-btn" onclick="quickQuery('¿Qué es el arraigo para la formación?')">¿Qué es el arraigo para la formación?</button>
+              <button class="quick-btn" onclick="quickQuery('Requisitos para Visa Nómada Digital')">Requisitos para Visa Nómada Digital</button>
+              <button class="quick-btn" onclick="quickQuery('¿Puedo trabajar con visa de estudiante?')">¿Puedo trabajar con visa de estudiante?</button>
+            </div>
+            <div class="chat-input-row">
+              <input type="text" class="chat-input" id="chat-in" placeholder="Escribe tu consulta legal o de empleo aquí..." onkeypress="if(event.key==='Enter')sendChat()">
+              <button class="chat-send" onclick="sendChat()">Enviar</button>
+            </div>
           </div>
-          <div class="form-row">
-            <div class="fg"><label>Ciudad (España)</label><input id="cv-ciudad" type="text" placeholder="Madrid, Alicante…"></div>
-            <div class="fg"><label>LinkedIn (opcional)</label><input id="cv-linkedin" type="text" placeholder="linkedin.com/in/tuperfil"></div>
+
+          <div id="mod-cv" class="mod-panel" style="display:none; padding:1.5rem">
+            <p style="font-size:.875rem; color:var(--gris-secundario); margin-bottom:1.5rem">Rellena tus datos profesionales. Nuestro motor de IA los formateará y redactará optimizando el texto para superar los filtros ciegos (ATS) de recursos humanos en España.</p>
+            <div style="display:grid; grid-template-columns:1fr; gap:1.25rem">
+              <div class="form-row">
+                <div class="fg"><label>Nombre Completo <span>*</span></label><input type="text" id="cv-nombre" placeholder="Ej. Carlos Mendoza"></div>
+                <div class="fg"><label>Título Profesional o Especialidad <span>*</span></label><input type="text" id="cv-titulo" placeholder="Ej. Desarrollador Frontend / Administrador"></div>
+              </div>
+              <div class="form-row">
+                <div class="fg"><label>Teléfono (Prefijo España recomendado) <span>*</span></label><input type="text" id="cv-telefono" placeholder="Ej. +34 600 000 000"></div>
+                <div class="fg"><label>Correo Electrónico <span>*</span></label><input type="email" id="cv-email" placeholder="carlos@example.com"></div>
+              </div>
+              <div class="form-row">
+                <div class="fg"><label>Enlace a LinkedIn / Portafolio</label><input type="text" id="cv-linkedin" placeholder="linkedin.com/in/tuperfil"></div>
+                <div class="fg"><label>Ubicación actual en España <span>*</span></label><input type="text" id="cv-ciudad" placeholder="Ej. Madrid, España (Disp. Inmediata)"></div>
+              </div>
+              <div class="fg"><label>Resumen de Perfil Profesional</label><textarea id="cv-resumen" placeholder="Describe brevemente tus años de experiencia y principales competencias técnicas..."></textarea></div>
+              <div class="fg"><label>Experiencia Laboral (Último puesto, Empresa, Logros)</label><textarea id="cv-experiencia" placeholder="Ej. Analista de Datos en TechCorp (2023-2025): Lideré la migración de bases de datos optimizando consultas en un 25%..."></textarea></div>
+              <div class="fg"><label>Educación y Certificaciones Técnicas</label><textarea id="cv-educacion" placeholder="Ej. Grado en Ingeniería de Sistemas / Certificación Profesional de Python..."></textarea></div>
+              <button class="btn btn-verde" style="justify-content:center" onclick="generateCV()"><i class="ti ti-file-text"></i> Optimizar y Generar CV Profesional</button>
+            </div>
+
+            <div id="cv-output-container" style="display:none; margin-top:2rem">
+              <h3 style="font-size:1rem; margin-bottom:0.75rem; color:var(--dorado)">Previsualización del Currículum Optimizado:</h3>
+              <div class="cv-preview" id="cv-print-area">
+                <div class="cv-head">
+                  <div>
+                    <div class="cv-name" id="p-nombre">Nombre de ejemplo</div>
+                    <div class="cv-subtitle-bar" id="p-titulo">Especialidad Profesional</div>
+                  </div>
+                  <div class="cv-contact-info" id="p-contacto">Madrid, España · +34 600 000 000 · email@ejemplo.com</div>
+                </div>
+                <div class="cv-body">
+                  <div class="cv-sec-title">Perfil Profesional</div>
+                  <p style="font-size:.82rem; line-height:1.6; color:#1A1A18; margin-bottom:1rem" id="p-resumen">Texto del perfil adaptado por la IA para cumplir con la normativa española de selección ciega.</p>
+                  <div class="cv-sec-title">Experiencia Laboral</div>
+                  <div id="p-experiencia">Detalles estructurados de la trayectoria.</div>
+                  <div class="cv-sec-title">Educación y Habilidades</div>
+                  <div id="p-educacion">Títulos oficiales, cursos y tecnologías dominadas.</div>
+                </div>
+              </div>
+              <p style="font-size:.78rem; color:var(--gris-secundario); margin-top:0.75rem">💡 Puedes imprimir o guardar en PDF haciendo clic derecho sobre la previsualización y seleccionando "Imprimir".</p>
+            </div>
           </div>
-          <div class="fg"><label>Experiencia profesional <span>*</span></label><textarea id="cv-experiencia" placeholder="Describe tu experiencia: empresa, cargo, período y logros principales. Incluye métricas (número de personas, % de mejora, etc.). No necesitas mencionar el país — la IA lo adaptará."></textarea></div>
-          <div class="fg"><label>Habilidades técnicas</label><input id="cv-habilidades" type="text" placeholder="Python, SQL, Power BI, Gestión de equipos…"></div>
-          <div class="fg"><label>Formación académica</label><textarea id="cv-formacion" style="min-height:80px" placeholder="Licenciatura en Administración (2015). Certificación Google Analytics (2026)…"></textarea></div>
-          <div class="fg"><label>Idiomas</label><input id="cv-idiomas" type="text" placeholder="Español C1, Portugués nativo, Inglés B2…"></div>
-          <button class="btn btn-verde" id="btn-generar" onclick="generarCV()" style="width:100%;justify-content:center"><i class="ti ti-sparkles" aria-hidden="true"></i> Generar CV con IA</button>
+
+          <div id="mod-entrevista" class="mod-panel" style="display:none; padding:1.5rem">
+            <div class="interview-wrap">
+              <div class="interview-head">
+                <div class="interview-ava"><i class="ti ti-user-check"></i></div>
+                <div style="font-size:1.05rem; font-weight:600">Simulador de Entrevistas con Reclutadores en España</div>
+                <div style="font-size:.8rem; color:var(--gris-secundario)">Entrénate respondiendo preguntas típicas. La IA evaluará tu respuesta indicándote fortalezas y mejoras necesarias.</div>
+              </div>
+              <div style="padding:1.25rem">
+                <div class="fg" style="margin-bottom:1rem">
+                  <label>Selecciona tu perfil profesional para contextualizar la prueba:</label>
+                  <select id="int-perfil" style="width:100%" onchange="loadQuestion()">
+                    <option value="data">Analista de Datos / Data Analytics</option>
+                    <option value="web">Desarrollador Web / Front-End</option>
+                    <option value="admin">Administración, Gestión y Soporte</option>
+                  </select>
+                </div>
+                <div class="question-box" id="question-text">Pregunta del reclutador...</div>
+                <div class="fg">
+                  <label>Escribe tu respuesta como si estuvieras frente al entrevistador:</label>
+                  <textarea class="answer-area" id="answer-text" placeholder="Ej. En mi anterior empleo manejaba grandes volúmenes de datos usando SQL y Python, enfocándome en automatizar reportes diarios..."></textarea>
+                </div>
+                <div style="display:flex; gap:10px">
+                  <button class="btn btn-verde" id="btn-evaluar" onclick="evaluateAnswer()"><i class="ti ti-sparkles"></i> Evaluar mi respuesta con IA</button>
+                  <button class="btn btn-outline-blanco" onclick="loadQuestion()">Cambiar pregunta</button>
+                </div>
+                <div class="feedback-box" id="feedback-area">Resultado de la evaluación...</div>
+              </div>
+            </div>
+          </div>
+
         </div>
       </div>
-      <div>
-        <div id="cv-result" style="display:none"></div>
-        <div id="cv-placeholder" class="card" style="text-align:center;padding:3rem 1.5rem;border:2px dashed var(--gris-light);background:transparent;box-shadow:none">
-          <i class="ti ti-file-text" style="font-size:2.5rem;color:var(--gris-light);display:block;margin-bottom:1rem" aria-hidden="true"></i>
-          <h3 style="font-size:.95rem;color:var(--gris);margin-bottom:.5rem">Tu CV aparecerá aquí</h3>
-          <p style="font-size:.82rem;color:var(--gris-light)">Rellena el formulario y pulsa "Generar CV con IA"</p>
-        </div>
-      </div>
-    </div>
+    </section>
   </div>
 
-  <div id="tool-interview" class="tab-panel">
-    <div class="card" style="margin-bottom:1.25rem;text-align:center">
-      <h3 style="margin-bottom:.75rem">¿Qué tipo de preguntas quieres practicar?</h3>
-      <div style="display:flex;gap:1.5rem;justify-content:center;flex-wrap:wrap;margin-bottom:1.25rem;font-size:.875rem">
-        <label style="cursor:pointer;display:flex;align-items:center;gap:8px"><input type="radio" name="modo" value="tipica" checked onchange="modoPregunta='tipica'"> Preguntas típicas del mercado español</label>
-        <label style="cursor:pointer;display:flex;align-items:center;gap:8px"><input type="radio" name="modo" value="critica" onchange="modoPregunta='critica'"> Preguntas discriminatorias — cómo responder</label>
-      </div>
-      <button class="btn btn-verde" onclick="iniciarSimulador()" style="justify-content:center"><i class="ti ti-player-play" aria-hidden="true"></i> Iniciar simulación</button>
-    </div>
-    <div id="simulador-area" style="display:none">
-      <div class="interview-wrap">
-        <div class="interview-head">
-          <div class="interview-ava">👔</div>
-          <h3 style="font-size:.95rem;margin-bottom:3px">Entrevistador/a</h3>
-          <p style="font-size:.8rem;opacity:.75">Empresa española · Proceso de selección</p>
-        </div>
-        <div style="padding:1.5rem">
-          <div class="question-box" id="pregunta-actual"></div>
-          <label style="font-size:.82rem;font-weight:600;color:var(--gris);display:block;margin-bottom:6px">Tu respuesta:</label>
-          <textarea class="answer-area" id="respuesta-usuario" placeholder="Escribe tu respuesta como lo harías en una entrevista real…"></textarea>
-          <div style="display:flex;gap:10px;flex-wrap:wrap">
-            <button class="btn btn-verde btn-sm" id="btn-evaluar" onclick="evaluarRespuesta()"><i class="ti ti-sparkles" aria-hidden="true"></i> Evaluar respuesta</button>
-            <button class="btn btn-sm" style="border:1px solid var(--gris-light)" onclick="nuevaPregunta()"><i class="ti ti-refresh" aria-hidden="true"></i> Nueva pregunta</button>
-          </div>
-          <div class="feedback-box" id="feedback-area"></div>
-        </div>
-      </div>
-    </div>
-  </div>
+</main>
 
-</div>
-</section>
-</div>
-
-<!-- FOOTER -->
 <footer class="footer">
   <div class="footer-grid">
-    <div>
+    <div class="footer-col">
       <div class="footer-brand">Talento <span>sin Fronteras</span></div>
-      <p class="footer-desc">Plataforma gratuita de orientación laboral para latinoamericanos con NIE o doble nacionalidad en España. Sin discriminación, con estrategia.</p>
+      <p class="footer-desc">Plataforma integral, interactiva y gratuita de orientación laboral y regularización para profesionales latinoamericanos con NIE activo o doble nacionalidad en España. Sin discriminación, con estrategia.</p>
     </div>
     <div class="footer-col">
       <h4>Módulos</h4>
@@ -855,230 +640,232 @@ a:hover{color:var(--menta);text-decoration:none}
       <a href="#empresas" onclick="showMain('empresas')">Empresas inclusivas</a>
     </div>
     <div class="footer-col">
-      <h4>Herramientas</h4>
-      <a href="#herramientas" onclick="showMain('herramientas');setTimeout(()=>showTool('consultor'),100)">Consultor IA</a>
-      <a href="#herramientas" onclick="showMain('herramientas');setTimeout(()=>showTool('cv'),100)">Generador de CV</a>
-      <a href="#herramientas" onclick="showMain('herramientas');setTimeout(()=>showTool('interview'),100)">Simulador de entrevistas</a>
+      <h4>Herramientas IA</h4>
+      <a href="#herramientas" onclick="showMain('herramientas'); switchMod('chat')">Consultor de Visados</a>
+      <a href="#herramientas" onclick="showMain('herramientas'); switchMod('cv')">Generador de CV ATS</a>
+      <a href="#herramientas" onclick="showMain('herramientas'); switchMod('entrevista')">Simulador de Entrevistas</a>
     </div>
     <div class="footer-col">
-      <h4>Recursos oficiales</h4>
-      <a href="https://cedre.gob.es" target="_blank" rel="noopener">CEDRE — Discriminación</a>
-      <a href="https://www.sepe.es" target="_blank" rel="noopener">SEPE — Empleo</a>
-      <a href="https://extranjeros.inclusion.gob.es" target="_blank" rel="noopener">NIE y extranjería</a>
-      <a href="https://www.accem.es" target="_blank" rel="noopener">ACCEM — Apoyo migrantes</a>
+      <h4>Recursos Oficiales</h4>
+      <a href="https://www.igualdad.gob.es/cedre" target="_blank">CEDRE — Discriminación</a>
+      <a href="https://www.sepe.es" target="_blank">SEPE — Empleo Público</a>
+      <a href="https://extranjeros.inclusion.gob.es" target="_blank">Portal de Extranjería</a>
     </div>
   </div>
   <div class="footer-bottom">
-    <span>© 2026 Talento sin Fronteras · Hecho con 💚 para la comunidad latina en España</span>
-    <span>Información orientativa. No sustituye asesoría legal profesional.</span>
+    <div>&copy; 2026 Talento sin Fronteras · Hecho con 💚 para la comunidad latina en España.</div>
+    <div style="font-style:italic; color:var(--gris-secundario)">Información orientativa de libre acceso. No sustituye asesoría legal profesional.</div>
   </div>
 </footer>
 
 <script>
-const EMPRESAS=[
-  {n:"Accenture",s:"Tecnología / Consultoría",c:"Madrid, Barcelona",sellos:["Top Employer","DIE"],d:"Empresa global con políticas activas de D&I. Programa específico de integración para talento migrante."},
-  {n:"IBM España",s:"Tecnología",c:"Madrid, Barcelona",sellos:["Top Employer","Diversity Leader"],d:"Pionera en diversidad. Tiene redes de empleados latinos activas dentro de la empresa."},
-  {n:"Google España",s:"Tecnología",c:"Madrid",sellos:["Top Employer","Great Place to Work"],d:"Empresa multicultural por definición. Valora la diversidad de perspectivas internacionales."},
-  {n:"Microsoft España",s:"Tecnología",c:"Madrid, Barcelona",sellos:["Top Employer","Diversity Leader"],d:"Política de D&I robusta. Programa de inclusión para talento diverso en tecnología."},
-  {n:"Amazon España",s:"Tecnología / Logística",c:"Madrid, Barcelona, varias",sellos:["Top Employer"],d:"Procesos de selección estandarizados que minimizan sesgos. Alta demanda de perfiles variados."},
-  {n:"Telefónica",s:"Telecomunicaciones",c:"Madrid, Barcelona, Valencia",sellos:["DIE","Empresa Familiarmente Responsable"],d:"Plan de diversidad activo. Presencia latinoamericana que hace que valoren el perfil internacional."},
-  {n:"BBVA",s:"Banca / Finanzas",c:"Madrid, Bilbao",sellos:["Top Employer","DIE"],d:"Banco con fuerte presencia en Latinoamérica. Valora el conocimiento del mercado regional como activo."},
-  {n:"Santander",s:"Banca / Finanzas",c:"Madrid, Santander",sellos:["Top Employer"],d:"Proceso de selección estandarizado que reduce sesgos. Política de inclusión consolidada."},
-  {n:"CaixaBank",s:"Banca / Finanzas",c:"Barcelona, Madrid, Valencia",sellos:["DIE","Top Employer"],d:"Compromiso explícito con la diversidad. Programa de inclusión financiera."},
-  {n:"Deloitte España",s:"Consultoría / Auditoría",c:"Madrid, Barcelona, Sevilla",sellos:["Top Employer","Great Place to Work"],d:"Cultura muy valorada por diversidad. Oportunidades para perfiles con experiencia internacional."},
-  {n:"PwC España",s:"Consultoría / Auditoría",c:"Madrid, Barcelona",sellos:["Top Employer","DIE"],d:"Red global que valora la diversidad cultural. Oportunidades en múltiples sectores."},
-  {n:"Indra",s:"Tecnología / Defensa",c:"Madrid, varias",sellos:["DIE"],d:"Gran demanda de perfiles técnicos. Trabaja con clientes en toda Latinoamérica."},
-  {n:"Repsol",s:"Energía",c:"Madrid",sellos:["DIE"],d:"Operaciones en múltiples países latinoamericanos. Valora el conocimiento regional."},
-  {n:"Inditex",s:"Moda / Retail",c:"A Coruña, Madrid",sellos:["DIE","Top Employer"],d:"Equipos muy diversos. Especialmente abierta en posiciones de tienda y corporativas."},
-  {n:"Manpower España",s:"RRHH / ETT",c:"Nacional",sellos:["Top Employer"],d:"Política de no discriminación verificada. Buena opción para primeras experiencias en España."},
-  {n:"Randstad España",s:"RRHH / ETT",c:"Nacional",sellos:["Top Employer","Diversity Leader"],d:"Comprometida con la diversidad. Programa de inserción para colectivos en riesgo de exclusión."},
-];
-
-const FILTRO_MAP={"Tecnología":"Tecnología","Consultoría":"Consultoría","Banca":"Banca","RRHH":"RRHH","Energía":"Energía"};
-
-function filtrarEmpresas(filtro,btn){
-  document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
-  btn.classList.add('active');
-  const grid=document.getElementById('companyGrid');
-  const lista=filtro==='todas'?EMPRESAS:EMPRESAS.filter(e=>e.s.includes(filtro));
-  grid.innerHTML=lista.map(e=>`
-    <div class="company-card">
-      <div class="company-name">${e.n}</div>
-      <div class="company-sector"><i class="ti ti-building" style="font-size:12px;margin-right:4px" aria-hidden="true"></i>${e.s} · ${e.c}</div>
-      <div class="company-badges">${e.sellos.map(s=>`<span class="tag tag-verde">${s}</span>`).join('')}</div>
-      <div class="company-desc">${e.d}</div>
-    </div>`).join('');
+// Menú Responsive en Móviles
+function toggleMenu(){
+  document.getElementById('nav-menu').classList.toggle('open');
 }
 
-const SECTIONS=['inicio','guia','documentacion','derechos','empresas','herramientas'];
-function showMain(id){
-  SECTIONS.forEach(s=>{
-    const el=document.getElementById('sec-'+s);
-    if(el)el.style.display=s===id?'block':'none';
+// Enrutamiento Dinámico de Secciones Principales
+function showMain(targetId){
+  document.querySelectorAll('.section-tab').forEach(sec => sec.classList.remove('active'));
+  document.querySelectorAll('.main-tab-btn').forEach(btn => btn.classList.remove('active'));
+  document.querySelectorAll('.nav-links a').forEach(link => link.classList.remove('active'));
+  
+  const targetSection = document.getElementById('sec-' + targetId);
+  const targetTabBtn = document.getElementById('tb-' + targetId);
+  const targetMenuLink = document.getElementById('m-' + targetId);
+  
+  if(targetSection) targetSection.classList.add('active');
+  if(targetTabBtn) targetTabBtn.classList.add('active');
+  if(targetMenuLink) targetMenuLink.classList.add('active');
+  
+  document.getElementById('nav-menu').classList.remove('open');
+  window.scrollTo({top: 0, behavior: 'smooth'});
+}
+
+// Alternar pestañas secundarias (Módulo Documentación)
+function openTab(evt, tabName) {
+  const container = evt.currentTarget.parentElement.parentElement;
+  container.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+  container.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById(tabName).classList.add('active');
+  evt.currentTarget.classList.add('active');
+}
+
+// Acordeones Funcionales
+function toggleAcc(btn) {
+  btn.classList.toggle('open');
+  const body = btn.nextElementSibling;
+  body.classList.toggle('open');
+}
+
+// Filtro de Empresas por Sector
+function filterSector(sector) {
+  document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
+  event.currentTarget.classList.add('active');
+  
+  document.querySelectorAll('.company-card').forEach(card => {
+    if(sector === 'todos' || card.getAttribute('data-sector') === sector) {
+      card.style.display = 'block';
+    } else {
+      card.style.display = 'none';
+    }
   });
-  document.querySelectorAll('.nav-links a').forEach(a=>{
-    a.classList.remove('active');
-    if(a.getAttribute('href')==='#'+id)a.classList.add('active');
-  });
-  window.scrollTo({top:0,behavior:'smooth'});
-  if(id==='empresas')filtrarEmpresas('todas',document.querySelector('.filter-btn'));
 }
 
-function toggleMobile(){
-  const nl=document.getElementById('navLinks');
-  nl.classList.toggle('open');
-}
-function closeMobile(){
-  document.getElementById('navLinks').classList.remove('open');
-}
-
-function toggleAcc(btn){
-  const body=btn.nextElementSibling;
-  const isOpen=btn.classList.contains('open');
-  btn.closest('.accordion').querySelectorAll('.acc-btn').forEach(b=>{b.classList.remove('open');b.nextElementSibling.classList.remove('open')});
-  if(!isOpen){btn.classList.add('open');body.classList.add('open')}
+// Alternar entre los submódulos de Inteligencia Artificial
+function switchMod(modType){
+  document.querySelectorAll('.mod-panel').forEach(p => p.style.display = 'none');
+  document.querySelectorAll('#sec-herramientas .tab-btn').forEach(b => b.classList.remove('active'));
+  
+  document.getElementById('mod-' + modType).style.display = 'block';
+  document.getElementById('btn-mod-' + modType).classList.add('active');
 }
 
-function showDocTab(id,btn){
-  document.querySelectorAll('#docTabs .tab-btn').forEach(b=>b.classList.remove('active'));
-  document.querySelectorAll('#tab-nie,#tab-permisos,#tab-doble,#tab-homologacion,#tab-renovacion').forEach(p=>p.classList.remove('active'));
-  btn.classList.add('active');
-  document.getElementById('tab-'+id).classList.add('active');
+// Preguntas del Simulador de Entrevistas basadas en perfil profesional
+const bancoPreguntas = {
+  data: [
+    "Cuéntame un caso real donde encontraste un sesgo o anomalía importante en una base de datos y cómo lo solucionaste.",
+    "¿Cómo le explicarías a un cliente de negocio no técnico la diferencia entre una correlación y una causalidad en un informe de métricas?",
+    "¿Qué herramientas utilizas para limpiar datos masivos y asegurar la calidad de la información antes de un despliegue?"
+  ],
+  web: [
+    "¿Cómo optimizas el rendimiento y la velocidad de carga de una aplicación web que tiene muchos recursos multimedia integrados?",
+    "Háblame de una ocasión en la que tuviste un conflicto de fusión (merge conflict) crítico en Git y cómo lo resolviste en equipo.",
+    "¿Qué estrategias sigues para asegurar que tus diseños web CSS sean completamente accesibles (normativas WCAG)?"
+  ],
+  admin: [
+    "¿Cómo priorizas tus tareas diarias cuando recibes múltiples solicitudes urgentes de diferentes directivos al mismo tiempo?",
+    "Describe un proceso administrativo que consideraras ineficiente en tu anterior puesto y cómo lograste automatizarlo o mejorarlo.",
+    "¿Cómo manejas la comunicación con un cliente interno o proveedor que está visiblemente molesto por un retraso administrativo?"
+  ]
+};
+
+function loadQuestion(){
+  const sector = document.getElementById('int-perfil').value;
+  const preguntas = bancoPreguntas[sector];
+  const aleatoria = preguntas[Math.floor(Math.random() * preguntas.length)];
+  document.getElementById('question-text').innerText = aleatoria;
+  document.getElementById('answer-text').value = "";
+  const f = document.getElementById('feedback-area');
+  f.classList.remove('visible');
 }
 
-function showTool(id){
-  document.querySelectorAll('#toolTabs .tab-btn').forEach(b=>b.classList.remove('active'));
-  document.querySelectorAll('#tool-consultor,#tool-cv,#tool-interview').forEach(p=>p.classList.remove('active'));
-  document.getElementById('tab-'+id+'-btn').classList.add('active');
-  document.getElementById('tool-'+id).classList.add('active');
-}
+// Inicializar la primera pregunta al cargar la página
+window.addEventListener('DOMContentLoaded', () => {
+  loadQuestion();
+});
 
-// CHAT IA
-let chatHistory=[];
-const SYSTEM=`Eres un consultor especializado en orientación laboral para latinoamericanos en España. Ayudas con documentación (NIE, TIE, permisos, doble nacionalidad, homologación), derechos laborales, adaptación del CV al mercado español, preparación de entrevistas y cómo manejar la discriminación. Conoces en profundidad el Estatuto de los Trabajadores, la Ley 15/2022, el SEPE, el CEDRE y los procesos de extranjería españoles. Tono cálido, empoderador y práctico. Responde en español. Máximo 4 párrafos cortos.`;
+/* SIMULACIÓN LOCAL DEL MOTOR DE INTELIGENCIA ARTIFICIAL */
 
-async function sendMsg(){
-  const input=document.getElementById('chatInput');
-  const text=input.value.trim();
-  if(!text)return;
-  input.value='';
-  addMsg(text,'user');
-  chatHistory.push({role:'user',content:text});
-  const thinking=addMsg('Consultando...','thinking');
-  try{
-    const r=await fetch('https://api.anthropic.com/v1/messages',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({model:'claude-sonnet-4-20250514',max_tokens:1000,system:SYSTEM,messages:chatHistory})});
-    const d=await r.json();
+function sendChat() {
+  const input = document.getElementById('chat-in');
+  const text = input.value.trim();
+  if(!text) return;
+  
+  const box = document.getElementById('chat-box');
+  
+  // Añadir pregunta del usuario
+  const userMsg = document.createElement('div');
+  userMsg.className = 'msg msg-user';
+  userMsg.innerText = text;
+  box.appendChild(userMsg);
+  input.value = '';
+  box.scrollTop = box.scrollHeight;
+  
+  // Animación de pensamiento del bot
+  const thinking = document.createElement('div');
+  thinking.className = 'msg-thinking';
+  thinking.innerHTML = '<span class="spinner"></span> El asesor de IA está analizando la normativa legal...';
+  box.appendChild(thinking);
+  box.scrollTop = box.scrollHeight;
+  
+  setTimeout(() => {
     thinking.remove();
-    const reply=d.content?.map(c=>c.text||'').join('')||'No pude procesar tu consulta. Intenta de nuevo.';
-    addMsg(reply,'bot');
-    chatHistory.push({role:'assistant',content:reply});
-    if(chatHistory.length>20)chatHistory=chatHistory.slice(-20);
-  }catch(e){thinking.remove();addMsg('Error de conexión. Intenta de nuevo.','bot')}
-  const msgs=document.getElementById('chatMessages');
-  if(msgs)msgs.scrollTop=msgs.scrollHeight;
+    const responseMsg = document.createElement('div');
+    responseMsg.className = 'msg msg-bot';
+    
+    // Respuestas lógicas predefinidas para dar dinamismo a la simulación
+    if(text.toLowerCase().includes('estudiante')) {
+      responseMsg.innerHTML = "Actualmente, con la reforma del reglamento de extranjería en España, la visa de estudiante permite trabajar automáticamente **hasta 30 horas semanales** de forma legal, siempre que las horas de trabajo no coincidan con las horas lectivas de tus estudios obligatorios.";
+    } else if(text.toLowerCase().includes('nómada') || text.toLowerCase().includes('nomada')) {
+      responseMsg.innerHTML = "La **Visa de Nómada Digital** requiere que demuestres que trabajas para empresas fuera de España, poseer una titulación universitaria o experiencia demostrable de al menos 3 años en tu sector, y certificar unos ingresos mínimos mensuales equivalentes al 200% del Salario Mínimo Interprofesional español.";
+    } else if(text.toLowerCase().includes('arraigo')) {
+      responseMsg.innerHTML = "El **Arraigo para la Formación** te otorga una residencia legal de 12 meses si te comprometes a realizar una formación reglada o certificado de profesionalidad oficial en España. Para solicitarlo, necesitas demostrar una permanencia continuada en el país de mínimo 2 años.";
+    } else {
+      responseMsg.innerHTML = "He recibido tu consulta sobre '" + text + "'. De acuerdo con el marco legal laboral en España, todo profesional extranjero con residencia activa, certificado comunitario o autorización tiene pleno derecho a postularse en igualdad de condiciones. Te sugiero adaptar tu CV al formato ciego en la pestaña contigua para optimizar la respuesta de los sistemas automatizados.";
+    }
+    
+    box.appendChild(responseMsg);
+    box.scrollTop = box.scrollHeight;
+  }, 1200);
 }
 
-function addMsg(text,type){
-  const msgs=document.getElementById('chatMessages');
-  if(!msgs)return null;
-  const div=document.createElement('div');
-  if(type==='thinking'){div.className='msg-thinking';div.innerHTML='<span class="spinner"></span> Consultando...';}
-  else if(type==='user'){div.className='msg msg-user';div.textContent=text;}
-  else{div.className='msg msg-bot';div.innerHTML='<p>'+text.replace(/\n\n/g,'</p><p>').replace(/\n/g,'<br>')+'</p>';}
-  msgs.appendChild(div);
-  msgs.scrollTop=msgs.scrollHeight;
-  return div;
+function quickQuery(text) {
+  document.getElementById('chat-in').value = text;
+  sendChat();
 }
 
-function quickSend(t){document.getElementById('chatInput').value=t;sendMsg();}
+function generateCV() {
+  const nombre = document.getElementById('cv-nombre').value.trim() || "Profesional Internacional";
+  const titulo = document.getElementById('cv-titulo').value.trim() || "Especialista Técnico";
+  const tlf = document.getElementById('cv-telefono').value.trim() || "+34 600 000 000";
+  const email = document.getElementById('cv-email').value.trim() || "talento@ejemplo.com";
+  const linkedin = document.getElementById('cv-linkedin').value.trim() || "linkedin.com/in/perfil";
+  const ciudad = document.getElementById('cv-ciudad').value.trim() || "España (Disponibilidad Geográfica)";
+  
+  const resumen = document.getElementById('cv-resumen').value.trim() || "Profesional cualificado con alto enfoque en resultados, optimización operativa y rápida adaptación a metodologías de trabajo ágiles de nivel europeo.";
+  const experiencia = document.getElementById('cv-experiencia').value.trim() || "Trayectoria destacada gestionando proyectos, liderando flujos de trabajo y superando objetivos clave del departamento mediante competencias técnicas avanzadas.";
+  const educacion = document.getElementById('cv-educacion').value.trim() || "Formación superior homologable y competencias tecnológicas actualizadas alineadas al sector.";
 
-// CV GENERATOR
-async function generarCV(){
-  const nombre=document.getElementById('cv-nombre')?.value.trim();
-  const experiencia=document.getElementById('cv-experiencia')?.value.trim();
-  if(!nombre||!experiencia){alert('Por favor rellena al menos tu nombre y experiencia.');return;}
-  const btn=document.getElementById('btn-generar');
-  btn.disabled=true;btn.innerHTML='<span class="spinner"></span> Generando...';
-  const prompt=`Eres experto en RRHH del mercado español. Genera contenido de CV adaptado al formato europeo para este perfil latinoamericano sin mencionar país de origen en la redacción.
-Nombre: ${nombre}
-Puesto: ${document.getElementById('cv-titulo')?.value||''}
-Email: ${document.getElementById('cv-email')?.value||''}
-Teléfono: ${document.getElementById('cv-telefono')?.value||''}
-Ciudad: ${document.getElementById('cv-ciudad')?.value||''}
-LinkedIn: ${document.getElementById('cv-linkedin')?.value||''}
-Experiencia: ${experiencia}
-Habilidades: ${document.getElementById('cv-habilidades')?.value||''}
-Formación: ${document.getElementById('cv-formacion')?.value||''}
-Idiomas: ${document.getElementById('cv-idiomas')?.value||''}
-Responde SOLO en JSON sin backticks: {"perfil":"...","experiencia":[{"puesto":"","empresa":"","periodo":"","bullets":["","",""]}],"habilidades":{"cat1":"...","cat2":"..."},"formacion":[{"titulo":"","institucion":"","año":""}]}`;
-  try{
-    const r=await fetch('https://api.anthropic.com/v1/messages',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({model:'claude-sonnet-4-20250514',max_tokens:1000,messages:[{role:'user',content:prompt}]})});
-    const d=await r.json();
-    const text=d.content?.map(c=>c.text||'').join('')||'';
-    let cv;try{cv=JSON.parse(text.replace(/```json|```/g,'').trim());}catch{alert('Error al procesar. Intenta de nuevo.');return;}
-    renderCV(cv,{nombre,titulo:document.getElementById('cv-titulo')?.value||'',email:document.getElementById('cv-email')?.value||'',telefono:document.getElementById('cv-telefono')?.value||'',ciudad:document.getElementById('cv-ciudad')?.value||'',linkedin:document.getElementById('cv-linkedin')?.value||'',idiomas:document.getElementById('cv-idiomas')?.value||''});
-  }catch(e){alert('Error de conexión. Intenta de nuevo.');}
-  finally{btn.disabled=false;btn.innerHTML='<i class="ti ti-sparkles"></i> Generar CV con IA';}
+  // Renderizado dinámico en la plantilla ATS
+  document.getElementById('p-nombre').innerText = nombre;
+  document.getElementById('p-titulo').innerText = titulo;
+  document.getElementById('p-contacto').innerText = `${ciudad} · ${tlf} · ${email} · ${linkedin}`;
+  document.getElementById('p-resumen').innerText = resumen;
+  
+  // Conversión básica de saltos de línea a HTML para simular listas ordenadas
+  document.getElementById('p-experiencia').innerHTML = `<div class="cv-job">${titulo}</div><div class="cv-company-name">Empresa de Trayectoria</div><p style="font-size:.8rem;color:#4A4A47;margin-bottom:6px">${experiencia.replace(/\n/g, '<br>')}</p>`;
+  document.getElementById('p-educacion').innerHTML = `<p style="font-size:.8rem;color:#4A4A47">${educacion.replace(/\n/g, '<br>')}</p>`;
+  
+  document.getElementById('cv-output-container').style.display = 'block';
+  document.getElementById('cv-output-container').scrollIntoView({behavior: 'smooth'});
 }
 
-function renderCV(cv,d){
-  const r=document.getElementById('cv-result');
-  const p=document.getElementById('cv-placeholder');
-  if(!r)return;
-  const expHtml=(cv.experiencia||[]).map(e=>`<div style="margin-bottom:1rem"><div style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:4px"><div><div class="cv-job">${e.puesto}</div><div class="cv-company-name">${e.empresa}</div></div><div class="cv-period">${e.periodo}</div></div>${(e.bullets||[]).map(b=>`<div class="cv-bul">${b}</div>`).join('')}</div>`).join('');
-  const skillsHtml=Object.entries(cv.habilidades||{}).map(([k,v])=>`<div style="margin-bottom:.4rem"><span style="font-size:.72rem;font-weight:700;color:var(--verde);text-transform:uppercase;letter-spacing:.05em">${k}:</span> <span style="font-size:.8rem;color:var(--gris)">${v}</span></div>`).join('');
-  const formHtml=(cv.formacion||[]).map(f=>`<div style="margin-bottom:.5rem"><span style="font-size:.875rem;font-weight:600">${f.titulo}</span><br><span style="font-size:.78rem;color:var(--verde);font-weight:600">${f.institucion}</span>${f.año?` <span style="font-size:.75rem;color:var(--gris);font-style:italic">${f.año}</span>`:''}</div>`).join('');
-  r.innerHTML=`<div class="cv-preview"><div class="cv-head"><div><div class="cv-name">${d.nombre}</div><div class="cv-subtitle-bar">${d.titulo}</div></div><div class="cv-contact-info">${d.email?'✉ '+d.email+'<br>':''}${d.telefono?'📱 '+d.telefono+'<br>':''}${d.ciudad?'📍 '+d.ciudad+'<br>':''}${d.linkedin?'🔗 '+d.linkedin:''}</div></div><div class="cv-body"><div class="cv-sec-title">Perfil profesional</div><p style="font-size:.82rem;color:var(--gris);line-height:1.75;margin-bottom:1rem">${cv.perfil}</p><div class="cv-sec-title">Experiencia profesional</div>${expHtml}<div class="cv-sec-title">Habilidades técnicas</div>${skillsHtml}${d.idiomas?`<div class="cv-sec-title">Idiomas</div><p style="font-size:.82rem;color:var(--gris)">${d.idiomas}</p>`:''}<div class="cv-sec-title">Formación</div>${formHtml}</div></div><div style="display:flex;gap:10px;margin-top:1rem;flex-wrap:wrap"><button class="btn btn-verde btn-sm" onclick="window.print()"><i class="ti ti-printer"></i> Imprimir / PDF</button><button class="btn btn-sm" style="border:1px solid var(--gris-light)" onclick="document.getElementById('cv-result').style.display='none';document.getElementById('cv-placeholder').style.display='block'"><i class="ti ti-refresh"></i> Nuevo</button></div>`;
-  r.style.display='block';
-  if(p)p.style.display='none';
+function evaluateAnswer() {
+  const answer = document.getElementById('answer-text').value.trim();
+  if(!answer) { alert("Por favor, introduce una respuesta para evaluar."); return; }
+  
+  const btn = document.getElementById('btn-evaluar');
+  btn.innerHTML = '<span class="spinner"></span> Analizando tu respuesta...';
+  btn.disabled = true;
+  
+  setTimeout(() => {
+    btn.innerHTML = '<i class="ti ti-sparkles"></i> Evaluar mi respuesta con IA';
+    btn.disabled = false;
+    
+    const feedback = document.getElementById('feedback-area');
+    feedback.className = "feedback-box visible";
+    
+    // Simulación de evaluación integral cualitativa basada en longitud y palabras clave
+    if(answer.length < 40) {
+      feedback.innerHTML = `
+        <div class="score-stars">★★☆☆☆</div>
+        <div style="font-size:.875rem;font-weight:600;color:#c4611a;margin-bottom:.5rem">Respuesta demasiado breve</div>
+        <p style="color:var(--blanco);line-height:1.6"><strong>Fortaleza:</strong> Eres directo al grano.<br>
+        <strong>Punto de mejora:</strong> Los reclutadores en España valoran la metodología **STAR** (Situación, Tarea, Acción, Resultado). Desarrolla más tu ejemplo indicando qué problema enfrentabas y cuál fue el beneficio numérico o de negocio exacto de tu intervención.</p>
+      `;
+    } else {
+      feedback.innerHTML = `
+        <div class="score-stars">★★★★★</div>
+        <div style="font-size:.875rem;font-weight:600;color:var(--menta);margin-bottom:.5rem">¡Excelente estructura profesional!</div>
+        <p style="color:var(--blanco);line-height:1.6"><strong>Fortaleza:</strong> Utilizas un vocabulario activo profesional muy valorado, exponiendo el contexto técnico de forma clara y sin divagar.<br>
+        <strong>Consejo extra:</strong> Al responder de forma presencial, mantén un tono pausado y recalca tu capacidad de integrarte de forma óptima e inmediata en equipos ágiles o multiculturales en España.</p>
+      `;
+    }
+    feedback.scrollIntoView({behavior: 'smooth'});
+  }, 1000);
 }
-
-// INTERVIEW
-let modoPregunta='tipica';
-const TIPICAS=["Háblame de ti y tu trayectoria profesional.","¿Por qué quieres trabajar en nuestra empresa?","¿Cuál es tu mayor logro profesional?","¿Cómo manejas situaciones de presión o conflicto?","¿Dónde te ves en 5 años?","¿Cuál es tu mayor debilidad?","¿Por qué dejaste tu último trabajo?","¿Qué te diferencia de otros candidatos?","¿Cuáles son tus expectativas salariales?"];
-const CRITICAS=["¿De dónde eres exactamente? ¿Naciste en España?","¿Cuánto tiempo llevas en España? ¿Piensas quedarte?","¿Tu familia está aquí o en tu país?","¿Tienes todos los papeles en regla?","Noto que tienes acento, ¿puedes explicar tu situación?","¿Tu formación es válida aquí en España?"];
-let preguntaActual='';
-
-function iniciarSimulador(){
-  nuevaPregunta();
-  document.getElementById('simulador-area').style.display='block';
-  document.getElementById('simulador-area').scrollIntoView({behavior:'smooth'});
-}
-
-function nuevaPregunta(){
-  const lista=modoPregunta==='critica'?CRITICAS:TIPICAS;
-  preguntaActual=lista[Math.floor(Math.random()*lista.length)];
-  document.getElementById('pregunta-actual').textContent=preguntaActual;
-  document.getElementById('respuesta-usuario').value='';
-  const f=document.getElementById('feedback-area');
-  f.classList.remove('visible');f.innerHTML='';
-}
-
-async function evaluarRespuesta(){
-  const respuesta=document.getElementById('respuesta-usuario')?.value.trim();
-  if(!respuesta){alert('Por favor escribe tu respuesta.');return;}
-  const btn=document.getElementById('btn-evaluar');
-  btn.disabled=true;btn.innerHTML='<span class="spinner"></span> Evaluando...';
-  const esCritica=modoPregunta==='critica';
-  const prompt=`Eres coach de entrevistas para candidatos latinoamericanos en España.
-PREGUNTA: "${preguntaActual}" ${esCritica?'(potencialmente discriminatoria)':''}
-RESPUESTA: "${respuesta}"
-Evalúa y responde SOLO en JSON sin backticks: {"puntuacion":<1-5>,"valoracion":"<frase corta>","fortalezas":"<2-3 frases>","mejoras":"<2-3 frases>","respuesta_modelo":"<3-4 frases de ejemplo>"}`;
-  try{
-    const r=await fetch('https://api.anthropic.com/v1/messages',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({model:'claude-sonnet-4-20250514',max_tokens:800,messages:[{role:'user',content:prompt}]})});
-    const d=await r.json();
-    const text=d.content?.map(c=>c.text||'').join('')||'';
-    let ev;try{ev=JSON.parse(text.replace(/```json|```/g,'').trim());}catch{alert('Error al evaluar. Intenta de nuevo.');return;}
-    const f=document.getElementById('feedback-area');
-    f.innerHTML=`<div class="score-stars">${'★'.repeat(ev.puntuacion)+'☆'.repeat(5-ev.puntuacion)}</div><div style="font-size:.875rem;font-weight:600;color:#085c3f;margin-bottom:.75rem">${ev.valoracion}</div><div style="margin-bottom:.75rem"><div style="font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:var(--verde);margin-bottom:4px">✓ Fortalezas</div><p style="font-size:.875rem;color:#085c3f">${ev.fortalezas}</p></div><div style="margin-bottom:.75rem"><div style="font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:var(--tierra);margin-bottom:4px">⚡ Mejoras</div><p style="font-size:.875rem;color:#7a3a0e">${ev.mejoras}</p></div><div style="border-top:1px solid #9FE1CB;padding-top:.75rem"><div style="font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:var(--verde);margin-bottom:4px">💡 Respuesta modelo</div><p style="font-size:.875rem;color:#085c3f;font-style:italic">"${ev.respuesta_modelo}"</p></div>`;
-    f.classList.add('visible');f.scrollIntoView({behavior:'smooth'});
-  }catch(e){alert('Error de conexión.');}
-  finally{btn.disabled=false;btn.innerHTML='<i class="ti ti-sparkles"></i> Evaluar respuesta';}
-}
-
-// INIT
-showMain('inicio');
-filtrarEmpresas('todas',document.querySelector('.filter-btn'));
 </script>
+
 </body>
 </html>
