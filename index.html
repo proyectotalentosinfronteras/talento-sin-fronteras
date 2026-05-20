@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Talento sin Fronteras — Empleo en España para latinoamericanos</title>
-<meta name="description" content="Guía completa de documentación, regularización, homologación y derechos laborales para latinoamericanos con NIE o doble nacionalidad en España.">
+<meta name="description" content="Guía completa de documentación, regularización, homologación y derechos laborales para extranjeros con NIE o doble nacionalidad en España.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
@@ -257,19 +257,19 @@ a:hover{color:var(--menta);text-decoration:none}
       <li><a href="#guia" id="m-guia" onclick="showMain('guia')">Guía</a></li>
       <li><a href="#documentacion" id="m-documentacion" onclick="showMain('documentacion')">Documentación</a></li>
       <li><a href="#derechos" id="m-derechos" onclick="showMain('derechos')">Derechos</a></li>
-      <li><a href="#empresas" id="m-empresas" onclick="showMain('empresas')">Empresas</a></li>
-      <li><a href="#herramientas" id="m-herramientas" class="nav-cta" onclick="showMain('herramientas')">Herramientas IA</a></li>
+      <li><a href="#empresas" id="m-empresas" onclick="('empresas')">Empresas</a></li>
+      <li><a href="#herramientas" id="m-herramientas" class="nav-cta" onclick="('herramientas')">Herramientas IA</a></li>
     </ul>
   </div>
 </nav>
 
 <div class="main-nav-tab">
-  <button class="main-tab-btn active" id="tb-inicio" onclick="showMain('inicio')"><i class="ti ti-home"></i> Inicio</button>
-  <button class="main-tab-btn" id="tb-guia" onclick="showMain('guia')"><i class="ti ti-map"></i> Guía paso a paso</button>
-  <button class="main-tab-btn" id="tb-documentacion" onclick="showMain('documentacion')"><i class="ti ti-id"></i> Documentación</button>
-  <button class="main-tab-btn" id="tb-derechos" onclick="showMain('derechos')"><i class="ti ti-shield"></i> Derechos Laborales</button>
-  <button class="main-tab-btn" id="tb-empresas" onclick="showMain('empresas')"><i class="ti ti-building"></i> Empresas Inclusivas</button>
-  <button class="main-tab-btn" id="tb-herramientas" onclick="showMain('herramientas')"><i class="ti ti-robot"></i> Herramientas con IA</button>
+  <button class="main-tab-btn active" id="tb-inicio" onclick="('inicio')"><i class="ti ti-home"></i> Inicio</button>
+  <button class="main-tab-btn" id="tb-guia" onclick="('guia')"><i class="ti ti-map"></i> Guía paso a paso</button>
+  <button class="main-tab-btn" id="tb-documentacion" onclick="('documentacion')"><i class="ti ti-id"></i> Documentación</button>
+  <button class="main-tab-btn" id="tb-derechos" onclick="('derechos')"><i class="ti ti-shield"></i> Derechos Laborales</button>
+  <button class="main-tab-btn" id="tb-empresas" onclick="('empresas')"><i class="ti ti-building"></i> Empresas Inclusivas</button>
+  <button class="main-tab-btn" id="tb-herramientas" onclick="('herramientas')"><i class="ti ti-robot"></i> Herramientas con IA</button>
 </div>
 
 <main>
@@ -283,8 +283,8 @@ a:hover{color:var(--menta);text-decoration:none}
         <h1>Tu talento no tiene<br><em>fronteras</em> ni barreras</h1>
         <p class="hero-sub">Guía completa de documentación, regularización, homologación de títulos, derechos laborales y herramientas con IA para conseguir empleo en España sin discriminación.</p>
         <div class="hero-btns">
-          <a href="#guia" class="btn btn-blanco" onclick="showMain('guia')">Explorar guía completa</a>
-          <a href="#herramientas" class="btn btn-outline-blanco" onclick="showMain('herramientas')">Consultor con IA</a>
+          <a href="#guia" class="btn btn-blanco" onclick="('guia')">Explorar guía completa</a>
+          <a href="#herramientas" class="btn btn-outline-blanco" onclick="('herramientas')">Consultor con IA</a>
         </div>
         <div class="hero-pills">
           <span class="pill"><div class="logo-dot" style="background:var(--menta);box-shadow:0 0 10px var(--menta)"></div> NIE activo</span>
@@ -303,31 +303,31 @@ a:hover{color:var(--menta);text-decoration:none}
           <p>Elige el módulo que más se ajusta a tu situación actual. Puedes navegar entre todos libremente.</p>
         </div>
         <div class="grid-3">
-          <div class="card" onclick="showMain('guia')" style="cursor:pointer">
+          <div class="card" onclick="('guia')" style="cursor:pointer">
             <div class="card-icon" style="background:var(--gris-pale)"><i class="ti ti-map" style="color:var(--dorado)"></i></div>
             <h3>Guía paso a paso</h3>
             <p>El recorrido completo desde tu llegada hasta conseguir empleo. CV, entrevistas y estrategia.</p>
             <div class="card-link">Ver guía <i class="ti ti-arrow-right"></i></div>
           </div>
-          <div class="card" onclick="showMain('documentacion')" style="cursor:pointer">
+          <div class="card" onclick="('documentacion')" style="cursor:pointer">
             <div class="card-icon" style="background:var(--gris-pale)"><i class="ti ti-id" style="color:var(--dorado)"></i></div>
             <h3>Documentación y regularización</h3>
             <p>NIE, TIE, permisos de trabajo, doble nacionalidad y homologación de títulos. Explicado paso a paso.</p>
             <div class="card-link">Ver documentación <i class="ti ti-arrow-right"></i></div>
           </div>
-          <div class="card" onclick="showMain('derechos')" style="cursor:pointer">
+          <div class="card" onclick="('derechos')" style="cursor:pointer">
             <div class="card-icon" style="background:var(--gris-pale)"><i class="ti ti-shield" style="color:var(--menta)"></i></div>
             <h3>Derechos laborales</h3>
             <p>Lo que tienes derecho a exigir, cómo denunciar discriminación y recursos legales gratuitos.</p>
             <div class="card-link">Ver derechos <i class="ti ti-arrow-right"></i></div>
           </div>
-          <div class="card" onclick="showMain('empresas')" style="cursor:pointer">
+          <div class="card" onclick="('empresas')" style="cursor:pointer">
             <div class="card-icon" style="background:var(--gris-pale)"><i class="ti ti-building"></i></div>
             <h3>Empresas inclusivas</h3>
             <p>Directorio de empresas en España con certificaciones reales de diversidad e inclusión.</p>
             <div class="card-link">Ver empresas <i class="ti ti-arrow-right"></i></div>
           </div>
-          <div class="card" onclick="showMain('herramientas')" style="cursor:pointer">
+          <div class="card" onclick="('herramientas')" style="cursor:pointer">
             <div class="card-icon" style="background:var(--gris-pale)"><i class="ti ti-robot" style="color:var(--menta)"></i></div>
             <h3>Herramientas con IA</h3>
             <p>Consultor personalizado, generador de CV adaptado y simulador de entrevistas con inteligencia artificial.</p>
@@ -523,17 +523,17 @@ a:hover{color:var(--menta);text-decoration:none}
             <button class="tab-btn" id="btn-mod-entrevista" onclick="switchMod('entrevista')" style="color:var(--negro); font-weight:600">3. Simulador de Entrevistas</button>
           </div>
 
-          <div id="mod-chat" class="mod-panel" style="display:block">
-            <div class="chat-top">
-              <div class="chat-ava"><i class="ti ti-brand-openai" style="color:var(--dorado)"></i></div>
-              <div>
-                <div class="chat-name">Asesor Global de Extranjería</div>
-                <div class="chat-status">● Inteligencia Artificial en línea</div>
-              </div>
-            </div>
-            <div class="chat-msgs" id="chat-box">
-              <div class="msg msg-bot">¡Hola! Soy tu consultor de IA. Pregúntame lo que quieras sobre cómo regularizar tu NIE, arraigos, visas de nómada digital o cómo validar tu perfil en España.</div>
-            </div>
+         <div id="mod-chat" class="mod-panel" style="display:block">
+  <div class="chat-top">
+    <div class="chat-ava"><i class="ti ti-brand-openai" style="color:var(--dorado)"></i></div>
+    <div>
+      <div class="chat-name">Asesor Global de Extranjería</div>
+      <div class="chat-status">● Inteligencia Artificial en línea</div>
+    </div>
+  </div>
+  <div class="chat-msgs" id="chat-box">
+    <div class="msg msg-bot">¡Hola! Soy tu consultor de IA. Pregúntame lo que quieras sobre cómo regularizar tu NIE, arraigos, visas de nómada digital o cómo validar tu perfil en España.</div>
+     </div>
             <div class="quick-btns">
               <button class="quick-btn" onclick="quickQuery('¿Qué es el arraigo para la formación?')">¿Qué es el arraigo para la formación?</button>
               <button class="quick-btn" onclick="quickQuery('Requisitos para Visa Nómada Digital')">Requisitos para Visa Nómada Digital</button>
@@ -630,14 +630,14 @@ a:hover{color:var(--menta);text-decoration:none}
   <div class="footer-grid">
     <div class="footer-col">
       <div class="footer-brand">Talento <span>sin Fronteras</span></div>
-      <p class="footer-desc">Plataforma integral, interactiva y gratuita de orientación laboral y regularización para profesionales latinoamericanos con NIE activo o doble nacionalidad en España. Sin discriminación, con estrategia.</p>
+      <p class="footer-desc">Plataforma integral, interactiva y gratuita de orientación laboral y regularización para profesionales extranjeros con NIE activo o doble nacionalidad en España. Sin discriminación, con estrategia.</p>
     </div>
     <div class="footer-col">
       <h4>Módulos</h4>
-      <a href="#guia" onclick="showMain('guia')">Guía paso a paso</a>
-      <a href="#documentacion" onclick="showMain('documentacion')">Documentación</a>
-      <a href="#derechos" onclick="showMain('derechos')">Derechos laborales</a>
-      <a href="#empresas" onclick="showMain('empresas')">Empresas inclusivas</a>
+      <a href="#guia" onclick="('guia')">Guía paso a paso</a>
+      <a href="#documentacion" onclick="('documentacion')">Documentación</a>
+      <a href="#derechos" onclick="('derechos')">Derechos laborales</a>
+      <a href="#empresas" onclick="('empresas')">Empresas inclusivas</a>
     </div>
     <div class="footer-col">
       <h4>Herramientas IA</h4>
@@ -653,7 +653,7 @@ a:hover{color:var(--menta);text-decoration:none}
     </div>
   </div>
   <div class="footer-bottom">
-    <div>&copy; 2026 Talento sin Fronteras · Hecho con 💚 para la comunidad latina en España.</div>
+    <div>&copy; 2026 Talento sin Fronteras · Hecho con 💚 para la comunidad extranjera en España.</div>
     <div style="font-style:italic; color:var(--gris-secundario)">Información orientativa de libre acceso. No sustituye asesoría legal profesional.</div>
   </div>
 </footer>
