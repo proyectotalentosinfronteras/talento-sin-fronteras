@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Talento sin Fronteras — Empleo en España para latinoamericanos</title>
-<meta name="description" content="Guía completa de documentación, regularización, homologación y derechos laborales para latinoamericanos con NIE o doble nacionalidad en España.">
+<title>Talento sin Fronteras — Empleo en España para extranjeros</title>
+<meta name="description" content="Guía completa de documentación, regularización, homologación y derechos laborales para extranjeros con NIE o doble nacionalidad en España.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
@@ -1153,7 +1153,7 @@ a:hover{color:var(--menta);text-decoration:none}
   <div class="footer-grid">
     <div class="footer-col">
       <div class="footer-brand">Talento <span>sin Fronteras</span></div>
-      <p class="footer-desc">Plataforma integral, interactiva y gratuita de orientación laboral y regularización para profesionales latinoamericanos con NIE activo o doble nacionalidad en España. Sin discriminación, con estrategia.</p>
+      <p class="footer-desc">Plataforma integral, interactiva y gratuita de orientación laboral y regularización para profesionales extranjeros con NIE activo o doble nacionalidad en España. Sin discriminación, con estrategia.</p>
     </div>
     <div class="footer-col">
       <h4>Módulos</h4>
@@ -1312,12 +1312,19 @@ function sendChat() {
       responseMsg.innerHTML = "Actualmente, con la reforma del reglamento de extranjería en España, la visa de estudiante permite trabajar automáticamente **hasta 30 horas semanales** de forma legal, siempre que las horas de trabajo no coincidan con las horas lectivas de tus estudios obligatorios.";
     } else if(text.toLowerCase().includes('nómada') || text.toLowerCase().includes('nomada')) {
       responseMsg.innerHTML = "La **Visa de Nómada Digital** requiere que demuestres que trabajas para empresas fuera de España, poseer una titulación universitaria o experiencia demostrable de al menos 3 años en tu sector, y certificar unos ingresos mínimos mensuales equivalentes al 200% del Salario Mínimo Interprofesional español.";
-    } else if(text.toLowerCase().includes('arraigo')) {
-      responseMsg.innerHTML = "El **Arraigo para la Formación** te otorga una residencia legal de 12 meses si te comprometes a realizar una formación reglada o certificado de profesionalidad oficial en España. Para solicitarlo, necesitas demostrar una permanencia continuada en el país de mínimo 2 años.";
+          } else if(text.toLowerCase().includes('arraigo')) {
+      responseMsg.innerHTML = "Actualmente en España existen **5 tipos de arraigo estandarizados**, sumados al proceso de **Arraigo Extraordinario (Regularización Masiva)**:<br><br>" +
+        "• **Arraigo Extraordinario (Regularización):** Para quienes entraron antes del 1 de enero de 2026 y certifiquen una permanencia mínima de 5 meses. El plazo límite de solicitud vence el 30 de junio de 2026.<br>" +
+        "• **Arraigo Socioformativo:** Exige 2 años de permanencia continuada. Concede una residencia de 12 meses ligada a una formación oficial y permite trabajar hasta 30 horas semanales.<br>" +
+        "• **Arraigo Sociolaboral:** Requiere 2 años de estancia continuada y contar con una oferta laboral formal de mínimo 20 horas semanales.<br>" +
+        "• **Arraigo Social:** Exige 2 años de permanencia ininterrumpida e informe de inserción social o vínculos familiares directos.<br>" +
+        "• **Arraigo Familiar:** Concede residencia por 5 años con derecho a trabajar a ascendientes o descendientes de ciudadanos españoles.<br>" +
+        "• **Arraigo de Segunda Oportunidad:** Diseñado para recuperar la regularidad documental si perdiste tu residencia previa por causas ajenas a tu voluntad.<br><br>" +
+        "*Nota: Todos los trámites exigen obligatoriamente la carencia de antecedentes penales.*";
     } else {
       responseMsg.innerHTML = "He recibido tu consulta sobre '" + text + "'. De acuerdo con el marco legal laboral en España, todo profesional extranjero con residencia activa, certificado comunitario o autorización tiene pleno derecho a postularse en igualdad de condiciones. Te sugiero adaptar tu CV al formato ciego en la pestaña contigua para optimizar la respuesta de los sistemas automatizados.";
     }
-    
+
     box.appendChild(responseMsg);
     box.scrollTop = box.scrollHeight;
   }, 1200);
