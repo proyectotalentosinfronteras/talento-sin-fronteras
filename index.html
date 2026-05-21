@@ -473,17 +473,155 @@ a:hover{color:var(--menta);text-decoration:none}
           <button class="filter-btn" onclick="filterSector('consultoria')">Consultoría y Gestión</button>
           <button class="filter-btn" onclick="filterSector('atencion')">Atención al Cliente</button>
         </div>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Directorio de 42 Empresas Inclusivas en España</title>
+    <style>
+        body {
+            background-color: #0b1d1a;
+            color: #ffffff;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 40px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
 
+        .header-container {
+            text-align: center;
+            max-width: 850px;
+            margin-bottom: 40px;
+        }
+
+        .main-title {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #ffffff;
+            background-color: #0d3c75;
+            display: inline-block;
+            padding: 5px 15px;
+            margin-bottom: 15px;
+            border-radius: 4px;
+        }
+
+        .subtitle {
+            font-size: 1.1rem;
+            color: #8bb2b2;
+            line-height: 1.6;
+        }
+
+        .directory-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 25px;
+            width: 100%;
+            max-width: 1450px;
+        }
+
+        .company-card {
+            background-color: #0e2925;
+            border: 1px solid #163d37;
+            border-radius: 12px;
+            padding: 25px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: transform 0.2s ease, border-color 0.2s ease;
+        }
+
+        .company-card:hover {
+            transform: translateY(-5px);
+            border-color: #1e524a;
+        }
+
+        .company-name {
+            font-size: 1.3rem;
+            font-weight: bold;
+            margin: 0 0 5px 0;
+            color: #ffffff;
+        }
+
+        .company-sector {
+            font-size: 0.85rem;
+            color: #00ffcc;
+            margin-bottom: 20px;
+            font-weight: 500;
+        }
+
+        .tags-container {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        .tag {
+            font-size: 0.75rem;
+            padding: 4px 10px;
+            border-radius: 15px;
+            font-weight: bold;
+        }
+
+        .tag-blue {
+            background-color: rgba(0, 123, 255, 0.15);
+            color: #38b6ff;
+            border: 1px solid rgba(0, 123, 255, 0.3);
+        }
+
+        .tag-orange {
+            background-color: rgba(255, 159, 28, 0.15);
+            color: #ff9f1c;
+            border: 1px solid rgba(255, 159, 28, 0.3);
+        }
+
+        .tag-green {
+            background-color: rgba(0, 255, 204, 0.15);
+            color: #00ffcc;
+            border: 1px solid rgba(0, 255, 204, 0.3);
+        }
+
+        .company-description {
+            font-size: 0.95rem;
+            color: #a4c2c2;
+            line-height: 1.5;
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header-container">
+        <div class="main-title">Empresas con Compromiso Real</div>
+        <p class="subtitle">Directorio masivo de 42 corporaciones operando en España, avaladas por sus entornos multiculturales, políticas de igualdad de oportunidades y contratación sin sesgos geográficos.</p>
+    </div>
+
+    <div class="directory-grid">
         <div class="company-grid" id="lista-empresas">
-          <div class="company-card" data-sector="tecnologia">
-            <div class="company-name">Glovo / Delivery Hero</div>
-            <div class="company-sector">Tecnología & Hub Digital</div>
+                   <!-- ================= CONSULTORÍA Y GESTIÓN ================= -->
+          <div class="company-card" data-sector="consultoria">
+            <div class="company-name">Michael Page España</div>
+            <div class="company-sector">Consultoría, Gestión y Selección</div>
             <div class="company-badges">
-              <span class="tag tag-verde">Sede Multicultural</span>
-              <span class="tag tag-gris">Barcelona / Madrid</span>
+              <span class="tag tag-verde">Currículum Ciego</span>
+              <span class="tag tag-gris">Nacional</span>
             </div>
-            <div class="company-desc">Equipos globales con más de 40 nacionalidades distintas y procesos estandarizados en inglés y español.</div>
+            <div class="company-desc">Líder global en selección que promueve la contratación sin sesgos institucionales y cuenta con una fuerte política de diversidad y apoyo LGTBIQ+.</div>
           </div>
+
+          <div class="company-card" data-sector="consultoria">
+            <div class="company-name">Baker Tilly España</div>
+            <div class="company-sector">Consultoría, Auditoría y Gestión</div>
+            <div class="company-badges">
+              <span class="tag tag-tierra">Plan Igualdad LGTBI</span>
+              <span class="tag tag-gris">Madrid / Barcelona</span>
+            </div>
+            <div class="company-desc">Servicios profesionales con planes transversales de diversidad, formación activa contra sesgos corporativos y un ecosistema de trabajo flexible.</div>
+          </div>
+
           <div class="company-card" data-sector="consultoria">
             <div class="company-name">Accenture España</div>
             <div class="company-sector">Consultoría Tecnológica</div>
@@ -493,6 +631,270 @@ a:hover{color:var(--menta);text-decoration:none}
             </div>
             <div class="company-desc">Políticas corporativas explícitas para la integración laboral de talento internacional y auditorías de igualdad salarial.</div>
           </div>
+
+          <div class="company-card" data-sector="consultoria">
+            <div class="company-name">Deloitte España</div>
+            <div class="company-sector">Consultoría y Gestión</div>
+            <div class="company-badges">
+              <span class="tag tag-tierra">Inclusión Activa</span>
+              <span class="tag tag-gris">Multisite</span>
+            </div>
+            <div class="company-desc">Programas integrales de mentoría corporativa y adaptación rápida para profesionales con doble nacionalidad.</div>
+          </div>
+
+          <div class="company-card" data-sector="consultoria">
+            <div class="company-name">Amadeus IT Group</div>
+            <div class="company-sector">Tecnología y Gestión</div>
+            <div class="company-badges">
+              <span class="tag tag-gris">Sponsor Visa</span>
+              <span class="tag tag-gris">Madrid</span>
+            </div>
+            <div class="company-desc">Líder global en software de viajes con políticas explícitas de recolocación internacional y asimilación cultural efectiva.</div>
+          </div>
+
+          <div class="company-card" data-sector="consultoria">
+            <div class="company-name">NTT DATA España</div>
+            <div class="company-sector">Consultoría e IT Services</div>
+            <div class="company-badges">
+              <span class="tag tag-tierra">Top Company</span>
+              <span class="tag tag-gris">Multisite</span>
+            </div>
+            <div class="company-desc">Gran volumen de contratación anual de talento técnico extranjero con un enfoque corporativo de bienvenida inclusiva.</div>
+          </div>
+
+          <div class="company-card" data-sector="consultoria">
+            <div class="company-name">LLYC (Llorente y Cuenca)</div>
+            <div class="company-sector">Comunicación y Gestión</div>
+            <div class="company-badges">
+              <span class="tag tag-verde">LGBTI+ Líder</span>
+              <span class="tag tag-gris">Madrid</span>
+            </div>
+            <div class="company-desc">Impulsa una cultura altamente inclusiva con iniciativas innovadoras contra los sesgos y apoyo pro bono a comunidades minoritarias.</div>
+          </div>
+
+          <div class="company-card" data-sector="consultoria">
+            <div class="company-name">PwC España</div>
+            <div class="company-sector">Consultoría y Gestión</div>
+            <div class="company-badges">
+              <span class="tag tag-tierra">Sello Diversidad</span>
+              <span class="tag tag-gris">Nacional</span>
+            </div>
+            <div class="company-desc">Estrategias activas para mitigar los sesgos inconscientes en procesos de promoción interna y captación de perfiles.</div>
+          </div>
+
+          <div class="company-card" data-sector="consultoria">
+            <div class="company-name">EY España (Ernst & Young)</div>
+            <div class="company-sector">Consultoría y Gestión</div>
+            <div class="company-badges">
+              <span class="tag tag-gris">Inclusión Global</span>
+              <span class="tag tag-gris">Multisite</span>
+            </div>
+            <div class="company-desc">Amplio respaldo a redes de apoyo para colectivos minoritarios y planes rigurosos de conciliación y balance laboral.</div>
+          </div>
+
+          <div class="company-card" data-sector="consultoria">
+            <div class="company-name">KPMG España</div>
+            <div class="company-sector">Consultoría y Gestión</div>
+            <div class="company-badges">
+              <span class="tag tag-tierra">Plan Equidad</span>
+              <span class="tag tag-gris">Nacional</span>
+            </div>
+            <div class="company-desc">Formación corporativa transversal en diversidad y redes internas que promueven entornos de trabajo psicológicamente seguros.</div>
+          </div>
+
+          <div class="company-card" data-sector="consultoria">
+            <div class="company-name">Capgemini España</div>
+            <div class="company-sector">Consultoría Tecnológica</div>
+            <div class="company-badges">
+              <span class="tag tag-verde">Sello REDI</span>
+              <span class="tag tag-gris">Multisite</span>
+            </div>
+            <div class="company-desc">Certificada en su compromiso por la inclusión de la diversidad afectivo-sexual y la igualdad de oportunidades transversales.</div>
+          </div>
+
+          <div class="company-card" data-sector="consultoria">
+            <div class="company-name">McKinsey & Company Spain</div>
+            <div class="company-sector">Consultoría de Gestión</div>
+            <div class="company-badges">
+              <span class="tag tag-tierra">Liderazgo Equitativo</span>
+              <span class="tag tag-gris">Madrid</span>
+            </div>
+            <div class="company-desc">Referente mundial en estudios de diversidad aplicados internamente para acelerar el talento femenino y multicultural.</div>
+          </div>
+
+          <!-- ================= TECNOLOGÍA Y SOFTWARE ================= -->
+          <div class="company-card" data-sector="tecnologia">
+            <div class="company-name">Glovo / Delivery Hero</div>
+            <div class="company-sector">Tecnología & Hub Digital</div>
+            <div class="company-badges">
+              <span class="tag tag-verde">Sede Multicultural</span>
+              <span class="tag tag-gris">Barcelona / Madrid</span>
+            </div>
+            <div class="company-desc">Equipos globales con más de 40 nacionalidades distintas y procesos estandarizados en inglés y español.</div>
+          </div>
+
+          <div class="company-card" data-sector="tecnologia">
+            <div class="company-name">Factorial HR</div>
+            <div class="company-sector">Tecnología y Software</div>
+            <div class="company-badges">
+              <span class="tag tag-verde">Visado Sponsor</span>
+              <span class="tag tag-gris">Barcelona</span>
+            </div>
+            <div class="company-desc">Entorno multicultural enfocado en la captación de talento técnico de diversas procedencias geográficas con soporte legal.</div>
+          </div>
+
+          <div class="company-card" data-sector="tecnologia">
+            <div class="company-name">Amazon España</div>
+            <div class="company-sector">E-Commerce & Logística</div>
+            <div class="company-badges">
+              <span class="tag tag-tierra">Diversidad Global</span>
+              <span class="tag tag-gris">Nacional</span>
+            </div>
+            <div class="company-desc">Fomenta activamente grupos de afinidad para empleados de distintas culturas y cuenta con pautas sólidas de contratación inclusiva.</div>
+          </div>
+
+          <div class="company-card" data-sector="tecnologia">
+            <div class="company-name">Microsoft Ibérica</div>
+            <div class="company-sector">Tecnología y Software</div>
+            <div class="company-badges">
+              <span class="tag tag-tierra">Sin Sesgos</span>
+              <span class="tag tag-gris">Madrid</span>
+            </div>
+            <div class="company-desc">Implementa currículum ciego en fases iniciales y ofrece sólidos programas de inclusión para talento con orígenes internacionales.</div>
+          </div>
+
+          <div class="company-card" data-sector="tecnologia">
+            <div class="company-name">Cabify</div>
+            <div class="company-sector">Tecnología & Movilidad</div>
+            <div class="company-badges">
+              <span class="tag tag-verde">Sponsor Visa</span>
+              <span class="tag tag-gris">Madrid / Remoto</span>
+            </div>
+            <div class="company-desc">Plataforma nacida en España con procesos de selección basados puramente en competencias técnicas y soporte legal internacional.</div>
+          </div>
+
+          <div class="company-card" data-sector="tecnologia">
+            <div class="company-name">SAP España</div>
+            <div class="company-sector">Software Corporativo</div>
+            <div class="company-badges">
+              <span class="tag tag-verde">Equidad de Género</span>
+              <span class="tag tag-gris">Madrid / Barcelona</span>
+            </div>
+            <div class="company-desc">Políticas explícitas contra la brecha salarial y programas avanzados de captación de perfiles neurodiversos (Autism at Work).</div>
+          </div>
+
+          <div class="company-card" data-sector="tecnologia">
+            <div class="company-name">Google Spain</div>
+            <div class="company-sector">Tecnología y Software</div>
+            <div class="company-badges">
+              <span class="tag tag-verde">Diversidad ERG</span>
+              <span class="tag tag-gris">Madrid / Málaga</span>
+            </div>
+            <div class="company-desc">Hubs tecnológicos internacionales de excelencia con programas proactivos para la inclusión de comunidades infrarrepresentadas.</div>
+          </div>
+
+          <div class="company-card" data-sector="tecnologia">
+            <div class="company-name">Meta Spain</div>
+            <div class="company-sector">Tecnología y Software</div>
+            <div class="company-badges">
+              <span class="tag tag-tierra">Inclusión Abierta</span>
+              <span class="tag tag-gris">Madrid / Remoto</span>
+            </div>
+            <div class="company-desc">Procesos de reclutamiento globales sin fronteras geográficas, centrados en la multiculturalidad y la equidad retributiva total.</div>
+          </div>
+
+          <div class="company-card" data-sector="tecnologia">
+            <div class="company-name">HP Spain</div>
+            <div class="company-sector">Hardware & Software</div>
+            <div class="company-badges">
+              <span class="tag tag-gris">Top Employer</span>
+              <span class="tag tag-gris">Barcelona / Madrid</span>
+            </div>
+            <div class="company-desc">Centros de I+D punteros que acogen a ingenieros internacionales mediante robustos protocolos de reubicación familiar y laboral.</div>
+          </div>
+
+          <div class="company-card" data-sector="tecnologia">
+            <div class="company-name">Indra / Minsait</div>
+            <div class="company-sector">Tecnología y Software</div>
+            <div class="company-badges">
+              <span class="tag tag-tierra">Diversidad 360</span>
+              <span class="tag tag-gris">Nacional</span>
+            </div>
+            <div class="company-desc">Sólido plan de igualdad enfocado en el desarrollo de talento joven de diferentes procedencias socioeconómicas y orígenes.</div>
+          </div>
+
+          <!-- ================= TURISMO Y HOTELERÍA (Asignado a sector 'todos') ================= -->
+          <div class="company-card" data-sector="todos">
+            <div class="company-name">Booking.com (Spain Hub)</div>
+            <div class="company-sector">Tecnología & Turismo</div>
+            <div class="company-badges">
+              <span class="tag tag-verde">Entorno Global</span>
+              <span class="tag tag-gris">Barcelona / Remoto</span>
+            </div>
+            <div class="company-desc">Procesos de selección completamente en inglés orientados a captar perfiles de IT y soporte de cualquier rincón del mundo.</div>
+          </div>
+
+          <div class="company-card" data-sector="todos">
+            <div class="company-name">eDreams ODIGEO</div>
+            <div class="company-sector">Turismo & Tech</div>
+            <div class="company-badges">
+              <span class="tag tag-verde">Talento Internacional</span>
+              <span class="tag tag-gris">Barcelona / Madrid</span>
+            </div>
+            <div class="company-desc">Más de 60 nacionalidades cooperando en un ecosistema abierto con fuertes incentivos para la flexibilidad e integración.</div>
+          </div>
+
+          <div class="company-card" data-sector="todos">
+            <div class="company-name">Meliá Hotels International</div>
+            <div class="company-sector">Turismo y Hotelería</div>
+            <div class="company-badges">
+              <span class="tag tag-tierra">Merco Talento</span>
+              <span class="tag tag-gris">Nacional / Baleares</span>
+            </div>
+            <div class="company-desc">Líder en reputación sectorial con programas mundiales de intercambio de talento corporativo y planes integrales de equidad.</div>
+          </div>
+
+          <div class="company-card" data-sector="todos">
+            <div class="company-name">NH Hotel Group / Minor</div>
+            <div class="company-sector">Turismo y Hotelería</div>
+            <div class="company-badges">
+              <span class="tag tag-verde">Multiculturalidad</span>
+              <span class="tag tag-gris">Nacional</span>
+            </div>
+            <div class="company-desc">Políticas explícitas enfocadas en integrar plantillas con bagajes geográficos sumamente diversos en todos los niveles operativos.</div>
+          </div>
+
+          <div class="company-card" data-sector="todos">
+            <div class="company-name">Riu Hotels & Resorts</div>
+            <div class="company-sector">Turismo y Hotelería</div>
+            <div class="company-badges">
+              <span class="tag tag-gris">Entorno Integrador</span>
+              <span class="tag tag-gris">Sede Central/Islas</span>
+            </div>
+            <div class="company-desc">Desarrollo de sólidas escuelas de formación interna destinadas a la asimilación laboral rápida de colectivos internacionales.</div>
+          </div>
+
+          <div class="company-card" data-sector="todos">
+            <div class="company-name">Iberostar Group</div>
+            <div class="company-sector">Turismo y Hotelería</div>
+            <div class="company-badges">
+              <span class="tag tag-tierra">Sustentabilidad Social</span>
+              <span class="tag tag-gris">Nacional</span>
+            </div>
+            <div class="company-desc">Enfoque centrado en la igualdad de género laboral y en potenciar el talento local y extranjero de forma equitativa.</div>
+          </div>
+
+          <div class="company-card" data-sector="todos">
+            <div class="company-name">Ávoris Travel</div>
+            <div class="company-sector">Turismo y Distribución</div>
+            <div class="company-badges">
+              <span class="tag tag-gris">Inclusión Activa</span>
+              <span class="tag tag-gris">Nacional</span>
+            </div>
+            <div class="company-desc">Gran conglomerado que fomenta la incorporación abierta de perfiles comerciales, técnicos y administrativos sin sesgos.</div>
+          </div>
+
+          <!-- ================= ATENCIÓN AL CLIENTE ================= -->
           <div class="company-card" data-sector="atencion">
             <div class="company-name">Webhelp / Concentrix</div>
             <div class="company-sector">Atención al Cliente e Idiomas</div>
@@ -501,6 +903,127 @@ a:hover{color:var(--menta);text-decoration:none}
               <span class="tag tag-gris">Multisite</span>
             </div>
             <div class="company-desc">Contratación masiva de perfiles internacionales con alta valoración de idiomas nativos y facilidades de acogida inicial.</div>
+          </div>
+
+          <div class="company-card" data-sector="atencion">
+            <div class="company-name">Teleperformance</div>
+            <div class="company-sector">Atención al Cliente</div>
+            <div class="company-badges">
+              <span class="tag tag-verde">Multilingüe</span>
+              <span class="tag tag-gris">Madrid / Remoto</span>
+            </div>
+            <div class="company-desc">Procesos de reclutamiento abiertos que priorizan las competencias lingüísticas e integran equipos de soporte diversos.</div>
+          </div>
+
+          <div class="company-card" data-sector="atencion">
+            <div class="company-name">Majorel España</div>
+            <div class="company-sector">Atención al Cliente</div>
+            <div class="company-badges">
+              <span class="tag tag-gris">Diversidad Cultural</span>
+              <span class="tag tag-gris">Multisite</span>
+            </div>
+            <div class="company-desc">Especialistas en BPO con políticas activas para el acompañamiento y onboarding de talento nativo expatriado.</div>
+          </div>
+
+          <div class="company-card" data-sector="atencion">
+            <div class="company-name">Sitel Group / Foundever</div>
+            <div class="company-sector">Atención al Cliente</div>
+            <div class="company-badges">
+              <span class="tag tag-tierra">Inclusión Global</span>
+              <span class="tag tag-gris">Nacional / Remoto</span>
+            </div>
+            <div class="company-desc">Entornos seguros multilingües con fuertes esquemas de flexibilidad horaria y adaptabilidad para colectivos migrantes.</div>
+          </div>
+
+          <div class="company-card" data-sector="atencion">
+            <div class="company-name">CPM International (Barcelona)</div>
+            <div class="company-sector">Atención al Cliente</div>
+            <div class="company-badges">
+              <span class="tag tag-verde">Hub Internacional</span>
+              <span class="tag tag-gris">Barcelona</span>
+            </div>
+            <div class="company-desc">Oficinas multiculturales masivas con soporte integral y patrocinio en gestiones burocráticas a profesionales extranjeros.</div>
+          </div>
+
+          <div class="company-card" data-sector="atencion">
+            <div class="company-name">Transcom Spain</div>
+            <div class="company-sector">Atención al Cliente</div>
+            <div class="company-badges">
+              <span class="tag tag-tierra">Plan Diversidad</span>
+              <span class="tag tag-gris">Nacional</span>
+            </div>
+            <div class="company-desc">Forte apuesta por la inserción laboral de mujeres en sectores técnicos y adaptabilidad de puestos para operarios diversos.</div>
+          </div>
+
+          <!-- ================= OTROS SECTORES (Asignado a sector 'todos') ================= -->
+          <div class="company-card" data-sector="todos">
+            <div class="company-name">Inditex</div>
+            <div class="company-sector">Retail & Moda</div>
+            <div class="company-badges">
+              <span class="tag tag-verde">Multiculturalidad</span>
+              <span class="tag tag-gris">Nacional / Galicia</span>
+            </div>
+            <div class="company-desc">Acoge en sus oficinas centrales y centros logísticos a profesionales procedentes de decenas de mercados internacionales.</div>
+          </div>
+
+          <div class="company-card" data-sector="todos">
+            <div class="company-name">BBVA</div>
+            <div class="company-sector">Banca y Servicios Financieros</div>
+            <div class="company-badges">
+              <span class="tag tag-tierra">Diversidad ERG</span>
+              <span class="tag tag-gris">Nacional</span>
+            </div>
+            <div class="company-desc">Destaca por programas corporativos de inclusión, desarrollo profesional internacional y fuertes políticas de equidad de género.</div>
+          </div>
+
+          <div class="company-card" data-sector="todos">
+            <div class="company-name">Telefónica</div>
+            <div class="company-sector">Telecomunicaciones</div>
+            <div class="company-badges">
+              <span class="tag tag-tierra">Plan de Igualdad</span>
+              <span class="tag tag-gris">Madrid / Nacional</span>
+            </div>
+            <div class="company-desc">Compromiso certificado en diversidad con redes internas activas de apoyo para empleados y contratación de perfiles globales.</div>
+          </div>
+
+          <div class="company-card" data-sector="todos">
+            <div class="company-name">Airbus España</div>
+            <div class="company-sector">Ingeniería y Fabricación</div>
+            <div class="company-badges">
+              <span class="tag tag-verde">Entorno Técnico</span>
+              <span class="tag tag-gris">Madrid / Sevilla</span>
+            </div>
+            <div class="company-desc">Fomenta entornos multiculturales de ingeniería, facilitando la colaboración internacional y procesos de captación sin sesgos regionales.</div>
+          </div>
+
+          <div class="company-card" data-sector="todos">
+            <div class="company-name">ILUNION</div>
+            <div class="company-sector">Servicios y Gestión Social</div>
+            <div class="company-badges">
+              <span class="tag tag-verde">Inclusión Total</span>
+              <span class="tag tag-gris">Nacional</span>
+            </div>
+            <div class="company-desc">Líder indiscutible en la integración laboral de personas con discapacidad y fomento de diversidad en múltiples sectores en España.</div>
+          </div>
+
+          <div class="company-card" data-sector="todos">
+            <div class="company-name">Zurich España</div>
+            <div class="company-sector">Seguros y Finanzas</div>
+            <div class="company-badges">
+              <span class="tag tag-tierra">Redes de Afinidad</span>
+              <span class="tag tag-gris">Barcelona / Madrid</span>
+            </div>
+            <div class="company-desc">Reconocida por sus sólidas redes ERG compuestas por empleados que asesoran activamente en convivencia generacional y LGTBIQ+.</div>
+          </div>
+
+          <div class="company-card" data-sector="todos">
+            <div class="company-name">ACCIONA</div>
+            <div class="company-sector">Infraestructura y Energía</div>
+            <div class="company-badges">
+              <span class="tag tag-tierra">VariableD Top30</span>
+              <span class="tag tag-gris">Nacional</span>
+            </div>
+            <div class="company-desc">Despliega de manera excelente planes globales de diversidad geográfica y equidad en proyectos de gran envergadura.</div>
           </div>
         </div>
       </div>
