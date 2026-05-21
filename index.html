@@ -1307,20 +1307,39 @@ function sendChat() {
     const responseMsg = document.createElement('div');
     responseMsg.className = 'msg msg-bot';
     
-    // Respuestas lógicas predefinidas para dar dinamismo a la simulación
+       // Respuestas lógicas predefinidas para dar dinamismo a la simulación
     if(text.toLowerCase().includes('estudiante')) {
       responseMsg.innerHTML = "Actualmente, con la reforma del reglamento de extranjería en España, la visa de estudiante permite trabajar automáticamente **hasta 30 horas semanales** de forma legal, siempre que las horas de trabajo no coincidan con las horas lectivas de tus estudios obligatorios.";
     } else if(text.toLowerCase().includes('nómada') || text.toLowerCase().includes('nomada')) {
       responseMsg.innerHTML = "La **Visa de Nómada Digital** requiere que demuestres que trabajas para empresas fuera de España, poseer una titulación universitaria o experiencia demostrable de al menos 3 años en tu sector, y certificar unos ingresos mínimos mensuales equivalentes al 200% del Salario Mínimo Interprofesional español.";
-          } else if(text.toLowerCase().includes('arraigo')) {
-      responseMsg.innerHTML = "Actualmente en España existen **5 tipos de arraigo estandarizados**, sumados al proceso de **Arraigo Extraordinario (Regularización Masiva)**:<br><br>" +
-        "• **Arraigo Extraordinario (Regularización):** Para quienes entraron antes del 1 de enero de 2026 y certifiquen una permanencia mínima de 5 meses. El plazo límite de solicitud vence el 30 de junio de 2026.<br>" +
-        "• **Arraigo Socioformativo:** Exige 2 años de permanencia continuada. Concede una residencia de 12 meses ligada a una formación oficial y permite trabajar hasta 30 horas semanales.<br>" +
-        "• **Arraigo Sociolaboral:** Requiere 2 años de estancia continuada y contar con una oferta laboral formal de mínimo 20 horas semanales.<br>" +
-        "• **Arraigo Social:** Exige 2 años de permanencia ininterrumpida e informe de inserción social o vínculos familiares directos.<br>" +
-        "• **Arraigo Familiar:** Concede residencia por 5 años con derecho a trabajar a ascendientes o descendientes de ciudadanos españoles.<br>" +
-        "• **Arraigo de Segunda Oportunidad:** Diseñado para recuperar la regularidad documental si perdiste tu residencia previa por causas ajenas a tu voluntad.<br><br>" +
-        "*Nota: Todos los trámites exigen obligatoriamente la carencia de antecedentes penales.*";
+    } else if(text.toLowerCase().includes('arraigo') || text.toLowerCase().includes('regularizacion') || text.toLowerCase().includes('regularización')) {
+      
+      // Buscamos si el usuario pide un tipo específico para darle sus requisitos
+      let t = text.toLowerCase();
+      if (t.includes('extraordinario') || t.includes('masiva') || t.includes('regulariz')) {
+        responseMsg.innerHTML = "<b>Requisitos Arraigo Extraordinario 2026:</b><br>• Entrar a España antes del 1 de enero de 2026.<br>• Permanencia mínima continua de 5 meses.<br>• Solicitar antes del 30 de junio de 2026.<br>• Carecer de antecedentes penales.";
+      } else if (t.includes('socioformativo') || t.includes('formac')) {
+        responseMsg.innerHTML = "<b>Requisitos Arraigo Socioformativo:</b><br>• Permanencia continua de mínimo 2 años.<br>• Matricularse en una formación reglada o curso oficial.<br>• Permite trabajar hasta 30 horas semanales durante los estudios.";
+      } else if (t.includes('sociolaboral') || t.includes('laboral')) {
+        responseMsg.innerHTML = "<b>Requisitos Arraigo Sociolaboral:</b><br>• Permanencia continua de mínimo 2 años.<br>• Contrato de trabajo firmado de mínimo 20 horas semanales.<br>• Carecer de antecedentes penales en los últimos 5 años.";
+      } else if (t.includes('social')) {
+        responseMsg.innerHTML = "<b>Requisitos Arraigo Social:</b><br>• Permanencia continua de mínimo 2 años.<br>• Vínculos familiares directos O presentar el Informe de Inserción Social local.<br>• Carecer de antecedentes penales.";
+      } else if (t.includes('familiar')) {
+        responseMsg.innerHTML = "<b>Requisitos Arraigo Familiar:</b><br>• Ser pariente directo de ciudadano español (hijo, padre/madre o pareja vinculada).<br>• No exige tiempo mínimo previo en España.<br>• Concede tarjeta de 5 años con derecho a trabajar.";
+      } else if (t.includes('oportunidad')) {
+        responseMsg.innerHTML = "<b>Requisitos Segunda Oportunidad:</b><br>• Haber tenido residencia legal previa en España y haberla perdido involuntariamente.<br>• Encontrarse actualmente en situación irregular.<br>• Permanencia mínima de 2 años.";
+      } else {
+        // Si solo escribe "arraigo", le muestra el menú general con las opciones
+        responseMsg.innerHTML = "Actualmente en España existen **5 tipos de arraigo estandarizados**, sumados al proceso de **Arraigo Extraordinario (Regularización Masiva)**:<br><br>" +
+          "• **Arraigo Extraordinario:** Entrada antes de 2026 y 5 meses de estancia. Vence el 30 de junio de 2026.<br>" +
+          "• **Arraigo Socioformativo:** Exige 2 años de estancia. Ligado a formación, permite trabajar 30h.<br>" +
+          "• **Arraigo Sociolaboral:** Requiere 2 años de estancia y contrato de mínimo 20h.<br>" +
+          "• **Arraigo Social:** Exige 2 años de estancia e informe de inserción social.<br>" +
+          "• **Arraigo Familiar:** Concede residencia por 5 años a familiares de españoles.<br>" +
+          "• **Arraigo de Segunda Oportunidad:** Diseñado para recuperar la residencia perdida.<br><br>" +
+          "*Escribe 'requisitos' seguido del tipo de arraigo (ej: 'arraigo social' o 'arraigo laboral') para ver sus detalles.*";
+      }
+
     } else {
       responseMsg.innerHTML = "He recibido tu consulta sobre '" + text + "'. De acuerdo con el marco legal laboral en España, todo profesional extranjero con residencia activa, certificado comunitario o autorización tiene pleno derecho a postularse en igualdad de condiciones. Te sugiero adaptar tu CV al formato ciego en la pestaña contigua para optimizar la respuesta de los sistemas automatizados.";
     }
