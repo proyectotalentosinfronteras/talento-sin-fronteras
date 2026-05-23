@@ -1108,10 +1108,13 @@ a:hover{color:var(--menta);text-decoration:none}
                   <div id="p-educacion">Títulos oficiales, cursos y tecnologías dominadas.</div>
                 </div>
               </div>
-              <p style="font-size:.78rem; color:var(--gris-secundario); margin-top:0.75rem">💡 Puedes imprimir o guardar en PDF haciendo clic derecho sobre la previsualización y seleccionando "Imprimir".</p>
-            </div>
+             <div style="margin-top:1rem;padding:1rem;background:rgba(245,158,11,0.08);border:1px solid rgba(245,158,11,0.2);border-radius:10px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px">
+  <span style="font-size:0.85rem;color:#94A3B8">💡 Puedes descargar tu CV seleccionando "Descargar".</span>
+  <button onclick="descargarWord()" style="display:inline-flex;align-items:center;gap:8px;padding:10px 22px;background:#F59E0B;color:#0A1F1C;border:none;border-radius:8px;font-size:0.875rem;font-weight:700;cursor:pointer;font-family:inherit;transition:background .15s" onmouseover="this.style.background='#FCD34D'" onmouseout="this.style.background='#F59E0B'">
+    ⬇ Descargar en Word
+  </button>
+     </div>
           </div>
-
           <div id="mod-entrevista" class="mod-panel" style="display:none; padding:1.5rem">
             <div class="interview-wrap">
               <div class="interview-head">
