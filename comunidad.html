@@ -1,0 +1,564 @@
+<!-- ======================================================================= -->
+<!-- AQUÍ EMPIEZA EL CÓDIGO DE LA COMUNIDAD (PEGADO FUERA DE LOS DIVS ANTERIORES) -->
+<!-- ======================================================================= -->
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=DM+Sans:wght@300;400;500;700&display=swap');
+
+  /* Contenedor Base Estilo de la Web */
+  .tsf-comunidad-section {
+    font-family: 'DM Sans', sans-serif;
+    color: var(--color-text-primary, #2D3748);
+    max-width: 1200px;
+    margin: 4rem auto;
+    padding: 0 1.5rem;
+    box-sizing: border-box;
+  }
+
+  /* --- HERO WRAP --- */
+  .tsf-hero-wrap {
+    width: 100%;
+    border-radius: 20px;
+    overflow: hidden;
+    position: relative;
+    background: #071C11;
+    min-height: 440px;
+    margin-bottom: 2.5rem;
+    box-shadow: 0 12px 40px rgba(7, 28, 17, 0.15);
+  }
+
+  .tsf-grid-overlay {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(93,202,165,0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(93,202,165,0.03) 1px, transparent 1px);
+    background-size: 40px 40px;
+    mask-image: radial-gradient(ellipse 80% 80% at 70% 50%, black 0%, transparent 100%);
+    -webkit-mask-image: radial-gradient(ellipse 80% 80% at 70% 50%, black 0%, transparent 100%);
+  }
+
+  .tsf-hero-content {
+    position: relative;
+    z-index: 10;
+    padding: 3rem 2.5rem;
+    display: flex;
+    flex-direction: column;
+    max-width: 55%;
+  }
+
+  .tsf-live-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(93,202,165,0.12);
+    border: 1px solid rgba(93,202,165,0.3);
+    border-radius: 20px;
+    padding: 6px 14px;
+    margin-bottom: 1.5rem;
+    width: fit-content;
+  }
+  .tsf-live-dot {
+    width: 7px; height: 7px; border-radius: 50%;
+    background: #5DCAA5;
+    animation: tsfBlink 1.4s ease-in-out infinite;
+  }
+  @keyframes tsfBlink {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.3; transform: scale(1.15); }
+  }
+  .tsf-live-text { font-size: 12px; color: #5DCAA5; font-weight: 500; letter-spacing: 0.04em; }
+
+  .tsf-eyebrow {
+    font-size: 11px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: #5DCAA5; margin-bottom: 0.75rem; display: flex; align-items: center; gap: 8px;
+  }
+  .tsf-eyebrow::before { content: ''; display: block; width: 20px; height: 1px; background: #5DCAA5; }
+
+  .tsf-hero-headline {
+    font-family: 'Fraunces', serif;
+    font-size: clamp(32px, 4.5vw, 48px);
+    font-weight: 600; line-height: 1.1; color: #fff; margin: 0 0 1.25rem 0; letter-spacing: -0.02em;
+  }
+  .tsf-hero-headline em { font-style: italic; color: #5DCAA5; font-weight: 400; }
+
+  .tsf-hero-sub { font-size: 15px; color: rgba(255,255,255,0.65); line-height: 1.6; margin: 0 0 2rem 0; font-weight: 300; }
+
+  .tsf-hero-actions { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; margin-bottom: 2rem; }
+  
+  .tsf-btn-primary {
+    background: #5DCAA5; color: #071C11; border: none; border-radius: 40px; padding: 12px 28px; font-size: 14px; font-weight: 600; cursor: pointer; font-family: 'DM Sans', sans-serif; display: flex; align-items: center; gap: 8px; transition: background 0.2s, transform 0.15s;
+  }
+  .tsf-btn-primary:hover { background: #9FE1CB; transform: translateY(-1px); }
+  
+  .tsf-btn-ghost {
+    color: rgba(255,255,255,0.65); font-size: 13px; font-weight: 500; display: flex; align-items: center; gap: 8px; cursor: pointer; border: none; background: none; font-family: 'DM Sans', sans-serif; transition: color 0.15s;
+  }
+  .tsf-btn-ghost:hover { color: #fff; }
+  .tsf-btn-ghost .tsf-arrow {
+    width: 28px; height: 28px; border: 1px solid rgba(255,255,255,0.2); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 12px; transition: border-color 0.15s;
+  }
+  .tsf-btn-ghost:hover .tsf-arrow { border-color: rgba(255,255,255,0.6); }
+
+  .tsf-hero-stats { display: flex; gap: 2.5rem; border-top: 1px solid rgba(255,255,255,0.08); padding-top: 1.5rem; }
+  .tsf-hstat .tsf-n { font-family: 'Fraunces', serif; font-size: 28px; font-weight: 600; color: #fff; display: block; line-height: 1; margin-bottom: 4px; }
+  .tsf-hstat .tsf-l { font-size: 11px; color: rgba(255,255,255,0.4); text-transform: uppercase; letter-spacing: 0.08em; }
+
+  /* Globo animado SVG */
+  .tsf-globe-wrap {
+    position: absolute; right: 2%; top: 50%; transform: translateY(-50%); width: 380px; height: 380px; opacity: 0.25; z-index: 1; pointer-events: none;
+  }
+  .tsf-globe-orbit {
+    animation: tsfSpin 40s linear infinite; transform-origin: center;
+  }
+  @keyframes tsfSpin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+
+  /* --- TARJETAS DE PILARES --- */
+  .tsf-pilares-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 16px; margin-bottom: 3.5rem;
+  }
+  .tsf-mini-card {
+    background: #ffffff; border: 1px solid #E2E8F0; border-radius: 16px; padding: 1.5rem; transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .tsf-mini-card:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.04); border-color: #CBD5E1; }
+  .tsf-mini-card .tsf-icon-box {
+    width: 40px; height: 40px; border-radius: 10px; background: #E1F5EE; color: #0A5C3A; display: flex; align-items: center; justify-content: center; font-size: 20px; margin-bottom: 1rem; font-weight: bold;
+  }
+  .tsf-mini-card .mc-title { font-size: 15px; font-weight: 600; color: #1A202C; margin-bottom: 6px; }
+  .tsf-mini-card .mc-desc { font-size: 13px; color: #4A5568; line-height: 1.5; }
+
+  /* --- SECCIÓN FORO Y CONVERSACIONES --- */
+  .tsf-forum-container {
+    display: grid; grid-template-columns: 2fr 1fr; gap: 30px; margin-top: 2rem;
+  }
+  .tsf-section-title { font-family: 'Fraunces', serif; font-size: 24px; font-weight: 600; color: #1A202C; margin: 0 0 4px 0; }
+  .tsf-section-sub { font-size: 14px; color: #718096; margin: 0 0 1.5rem 0; }
+
+  .tsf-tabs { display: flex; gap: 8px; border-bottom: 1px solid #E2E8F0; margin-bottom: 1.5rem; }
+  .tsf-tab {
+    font-size: 14px; font-weight: 500; padding: 10px 16px; border: none; background: none; cursor: pointer; color: #718096; border-bottom: 2px solid transparent; margin-bottom: -1px; transition: all 0.15s; font-family: 'DM Sans', sans-serif;
+  }
+  .tsf-tab.active { color: #0F6E56; border-bottom-color: #0F6E56; font-weight: 600; }
+
+  /* Componer mensaje */
+  .tsf-compose {
+    background: #ffffff; border: 1px solid #E2E8F0; border-radius: 16px; padding: 1.25rem; margin-bottom: 1.5rem; box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+  }
+  .tsf-compose-top { display: flex; gap: 12px; margin-bottom: 12px; }
+  .tsf-avatar {
+    width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 600; flex-shrink: 0; text-transform: uppercase;
+  }
+  .tsf-compose textarea {
+    width: 100%; border: 1px solid #E2E8F0; border-radius: 10px; padding: 12px; font-size: 14px; font-family: 'DM Sans', sans-serif; background: #F8FAFC; color: #1A202C; resize: none; outline: none; box-sizing: border-box; line-height: 1.5; transition: border-color 0.15s;
+  }
+  .tsf-compose textarea:focus { border-color: #5DCAA5; background: #fff; }
+  .tsf-compose-footer { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px; margin-top: 4px; }
+  .tsf-tag-select { display: flex; gap: 6px; flex-wrap: wrap; }
+  .tsf-tag-btn {
+    font-size: 12px; padding: 4px 12px; border-radius: 20px; border: 1px solid #E2E8F0; background: #fff; color: #64748B; cursor: pointer; font-family: 'DM Sans', sans-serif; transition: all 0.15s;
+  }
+  .tsf-tag-btn.sel { background: #E1F5EE; color: #0F6E56; border-color: #5DCAA5; font-weight: 500; }
+  
+  .tsf-send-btn {
+    background: #0A5C3A; color: #fff; border: none; border-radius: 20px; padding: 8px 18px; font-size: 13px; font-weight: 500; cursor: pointer; display: flex; align-items: center; gap: 6px; font-family: 'DM Sans', sans-serif; transition: background 0.15s;
+  }
+  .tsf-send-btn:hover { background: #0F6E56; }
+
+  /* Listado de posts */
+  .tsf-posts { display: flex; flex-direction: column; gap: 12px; }
+  .tsf-post {
+    background: #ffffff; border: 1px solid #E2E8F0; border-radius: 16px; padding: 1.25rem; transition: border-color 0.15s, box-shadow 0.15s;
+  }
+  .tsf-post:hover { border-color: #CBD5E1; box-shadow: 0 4px 12px rgba(0,0,0,0.02); }
+  .tsf-post-header { display: flex; align-items: center; gap: 12px; margin-bottom: 10px; }
+  .tsf-post-meta { flex: 1; }
+  .tsf-post-meta .name { font-size: 13px; font-weight: 600; color: #1A202C; }
+  .tsf-post-meta .info { font-size: 11px; color: #94A3B8; }
+  .tsf-post-tag { font-size: 11px; padding: 3px 10px; border-radius: 20px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.02em; }
+  
+  /* Colores de tags */
+  .tag-visa { background: #E6F1FB; color: #185FA5; }
+  .tag-empleo { background: #EAF3DE; color: #3B6D11; }
+  .tag-documentos { background: #FAEEDA; color: #854F0B; }
+  .tag-experiencia { background: #EEEDFE; color: #534AB7; }
+  
+  .tsf-post-title { font-size: 15px; font-weight: 600; color: #1A202C; margin-bottom: 6px; line-height: 1.4; }
+  .tsf-post-body { font-size: 13.5px; color: #4A5568; line-height: 1.55; }
+  .tsf-post-footer { display: flex; align-items: center; gap: 16px; margin-top: 12px; border-top: 1px solid #F1F5F9; padding-top: 10px; }
+  .tsf-post-action { display: flex; align-items: center; gap: 5px; font-size: 12.5px; color: #64748B; cursor: pointer; user-select: none; }
+  .tsf-post-action:hover { color: #0F6E56; }
+  .tsf-post-action svg { width: 15px; height: 15px; fill: currentColor; transition: transform 0.1s; }
+  .tsf-post-action:active svg { transform: scale(1.2); }
+
+  /* --- TARJETA LATERAL DE REGISTRO --- */
+  .tsf-sidebar-card {
+    background: #FAF9F5; border-radius: 20px; border: 1px solid #E2E8F0; overflow: hidden; height: fit-content; box-shadow: 0 4px 20px rgba(0,0,0,0.02); position: sticky; top: 20px;
+  }
+  .tsf-register-content { padding: 1.75rem 1.5rem; }
+  .tsf-sidebar-card h2 { font-family: 'Fraunces', serif; font-size: 20px; font-weight: 600; color: #071C11; margin: 0 0 6px 0; }
+  .tsf-sidebar-card p { font-size: 13px; color: #4A5568; margin: 0 0 1.25rem 0; line-height: 1.5; }
+  
+  .tsf-field { display: flex; flex-direction: column; gap: 4px; margin-bottom: 12px; }
+  .tsf-field label { font-size: 12px; font-weight: 600; color: #4A5568; }
+  .tsf-field input, .tsf-field select {
+    border: 1px solid #CBD5E1; border-radius: 8px; padding: 9px 12px; font-size: 13.5px; background: #fff; color: #1A202C; font-family: 'DM Sans', sans-serif; outline: none; box-sizing: border-box; width: 100%;
+  }
+  .tsf-field input:focus, .tsf-field select:focus { border-color: #0F6E56; box-shadow: 0 0 0 3px rgba(159,225,203,0.3); }
+  
+  .tsf-interests-label { font-size: 12px; font-weight: 600; color: #4A5568; margin: 12px 0 6px 0; }
+  .tsf-interests { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 1.25rem; }
+  .tsf-interest {
+    font-size: 11.5px; padding: 4px 10px; border-radius: 20px; border: 1px solid #CBD5E1; background: #fff; cursor: pointer; color: #64748B; transition: all 0.15s; user-select: none;
+  }
+  .tsf-interest.sel { background: #E1F5EE; color: #0F6E56; border-color: #5DCAA5; font-weight: 500; }
+  
+  .tsf-register-btn {
+    width: 100%; background: #0A5C3A; color: #fff; border: none; border-radius: 28px; padding: 12px; font-size: 14px; font-weight: 600; cursor: pointer; font-family: 'DM Sans', sans-serif; transition: background 0.15s;
+  }
+  .tsf-register-btn:hover { background: #0F6E56; }
+  .tsf-disclaimer { font-size: 11px; color: #718096; text-align: center; margin-top: 10px; line-height: 1.4; }
+
+  /* Estado Éxito */
+  .tsf-success { display: none; text-align: center; padding: 2.5rem 1.5rem; }
+  .tsf-success svg { width: 48px; height: 48px; color: #1D9E75; margin-bottom: 1rem; }
+  .tsf-success h3 { font-family: 'Fraunces', serif; font-size: 22px; margin: 0 0 8px 0; color: #071C11; }
+  .tsf-success p { font-size: 13.5px; color: #4A5568; line-height: 1.5; }
+
+  .tab-panel { display: none; }
+  .tab-panel.active { display: block; }
+
+  /* --- RESPONSIVE --- */
+  @media (max-width: 900px) {
+    .tsf-forum-container { grid-template-columns: 1fr; }
+    .tsf-hero-content { max-width: 100%; }
+    .tsf-globe-wrap { width: 280px; height: 280px; top: auto; bottom: -20px; transform: none; right: -20px; opacity: 0.15; }
+    .tsf-sidebar-card { position: relative; top: 0; margin-top: 2rem; }
+  }
+  @media (max-width: 480px) {
+    .tsf-hero-stats { gap: 1.25rem; flex-wrap: wrap; }
+    .tsf-hero-wrap { min-height: auto; }
+    .tsf-hero-content { padding: 2rem 1.5rem; }
+  }
+</style>
+
+<div class="tsf-comunidad-section" id="seccion-comunidad">
+  
+  <!-- HERO CON GLOBO SVG ANIMADO -->
+  <div class="tsf-hero-wrap">
+    <div class="tsf-grid-overlay"></div>
+
+    <svg class="tsf-globe-wrap" viewBox="0 0 320 320" xmlns="http://www.w3.org/2000/svg">
+      <g class="tsf-globe-orbit">
+        <circle cx="160" cy="160" r="140" fill="none" stroke="#5DCAA5" stroke-width="0.8" stroke-opacity="0.7"/>
+        <circle cx="160" cy="160" r="100" fill="none" stroke="#5DCAA5" stroke-width="0.5" stroke-opacity="0.5"/>
+        <circle cx="160" cy="160" r="60" fill="none" stroke="#5DCAA5" stroke-width="0.5" stroke-opacity="0.5"/>
+        <ellipse cx="160" cy="160" rx="140" ry="55" fill="none" stroke="#5DCAA5" stroke-width="0.5" stroke-opacity="0.6"/>
+        <ellipse cx="160" cy="160" rx="140" ry="100" fill="none" stroke="#5DCAA5" stroke-width="0.5" stroke-opacity="0.6"/>
+        <line x1="20" y1="160" x2="300" y2="160" stroke="#5DCAA5" stroke-width="0.5" stroke-opacity="0.4"/>
+        <line x1="160" y1="20" x2="160" y2="300" stroke="#5DCAA5" stroke-width="0.5" stroke-opacity="0.4"/>
+        
+        <circle cx="90" cy="110" r="3.5" fill="#5DCAA5"/>
+        <circle cx="200" cy="130" r="3.5" fill="#5DCAA5"/>
+        <circle cx="150" cy="200" r="3.5" fill="#5DCAA5"/>
+        <circle cx="230" cy="185" r="3.5" fill="#5DCAA5"/>
+        <circle cx="70" cy="180" r="3.5" fill="#5DCAA5"/>
+        <circle cx="170" cy="90" r="3.5" fill="#5DCAA5"/>
+        
+        <path d="M90 110 Q145 85 200 130" fill="none" stroke="#5DCAA5" stroke-width="0.8" stroke-dasharray="4 3"/>
+        <path d="M200 130 Q215 157 230 185" fill="none" stroke="#5DCAA5" stroke-width="0.8" stroke-dasharray="4 3"/>
+        <path d="M90 110 Q80 145 70 180" fill="none" stroke="#5DCAA5" stroke-width="0.8" stroke-dasharray="4 3"/>
+        <path d="M150 200 Q190 192 230 185" fill="none" stroke="#5DCAA5" stroke-width="0.8" stroke-dasharray="4 3"/>
+      </g>
+    </svg>
+
+    <div class="tsf-hero-content">
+      <div class="tsf-live-badge">
+        <div class="tsf-live-dot"></div>
+        <span class="tsf-live-text">Comunidad activa en tiempo real</span>
+      </div>
+      <p class="tsf-eyebrow">Red global de apoyo</p>
+      <h1 class="tsf-hero-headline">Aquí nadie<br>llega <em>solo</em></h1>
+      <p class="tsf-hero-sub">Únete de forma gratuita a nuestra red de apoyo para extranjeros en España. Comparte experiencias, resuelve dudas y construye tu futuro acompañado.</p>
+      
+      <div class="tsf-hero-actions">
+        <button class="tsf-btn-primary" onclick="document.getElementById('tsf-registro-bloque').scrollIntoView({behavior:'smooth'})">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="14" height="14"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          Unirme a la Comunidad Global
+        </button>
+        <button class="tsf-btn-ghost" onclick="document.getElementById('conversaciones-foro').scrollIntoView({behavior:'smooth'})">
+          Ver foro <span class="tsf-arrow">↓</span>
+        </button>
+      </div>
+
+      <div class="tsf-hero-stats">
+        <div class="tsf-hstat"><span class="tsf-n">2.4k</span><span class="tsf-l">Miembros</span></div>
+        <div class="tsf-hstat"><span class="tsf-n">48</span><span class="tsf-l">Países</span></div>
+        <div class="tsf-hstat"><span class="tsf-n">890</span><span class="tsf-l">Dudas resueltas</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECCIÓN PILARES -->
+  <div class="tsf-pilares-grid">
+    <div class="tsf-mini-card">
+      <div class="tsf-icon-box">?</div>
+      <div class="mc-title">Dudas y respuestas</div>
+      <div class="mc-desc">Pregunta sobre NIE, TIE, homologaciones y empleo. La comunidad responde de inmediato.</div>
+    </div>
+    <div class="tsf-mini-card">
+      <div class="tsf-icon-box">🤝</div>
+      <div class="mc-title">Red de contactos</div>
+      <div class="mc-desc">Conecta con profesionales de tu mismo sector o país de origen que ya están establecidos.</div>
+    </div>
+    <div class="tsf-mini-card">
+      <div class="tsf-icon-box">📍</div>
+      <div class="mc-title">Grupos por ciudad</div>
+      <div class="mc-desc">Madrid, Barcelona, Valencia, Sevilla y más localidades. Encuentra apoyo y personas cerca de ti.</div>
+    </div>
+    <div class="tsf-mini-card">
+      <div class="tsf-icon-box">🛡️</div>
+      <div class="mc-title">Espacio seguro</div>
+      <div class="mc-desc">Sin publicidad molesta, sin algoritmos sesgados. Solo personas reales apoyándose mutuamente.</div>
+    </div>
+  </div>
+
+  <!-- CONTENEDOR PRINCIPAL: FORO + REGISTRO -->
+  <div class="tsf-forum-container" id="conversaciones-foro">
+    
+    <!-- COLUMNA IZQUIERDA: EL FORO INTERACTIVO -->
+    <div>
+      <h2 class="tsf-section-title">Conversaciones recientes</h2>
+      <p class="tsf-section-sub">Lo que la comunidad está resolviendo ahora mismo</p>
+
+      <div class="tsf-tabs">
+        <button class="tsf-tab active" onclick="tsfSwitchTab('todos', this)">Todos</button>
+        <button class="tsf-tab" onclick="tsfSwitchTab('visa', this)">Visados</button>
+        <button class="tsf-tab" onclick="tsfSwitchTab('empleo', this)">Empleo</button>
+        <button class="tsf-tab" onclick="tsfSwitchTab('vida', this)">Vida en España</button>
+      </div>
+
+      <div class="tsf-compose">
+        <div class="tsf-compose-top">
+          <div class="tsf-avatar" style="background:#E1F5EE;color:#0F6E56;">Tú</div>
+          <textarea id="tsf-compose-text" rows="2" placeholder="¿Tienes una duda o quieres compartir algo con la comunidad?"></textarea>
+        </div>
+        <div class="tsf-compose-footer">
+          <div class="tsf-tag-select">
+            <button class="tsf-tag-btn" onclick="tsfToggleTag(this, 'visa')">Visado</button>
+            <button class="tsf-tag-btn" onclick="tsfToggleTag(this, 'empleo')">Empleo</button>
+            <button class="tsf-tag-btn" onclick="tsfToggleTag(this, 'documentos')">Documentos</button>
+            <button class="tsf-tag-btn" onclick="tsfToggleTag(this, 'experiencia')">Mi experiencia</button>
+          </div>
+          <button class="tsf-send-btn" onclick="tsfPostMessage()">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="12" height="12"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+            Publicar pregunta
+          </button>
+        </div>
+      </div>
+
+      <div class="tsf-posts" id="tsf-posts-list"></div>
+    </div>
+
+    <!-- COLUMNA DERECHA: REGISTRO (IMAGEN RETIRADA) -->
+    <div id="tsf-registro-bloque">
+      <div class="tsf-sidebar-card">
+        
+        <div class="tsf-register-content" id="tsf-form-wrapper">
+          <h2>Únete a la comunidad</h2>
+          <p>Acceso completamente gratuito. Sin cuotas ocultas ni publicidad.</p>
+          
+          <div class="tsf-field">
+            <label>Nombre completo</label>
+            <input type="text" id="tsf-r-nombre" placeholder="Tu nombre">
+          </div>
+          
+          <div class="tsf-field">
+            <label>Correo electrónico</label>
+            <input type="email" id="tsf-r-email" placeholder="tu@email.com">
+          </div>
+          
+          <div class="tsf-field">
+            <label>País de origen</label>
+            <select id="tsf-r-pais">
+              <option value="">Selecciona tu país...</option>
+              <option>Argentina</option><option>Colombia</option><option>Venezuela</option>
+              <option>México</option><option>Perú</option><option>Ecuador</option>
+              <option>Bolivia</option><option>Chile</option><option>Uruguay</option>
+              <option>Cuba</option><option>República Dominicana</option><option>Otro</option>
+            </select>
+          </div>
+
+          <div class="tsf-field">
+            <label>Ciudad de destino en España</label>
+            <select id="tsf-r-ciudad">
+              <option value="">Selecciona una ciudad...</option>
+              <option>Madrid</option><option>Barcelona</option><option>Valencia</option>
+              <option>Sevilla</option><option>Málaga</option><option>Zaragoza</option><option>Otra ciudad</option>
+              <option>Aún planeando mi llegada</option>
+            </select>
+          </div>
+
+          <div class="tsf-interests-label">¿Qué temas te interesan?</div>
+          <div class="tsf-interests">
+            <span class="tsf-interest" onclick="this.classList.toggle('sel')">Visados y TIE</span>
+            <span class="tsf-interest" onclick="this.classList.toggle('sel')">Buscar empleo</span>
+            <span class="tsf-interest" onclick="this.classList.toggle('sel')">Homologación</span>
+            <span class="tsf-interest" onclick="this.classList.toggle('sel')">Alquiler y Vivienda</span>
+          </div>
+
+          <button class="tsf-register-btn" onclick="tsfExecuteRegister()">Unirme a la comunidad gratis →</button>
+          <p class="tsf-disclaimer">Respetamos tu privacidad. Cero spam garantizado.</p>
+        </div>
+
+        <!-- Mensaje de Éxito -->
+        <div class="tsf-success" id="tsf-register-success">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+          <h3 id="tsf-success-name">¡Bienvenido/a!</h3>
+          <p>Tu registro se ha completado correctamente. Ya formas parte oficial de la red global de <strong>Talento sin Fronteras</strong>. Pronto recibirás un correo de bienvenida.</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<script>
+  const tsfDataPosts = [
+    { id: 1, avatar: 'MR', color: '#E6F1FB', colorText: '#185FA5', name: 'María R.', flag: '🇦🇷', city: 'Madrid', time: 'Hace 2 horas', tag: 'visa', tagLabel: 'Visado', tagClass: 'tag-visa', title: '¿Puedo trabajar con mi visa de estudiante en trámite?', body: 'Hola comunidad, estoy esperando la resolución de la prórroga de mi visado de estudiante en Madrid y me ha salido una oferta a tiempo parcial. ¿Alguien sabe si el silencio administrativo me faculta para arrancar de inmediato?', likes: 14, replies: 5 },
+    { id: 2, avatar: 'JC', color: '#EAF3DE', colorText: '#3B6D11', name: 'Juan C.', flag: '🇨🇴', city: 'Barcelona', time: 'Hace 5 horas', tag: 'empleo', tagLabel: 'Empleo', tagClass: 'tag-empleo', title: 'Conseguí mi primer empleo IT en Barcelona — Mi experiencia', body: 'Quiero motivarles compartiendo que tras 4 meses buscando logré firmar mi contrato indefinido. El truco principal fue adaptar el CV al formato ATS español eliminando datos innecesarios. ¡Mucho éxito a todos!', likes: 42, replies: 12 },
+    { id: 3, avatar: 'AS', color: '#FAEEDA', colorText: '#854F0B', name: 'Ana S.', flag: '🇻🇪', city: 'Valencia', time: 'Ayer', tag: 'visa', tagLabel: 'Documentos', tagClass: 'tag-documentos', title: 'Homologación de título universitario — Tiempos reales en 2026', body: 'Para todos los profesionales de la salud, mi expediente de homologación en el Ministerio acaba de salir favorable tras exactamente 20 meses de espera. Revisad con lupa cada documento antes de enviar para evitar requerimientos.', likes: 67, replies: 28 },
+    { id: 4, avatar: 'LG', color: '#EEEDFE', colorText: '#534AB7', name: 'Luis G.', flag: '🇲🇽', city: 'Sevilla', time: 'Hace 2 días', tag: 'vida', tagLabel: 'Mi Experiencia', tagClass: 'tag-experiencia', title: 'Primeros pasos al llegar a Sevilla: Empadronamiento y tarjeta de salud', body: 'He dejado un hilo detallado sobre cómo conseguir cita rápida para el padrón en Sevilla y cómo dar de alta de forma inmediata tu tarjeta sanitaria provisional en el centro de salud de tu barrio.', likes: 31, replies: 7 }
+  ];
+
+  let tsfLikedSet = new Set();
+  let tsfCurrentSelectedTag = null;
+  let tsfActiveCategory = 'todos';
+
+  function tsfRenderPosts() {
+    const listContainer = document.getElementById('tsf-posts-list');
+    let filtered = tsfDataPosts;
+    
+    if (tsfActiveCategory !== 'todos') {
+      filtered = tsfDataPosts.filter(p => p.tag === tsfActiveCategory);
+    }
+
+    if (filtered.length === 0) {
+      listContainer.innerHTML = `<p style="color:#718096; font-size:13.5px; padding: 2rem; text-align: center;">No hay conversaciones en esta categoría aún. ¡Sé el primero en preguntar!</p>`;
+      return;
+    }
+
+    listContainer.innerHTML = filtered.map(p => `
+      <div class="tsf-post">
+        <div class="tsf-post-header">
+          <div class="tsf-avatar" style="background:${p.color}; color:${p.colorText};">${p.avatar}</div>
+          <div class="tsf-post-meta">
+            <div class="name">${p.name} ${p.flag} · ${p.city}</div>
+            <div class="info">${p.time}</div>
+          </div>
+          <span class="tsf-post-tag ${p.tagClass}">${p.tagLabel}</span>
+        </div>
+        <div class="tsf-post-title">${p.title}</div>
+        <div class="tsf-post-body">${p.body}</div>
+        <div class="tsf-post-footer">
+          <span class="tsf-post-action" onclick="tsfLikeAction(${p.id})">
+            <svg viewBox="0 0 24 24" id="heart-${p.id}" stroke="currentColor" stroke-width="2" fill="${tsfLikedSet.has(p.id) ? '#D85A30' : 'none'}" style="color:${tsfLikedSet.has(p.id) ? '#D85A30' : 'inherit'}"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+            <span id="likes-count-${p.id}">${p.likes}</span> Me gusta
+          </span>
+          <span class="tsf-post-action">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+            ${p.replies} respuestas
+          </span>
+        </div>
+      </div>
+    `).join('');
+  }
+
+  function tsfLikeAction(id) {
+    const post = tsfDataPosts.find(p => p.id === id);
+    if (!post) return;
+
+    const heartIcon = document.getElementById(`heart-${id}`);
+    const countSpan = document.getElementById(`likes-count-${id}`);
+
+    if (tsfLikedSet.has(id)) {
+      tsfLikedSet.delete(id);
+      post.likes--;
+      heartIcon.setAttribute('fill', 'none');
+      heartIcon.style.color = 'inherit';
+    } else {
+      tsfLikedSet.add(id);
+      post.likes++;
+      heartIcon.setAttribute('fill', '#D85A30');
+      heartIcon.style.color = '#D85A30';
+    }
+    countSpan.textContent = post.likes;
+  }
+
+  function tsfSwitchTab(category, buttonElement) {
+    document.querySelectorAll('.tsf-tab').forEach(b => b.classList.remove('active'));
+    buttonElement.classList.add('active');
+    tsfActiveCategory = category;
+    tsfRenderPosts();
+  }
+
+  function tsfToggleTag(btn, tag) {
+    document.querySelectorAll('.tsf-tag-btn').forEach(b => b.classList.remove('sel'));
+    if (tsfCurrentSelectedTag === tag) {
+      tsfCurrentSelectedTag = null;
+    } else {
+      tsfCurrentSelectedTag = tag;
+      btn.classList.add('sel');
+    }
+  }
+
+  function tsfPostMessage() {
+    const textarea = document.getElementById('tsf-compose-text');
+    const text = textarea.value.trim();
+    if (!text) { alert('Por favor escribe tu duda o comentario antes de publicar.'); return; }
+
+    const tagLabels = { 'visa': 'Visado', 'empleo': 'Empleo', 'documentos': 'Documentos', 'experiencia': 'Mi Experiencia' };
+    const tagClasses = { 'visa': 'tag-visa', 'empleo': 'tag-empleo', 'documentos': 'tag-documentos', 'experiencia': 'tag-experiencia' };
+    const finalTag = tsfCurrentSelectedTag || 'experiencia';
+
+    const newPost = {
+      id: Date.now(),
+      avatar: 'Tú',
+      color: '#E1F5EE',
+      colorText: '#0F6E56',
+      name: 'Tú',
+      flag: '✨',
+      city: 'Comunidad',
+      time: 'Ahora mismo',
+      tag: finalTag === 'documentos' || finalTag === 'experiencia' ? 'vida' : finalTag,
+      tagLabel: tagLabels[finalTag],
+      tagClass: tagClasses[finalTag],
+      title: text.length > 60 ? text.slice(0, 60) + '...' : 'Nueva consulta comunitaria',
+      body: text,
+      likes: 0,
+      replies: 0
+    };
+
+    tsfDataPosts.unshift(newPost);
+    textarea.value = '';
+    tsfCurrentSelectedTag = null;
+    document.querySelectorAll('.tsf-tag-btn').forEach(b => b.classList.remove('sel'));
+    
+    tsfRenderPosts();
+  }
+
+  function tsfExecuteRegister() {
+    const nombre = document.getElementById('tsf-r-nombre').value.trim();
+    const email = document.getElementById('tsf-r-email').value.trim();
+    
+    if (!nombre || !email) {
+      alert('Por favor, rellena los campos esenciales de nombre y correo electrónico para unirte.');
+      return;
+    }
+
+    document.getElementById('tsf-form-wrapper').style.display = 'none';
+    const successSection = document.getElementById('tsf-register-success');
+    successSection.style.display = 'block';
+    document.getElementById('tsf-success-name').textContent = `¡Bienvenido/a, ${nombre}!`;
+  }
+
+  tsfRenderPosts();
+</script>
