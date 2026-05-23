@@ -1111,7 +1111,7 @@ a:hover{color:var(--menta);text-decoration:none}
              <div style="margin-top:1rem;padding:1rem;background:rgba(245,158,11,0.08);border:1px solid rgba(245,158,11,0.2);border-radius:10px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px">
   <span style="font-size:0.85rem;color:#94A3B8">💡 Puedes descargar tu CV seleccionando "Descargar".</span>
   <button onclick="descargarWord()" style="display:inline-flex;align-items:center;gap:8px;padding:10px 22px;background:#F59E0B;color:#0A1F1C;border:none;border-radius:8px;font-size:0.875rem;font-weight:700;cursor:pointer;font-family:inherit;transition:background .15s" onmouseover="this.style.background='#FCD34D'" onmouseout="this.style.background='#F59E0B'">
-    ⬇ Descargar en Word
+    ⬇ Descargar 
   </button>
      </div>
           </div>
@@ -1416,6 +1416,62 @@ function evaluateAnswer() {
     }
     feedback.scrollIntoView({behavior: 'smooth'});
   }, 1000);
+}
+  function descargarWord() {
+  const nombre   = document.getElementById('p-nombre')?.innerText.trim()  || 'Mi CV';
+  const titulo   = document.getElementById('p-titulo')?.innerText.trim()  || '';
+  const contacto = document.getElementById('p-contacto')?.innerText.trim()|| '';
+  const resumen  = document.getElementById('p-resumen')?.innerText.trim() || '';
+  const expHTML  = document.getElementById('p-experiencia')?.innerHTML    || '';
+  const eduHTML  = document.getElementById('p-educacion')?.innerHTML      || '';
+
+  const contenedor = document.getElementById('cv-output-container');
+  if (!contenedor || contenedor.style.display === 'none') {
+    alert('Primero genera tu CV con el botón "Optimizar y Generar CV".');
+    return;
+  }
+
+  const html = `
+  <html xmlns:o='urn:schemas-microsoft-com:office:office'
+        xmlns:w='urn:schemas-microsoft-com:office:word'
+        xmlns='http://www.w3.org/TR/REC-html40'>
+  <head>
+    <meta charset='utf-8'>
+    <title>${nombre}</title>
+    <style>
+      body { font-family: Calibri, Arial, sans-serif; font-size: 11pt; color: #1A1A1A; margin: 2cm; }
+      h1 { font-size: 22pt; color: #0A1F1C; margin-bottom: 4px; }
+      .subtitulo { font-size: 12pt; color: #F59E0B; margin-bottom: 4px; }
+      .contacto { font-size: 9pt; color: #64748B; margin-bottom: 16px; }
+      .seccion { font-size: 9pt; font-weight: bold; text-transform: uppercase;
+                 letter-spacing: 1px; border-bottom: 2px solid #F59E0B;
+                 padding-bottom: 3px; margin-top: 18px; margin-bottom: 8px;
+                 color: #0A1F1C; }
+      p { margin: 0 0 6px; font-size: 10pt; color: #475569; line-height: 1.6; }
+    </style>
+  </head>
+  <body>
+    <h1>${nombre}</h1>
+    <p class="subtitulo">${titulo}</p>
+    <p class="contacto">${contacto}</p>
+    <div class="seccion">Perfil Profesional</div>
+    <p>${resumen}</p>
+    <div class="seccion">Experiencia Laboral</div>
+    <div style="font-size:10pt;color:#475569;line-height:1.6">${expHTML}</div>
+    <div class="seccion">Educación y Habilidades</div>
+    <div style="font-size:10pt;color:#475569;line-height:1.6">${eduHTML}</div>
+  </body>
+  </html>`;
+
+  const blob = new Blob(['\ufeff', html], { type: 'application/msword' });
+  const url  = URL.createObjectURL(blob);
+  const link = document.createElement('a');
+  link.href  = url;
+  link.download = nombre.replace(/\s+/g, '_') + '_CV.doc';
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+  URL.revokeObjectURL(url);
 }
 </script>
 
