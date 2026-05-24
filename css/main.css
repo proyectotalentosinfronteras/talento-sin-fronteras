@@ -68,7 +68,28 @@ body {
 .nav-links a:hover, .nav-links a.active {
     color: var(--primary-color);
 }
+@media screen and (max-width:768px){
 
+    .nav-links{
+        flex-direction: column !important;
+        width: 100% !important;
+        align-items: center !important;
+        gap: 10px !important;
+        padding: 0 !important;
+    }
+
+    .nav-links li{
+        width: 100% !important;
+        text-align: center !important;
+    }
+
+    .nav-links a{
+        display: block !important;
+        width: 100% !important;
+        padding: 12px !important;
+    }
+
+}
 /* ---- Sección Principal (Hero) ---- */
 .hero-section {
     background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
