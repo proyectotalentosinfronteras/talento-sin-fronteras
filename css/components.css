@@ -154,3 +154,41 @@
 #send-chat-btn:hover {
     background-color: #0b5ed7;
 }
+#send-chat-btn:hover {
+    background-color: #0b5ed7;
+}
+
+/* ==========================================================================
+   Ajustes específicos para Formularios y Ventana de Chat en Móviles
+   ========================================================================== */
+@media (max-width: 768px) {
+    /* ---- Ventana de Chat Flotante ---- */
+    .chat-container {
+        width: calc(100% - 30px) !important;
+        right: 15px !important;
+        bottom: 15px !important;
+        height: 400px;
+    }
+
+    /* ---- Ajuste de Formularios y Simulador ---- */
+    .feature-card h3 {
+        font-size: 18px !important;
+        flex-wrap: wrap;
+    }
+
+    input[type="text"], 
+    input[type="email"], 
+    textarea, 
+    select,
+    .form-control {
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box;
+        font-size: 16px !important;
+    }
+
+    .feature-card .buttons-container,
+    .chat-input-area {
+        gap: 8px !important;
+    }
+}
