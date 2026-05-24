@@ -192,3 +192,48 @@
         gap: 8px !important;
     }
 }
+/* ==========================================================================
+   Solución Definitiva para la Barra de Pestañas (.main-nav-tab) en Móviles
+   ========================================================================== */
+@media (max-width: 768px) {
+    /* Transforma la barra horizontal gigante en una cuadrícula flexible */
+    .main-nav-tab {
+        display: grid !important;
+        grid-template-columns: repeat(3, 1fr) !important; /* Coloca 3 botones por fila */
+        gap: 6px !important;
+        padding: 8px !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+        overflow-x: hidden !important;
+    }
+
+    /* Ajusta el tamaño de los botones para que entren perfectamente */
+    .main-tab-btn {
+        font-size: 11px !important; /* Achica el texto para que no se desborde */
+        padding: 8px 4px !important;
+        text-align: center !important;
+        display: flex !important;
+        flex-direction: column !important; /* Pone el icono arriba y el texto abajo */
+        align-items: center !important;
+        justify-content: center !important;
+        gap: 4px !important;
+        line-height: 1.2 !important;
+        width: 100% !important;
+    }
+
+    /* Achica los iconos dentro de los botones */
+    .main-tab-btn i {
+        font-size: 16px !important;
+    }
+    
+    /* Corrige el título "Tu talento no tiene..." para que no rompa el diseño */
+    .hero-inner h1 {
+        font-size: 26px !important;
+        line-height: 1.2 !important;
+    }
+    
+    .hero-sub {
+        font-size: 14px !important;
+    }
+}
