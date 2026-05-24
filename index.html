@@ -337,7 +337,7 @@ a:hover{color:var(--menta);text-decoration:none}
             <div class="card-icon" style="background:rgba(255,255,255,0.1)"><i class="ti ti-users" style="color:var(--dorado)"></i></div>
             <h3>Comunidad</h3>
             <p>Únete de forma gratuita a nuestra red de apoyo para compartir experiencias y resolver dudas reales.</p>
-<a href="comunidad.html">Unirse a la Comunidad Global</a>
+            <a href="#" onclick="showMain('comunidad');return false" ...>Unirse a la Comunidad Global</a><a href="#" class="btn btn-blanco btn-sm" style="margin-top:1rem; width:100%; justify-content:center">Unirse a la Comunidad Global</a>
           </div>
         </div>
       </div>
@@ -447,8 +447,8 @@ a:hover{color:var(--menta);text-decoration:none}
             <div class="resource-desc">Ofrece asesoramiento gratuito e intermediación ante situaciones de racismo u origen étnico.</div>
           </div>
         </a>
-        <a href=c"_blank" class="resource-link">
-          <div class="resource-icon" style="background:#0a2922"><i class="ti ti-file-shield" style="color:var(--menta)"></i></div>
+        <a href="https://oeitss.gob.es/tramites/personas-trabajadoras/denuncia"target="_blank" class="resource-link">
+          <div class="resource-icon" style="background:#0a2922"><i class="ti ti-file-triangle" style="color:var(--menta)"></i></div>
           <div>
             <div class="resource-name">Inspección de Trabajo y Seguridad Social (ITSS)</div>
             <div class="resource-desc">Buzón formal para denunciar de forma anónima o formal los abusos empresariales e irregularidades en contratos.</div>
@@ -1046,7 +1046,7 @@ a:hover{color:var(--menta);text-decoration:none}
             <button class="tab-btn" id="btn-mod-entrevista" onclick="switchMod('entrevista')" style="color:var(--negro); font-weight:600">3. Simulador de Entrevistas</button>
           </div>
 
-          <div id="mod-chat" class="mod-panel" style="display:block">
+          <div id="mod-chat" class="mod-panel" style="display:none">
             <div class="chat-top">
               <div class="chat-ava"><i class="ti ti-brand-openai" style="color:var(--dorado)"></i></div>
               <div>
@@ -1108,47 +1108,35 @@ a:hover{color:var(--menta);text-decoration:none}
                   <div id="p-educacion">Títulos oficiales, cursos y tecnologías dominadas.</div>
                 </div>
               </div>
-             <div style="margin-top:1rem;padding:1rem;background:rgba(245,158,11,0.08);border:1px solid rgba(245,158,11,0.2);border-radius:10px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px">
-  <span style="font-size:0.85rem;color:#94A3B8">💡 Puedes descargar tu CV seleccionando "Descargar".</span>
-  <button onclick="descargarWord()" style="display:inline-flex;align-items:center;gap:8px;padding:10px 22px;background:#F59E0B;color:#0A1F1C;border:none;border-radius:8px;font-size:0.875rem;font-weight:700;cursor:pointer;font-family:inherit;transition:background .15s" onmouseover="this.style.background='#FCD34D'" onmouseout="this.style.background='#F59E0B'">
-    ⬇ Descargar 
-  </button>
-     </div>
-          </div>
-          <div id="mod-entrevista" class="mod-panel" style="display:none; padding:1.5rem">
-            <div class="interview-wrap">
-              <div class="interview-head">
-                <div class="interview-ava"><i class="ti ti-user-check"></i></div>
-                <div style="font-size:1.05rem; font-weight:600">Simulador de Entrevistas con Reclutadores en España</div>
-                <div style="font-size:.8rem; color:var(--gris-secundario)">Entrénate respondiendo preguntas típicas. La IA evaluará tu respuesta indicándote fortalezas y mejoras necesarias.</div>
-              </div>
-              <div style="padding:1.25rem">
-                <div class="fg" style="margin-bottom:1rem">
-                  <label>Selecciona tu perfil profesional para contextualizar la prueba:</label>
-                  <select id="int-perfil" style="width:100%" onchange="loadQuestion()">
-                    <option value="data">Analista de Datos / Data Analytics</option>
-                    <option value="web">Desarrollador Web / Front-End</option>
-                    <option value="admin">Administración, Gestión y Soporte</option>
-                  </select>
-                </div>
-                <div class="question-box" id="question-text">Pregunta del reclutador...</div>
-                <div class="fg">
-                  <label>Escribe tu respuesta como si estuvieras frente al entrevistador:</label>
-                  <textarea class="answer-area" id="answer-text" placeholder="Ej. En mi anterior empleo manejaba grandes volúmenes de datos usando SQL y Python, enfocándome en automatizar reportes diarios..."></textarea>
-                </div>
-                <div style="display:flex; gap:10px">
-                  <button class="btn btn-verde" id="btn-evaluar" onclick="evaluateAnswer()"><i class="ti ti-sparkles"></i> Evaluar mi respuesta con IA</button>
-                  <button class="btn btn-outline-blanco" onclick="loadQuestion()">Cambiar pregunta</button>
-                </div>
-                <div class="feedback-box" id="feedback-area">Resultado de la evaluación...</div>
-              </div>
+              <p style="font-size:.78rem; color:var(--gris-secundario); margin-top:0.75rem">💡 Puedes imprimir o guardar en PDF haciendo clic derecho sobre la previsualización y seleccionando "Imprimir".</p>
             </div>
           </div>
 
+    <div id="mod-entrevista" class="mod-panel" style="display:none; padding:1.5rem; background:white; border:1px solid #ddd; border-radius:10px;">
+    <div class="interview-wrap">
+        <div class="interview-head">
+            <div style="font-size:1.05rem; font-weight:600">Simulador de Entrevistas</div>
+            <p style="font-size:.8rem; color:#666">Entrénate con la IA.</p>
         </div>
-      </div>
-    </section>
-  </div>
+        <div style="padding:1.25rem">
+            <label>Selecciona tu perfil:</label>
+            <select id="int-perfil" style="width:100%" onchange="loadQuestion()">
+                <option value="data">Analista de Datos</option>
+                <option value="web">Desarrollador Web</option>
+                <option value="admin">Administración</option>
+            </select>
+            <div id="question-text" style="margin:1rem 0; font-weight:bold;">Pregunta del reclutador...</div>
+            <textarea id="answer-text" style="width:100%; height:80px;" placeholder="Escribe tu respuesta aquí..."></textarea>
+            <div style="margin-top:10px; display:flex; gap:10px;">
+                <button id="btn-evaluar" onclick="evaluateAnswer()">Evaluar con IA</button>
+                <button onclick="loadQuestion()">Cambiar pregunta</button>
+            </div>
+            <div id="feedback-area" style="margin-top:1rem; padding:10px; background:#f0f0f0;">Resultado...</div>
+        </div>
+    </div>
+</div>
+
+<button onclick="abrirSimulador()" style="margin:20px; padding:10px 20px;">Abrir Simulador de Entrevistas</button>
 
 </main>
 
@@ -1179,7 +1167,7 @@ a:hover{color:var(--menta);text-decoration:none}
     </div>
   </div>
   <div class="footer-bottom">
-    <div>&copy; 2026 Talento sin Fronteras · Hecho con 💚 para guiar a todo extranjero en España.</div>
+    <div>&copy; 2026 Talento sin Fronteras · Hecho con 💚 para orientar la comunidad extranjera en España.</div>
     <div style="font-style:italic; color:var(--gris-secundario)">Información orientativa de libre acceso. No sustituye asesoría legal profesional.</div>
   </div>
 </footer>
@@ -1247,6 +1235,12 @@ function switchMod(modType){
   document.getElementById('btn-mod-' + modType).classList.add('active');
 }
 
+function abrirSimulador() {
+  showMain('herramientas');
+  switchMod('entrevista');
+  loadQuestion();
+}
+
 // Preguntas del Simulador de Entrevistas basadas en perfil profesional
 const bancoPreguntas = {
   data: [
@@ -1273,7 +1267,7 @@ function loadQuestion(){
   document.getElementById('question-text').innerText = aleatoria;
   document.getElementById('answer-text').value = "";
   const f = document.getElementById('feedback-area');
-  f.classList.remove('visible');
+  if (f) f.classList.remove('visible');
 }
 
 // Inicializar la primera pregunta al cargar la página
@@ -1310,43 +1304,17 @@ function sendChat() {
     const responseMsg = document.createElement('div');
     responseMsg.className = 'msg msg-bot';
     
-       // Respuestas lógicas predefinidas para dar dinamismo a la simulación
+    // Respuestas lógicas predefinidas para dar dinamismo a la simulación
     if(text.toLowerCase().includes('estudiante')) {
       responseMsg.innerHTML = "Actualmente, con la reforma del reglamento de extranjería en España, la visa de estudiante permite trabajar automáticamente **hasta 30 horas semanales** de forma legal, siempre que las horas de trabajo no coincidan con las horas lectivas de tus estudios obligatorios.";
     } else if(text.toLowerCase().includes('nómada') || text.toLowerCase().includes('nomada')) {
       responseMsg.innerHTML = "La **Visa de Nómada Digital** requiere que demuestres que trabajas para empresas fuera de España, poseer una titulación universitaria o experiencia demostrable de al menos 3 años en tu sector, y certificar unos ingresos mínimos mensuales equivalentes al 200% del Salario Mínimo Interprofesional español.";
-    } else if(text.toLowerCase().includes('arraigo') || text.toLowerCase().includes('regularizacion') || text.toLowerCase().includes('regularización')) {
-      
-      // Buscamos si el usuario pide un tipo específico para darle sus requisitos
-      let t = text.toLowerCase();
-      if (t.includes('extraordinario') || t.includes('masiva') || t.includes('regulariz')) {
-        responseMsg.innerHTML = "<b>Requisitos Arraigo Extraordinario 2026:</b><br>• Entrar a España antes del 1 de enero de 2026.<br>• Permanencia mínima continua de 5 meses.<br>• Solicitar antes del 30 de junio de 2026.<br>• Carecer de antecedentes penales.";
-      } else if (t.includes('socioformativo') || t.includes('formac')) {
-        responseMsg.innerHTML = "<b>Requisitos Arraigo Socioformativo:</b><br>• Permanencia continua de mínimo 2 años.<br>• Matricularse en una formación reglada o curso oficial.<br>• Permite trabajar hasta 30 horas semanales durante los estudios.";
-      } else if (t.includes('sociolaboral') || t.includes('laboral')) {
-        responseMsg.innerHTML = "<b>Requisitos Arraigo Sociolaboral:</b><br>• Permanencia continua de mínimo 2 años.<br>• Contrato de trabajo firmado de mínimo 20 horas semanales.<br>• Carecer de antecedentes penales en los últimos 5 años.";
-      } else if (t.includes('social')) {
-        responseMsg.innerHTML = "<b>Requisitos Arraigo Social:</b><br>• Permanencia continua de mínimo 2 años.<br>• Vínculos familiares directos O presentar el Informe de Inserción Social local.<br>• Carecer de antecedentes penales.";
-      } else if (t.includes('familiar')) {
-        responseMsg.innerHTML = "<b>Requisitos Arraigo Familiar:</b><br>• Ser pariente directo de ciudadano español (hijo, padre/madre o pareja vinculada).<br>• No exige tiempo mínimo previo en España.<br>• Concede tarjeta de 5 años con derecho a trabajar.";
-      } else if (t.includes('oportunidad')) {
-        responseMsg.innerHTML = "<b>Requisitos Segunda Oportunidad:</b><br>• Haber tenido residencia legal previa en España y haberla perdido involuntariamente.<br>• Encontrarse actualmente en situación irregular.<br>• Permanencia mínima de 2 años.";
-      } else {
-        // Si solo escribe "arraigo", le muestra el menú general con las opciones
-        responseMsg.innerHTML = "Actualmente en España existen **5 tipos de arraigo estandarizados**, sumados al proceso de **Arraigo Extraordinario (Regularización Masiva)**:<br><br>" +
-          "• **Arraigo Extraordinario:** Entrada antes de 2026 y 5 meses de estancia. Vence el 30 de junio de 2026.<br>" +
-          "• **Arraigo Socioformativo:** Exige 2 años de estancia. Ligado a formación, permite trabajar 30h.<br>" +
-          "• **Arraigo Sociolaboral:** Requiere 2 años de estancia y contrato de mínimo 20h.<br>" +
-          "• **Arraigo Social:** Exige 2 años de estancia e informe de inserción social.<br>" +
-          "• **Arraigo Familiar:** Concede residencia por 5 años a familiares de españoles.<br>" +
-          "• **Arraigo de Segunda Oportunidad:** Diseñado para recuperar la residencia perdida.<br><br>" +
-          "*Escribe 'requisitos' seguido del tipo de arraigo (ej: 'arraigo social' o 'arraigo laboral') para ver sus detalles.*";
-      }
-
+    } else if(text.toLowerCase().includes('arraigo')) {
+      responseMsg.innerHTML = "El **Arraigo para la Formación** te otorga una residencia legal de 12 meses si te comprometes a realizar una formación reglada o certificado de profesionalidad oficial en España. Para solicitarlo, necesitas demostrar una permanencia continuada en el país de mínimo 2 años.";
     } else {
       responseMsg.innerHTML = "He recibido tu consulta sobre '" + text + "'. De acuerdo con el marco legal laboral en España, todo profesional extranjero con residencia activa, certificado comunitario o autorización tiene pleno derecho a postularse en igualdad de condiciones. Te sugiero adaptar tu CV al formato ciego en la pestaña contigua para optimizar la respuesta de los sistemas automatizados.";
     }
-
+    
     box.appendChild(responseMsg);
     box.scrollTop = box.scrollHeight;
   }, 1200);
@@ -1417,63 +1385,8 @@ function evaluateAnswer() {
     feedback.scrollIntoView({behavior: 'smooth'});
   }, 1000);
 }
-  function descargarWord() {
-  const nombre   = document.getElementById('p-nombre')?.innerText.trim()  || 'Mi CV';
-  const titulo   = document.getElementById('p-titulo')?.innerText.trim()  || '';
-  const contacto = document.getElementById('p-contacto')?.innerText.trim()|| '';
-  const resumen  = document.getElementById('p-resumen')?.innerText.trim() || '';
-  const expHTML  = document.getElementById('p-experiencia')?.innerHTML    || '';
-  const eduHTML  = document.getElementById('p-educacion')?.innerHTML      || '';
-
-  const contenedor = document.getElementById('cv-output-container');
-  if (!contenedor || contenedor.style.display === 'none') {
-    alert('Primero genera tu CV con el botón "Optimizar y Generar CV".');
-    return;
-  }
-
-  const html = `
-  <html xmlns:o='urn:schemas-microsoft-com:office:office'
-        xmlns:w='urn:schemas-microsoft-com:office:word'
-        xmlns='http://www.w3.org/TR/REC-html40'>
-  <head>
-    <meta charset='utf-8'>
-    <title>${nombre}</title>
-    <style>
-      body { font-family: Calibri, Arial, sans-serif; font-size: 11pt; color: #1A1A1A; margin: 2cm; }
-      h1 { font-size: 22pt; color: #0A1F1C; margin-bottom: 4px; }
-      .subtitulo { font-size: 12pt; color: #F59E0B; margin-bottom: 4px; }
-      .contacto { font-size: 9pt; color: #64748B; margin-bottom: 16px; }
-      .seccion { font-size: 9pt; font-weight: bold; text-transform: uppercase;
-                 letter-spacing: 1px; border-bottom: 2px solid #F59E0B;
-                 padding-bottom: 3px; margin-top: 18px; margin-bottom: 8px;
-                 color: #0A1F1C; }
-      p { margin: 0 0 6px; font-size: 10pt; color: #475569; line-height: 1.6; }
-    </style>
-  </head>
-  <body>
-    <h1>${nombre}</h1>
-    <p class="subtitulo">${titulo}</p>
-    <p class="contacto">${contacto}</p>
-    <div class="seccion">Perfil Profesional</div>
-    <p>${resumen}</p>
-    <div class="seccion">Experiencia Laboral</div>
-    <div style="font-size:10pt;color:#475569;line-height:1.6">${expHTML}</div>
-    <div class="seccion">Educación y Habilidades</div>
-    <div style="font-size:10pt;color:#475569;line-height:1.6">${eduHTML}</div>
-  </body>
-  </html>`;
-
-  const blob = new Blob(['\ufeff', html], { type: 'application/msword' });
-  const url  = URL.createObjectURL(blob);
-  const link = document.createElement('a');
-  link.href  = url;
-  link.download = nombre.replace(/\s+/g, '_') + '_CV.doc';
-  document.body.appendChild(link);
-  link.click();
-  document.body.removeChild(link);
-  URL.revokeObjectURL(url);
-}
 </script>
 
 </body>
 </html>
+
