@@ -185,7 +185,7 @@ footer {
    AJUSTE GLOBAL DEFINITIVO PARA MÓVILES
    ========================================================================== */
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 768px){
 
     /* Evita scroll horizontal */
     html, body {
@@ -370,4 +370,30 @@ footer {
 
 body{
     overflow-x:hidden !important;
+}
+.hamburger{
+    display:none;
+}
+
+@media screen and (max-width:768px){
+
+    .hamburger{
+        display:block;
+        background:none;
+        border:none;
+        font-size:28px;
+        cursor:pointer;
+    }
+
+    .nav-inner{
+        align-items:center !important;
+    }
+
+    .nav-links{
+        display:none !important;
+    }
+
+    .nav-links.active{
+        display:flex !important;
+    }
 }
