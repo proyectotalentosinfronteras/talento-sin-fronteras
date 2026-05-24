@@ -160,3 +160,30 @@ footer {
     margin-top: 60px;
     font-size: 14px;
 }
+/* ---- Control definitivo para Formularios y Cajas en Móvil ---- */
+@media (max-width: 768px) {
+    /* Evita que el cuerpo de la web obligue a hacer scroll horizontal */
+    html, body {
+        width: 100% !important;
+        max-width: 100vw !important;
+        overflow-x: hidden !important;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+
+    /* Reduce los rellenos (padding) de las tarjetas para ganar espacio en pantallas pequeñas */
+    .feature-card {
+        padding: 15px !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+    }
+
+    /* Si tu formulario está envuelto en etiquetas <form>, las adapta al ancho total */
+    form, .form-container, .features-grid {
+        width: 100% !important;
+        max-width: 100% !important;
+        padding: 0 !important;
+        margin: 10px 0 !important;
+    }
+}
