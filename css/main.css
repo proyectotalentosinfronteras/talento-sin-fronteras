@@ -98,6 +98,30 @@ body {
     display: flex;
     justify-content: center;
     gap: 15px;
+    @media (max-width:768px){
+
+  .hero-content h1{
+    font-size:32px;
+    line-height:1.2;
+  }
+
+  .hero-content p{
+    font-size:16px;
+  }
+
+  .hero-buttons{
+    flex-direction:column;
+    align-items:center;
+    width:100%;
+  }
+
+  .hero-buttons a,
+  .hero-buttons button{
+    width:100%;
+    max-width:320px;
+  }
+
+}
 }
 
 /* ---- Botones generales ---- */
@@ -240,4 +264,7 @@ footer {
     padding-right:20px !important;
   }
 
+}
+html,body{
+  overflow-x:hidden;
 }
