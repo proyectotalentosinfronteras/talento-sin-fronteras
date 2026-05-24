@@ -98,30 +98,6 @@ body {
     display: flex;
     justify-content: center;
     gap: 15px;
-    @media (max-width:768px){
-
-  .hero-content h1{
-    font-size:32px;
-    line-height:1.2;
-  }
-
-  .hero-content p{
-    font-size:16px;
-  }
-
-  .hero-buttons{
-    flex-direction:column;
-    align-items:center;
-    width:100%;
-  }
-
-  .hero-buttons a,
-  .hero-buttons button{
-    width:100%;
-    max-width:320px;
-  }
-
-}
 }
 
 /* ---- Botones generales ---- */
@@ -184,87 +160,131 @@ footer {
     margin-top: 60px;
     font-size: 14px;
 }
-/* ---- Control definitivo para Formularios y Cajas en Móvil ---- */
-@media (max-width: 768px) {
-    /* Evita que el cuerpo de la web obligue a hacer scroll horizontal */
+    }
+}
+/* ==========================================================================
+   AJUSTE GLOBAL DEFINITIVO PARA MÓVILES
+   ========================================================================== */
+
+@media screen and (max-width: 768px) {
+
+    /* Evita scroll horizontal */
     html, body {
-        width: 100% !important;
-        max-width: 100vw !important;
+        width: 100%;
         overflow-x: hidden !important;
-        margin: 0 !important;
-        padding: 0 !important;
     }
 
-    /* Reduce los rellenos (padding) de las tarjetas para ganar espacio en pantallas pequeñas */
-    .feature-card {
-        padding: 15px !important;
-        width: 100% !important;
+    /* Contenedores generales */
+    .container,
+    .hero-content,
+    .hero-inner,
+    .features-grid,
+    .feature-card,
+    section,
+    div {
         max-width: 100% !important;
         box-sizing: border-box !important;
     }
 
-    /* Si tu formulario está envuelto en etiquetas <form>, las adapta al ancho total */
-    form, .form-container, .features-grid {
+    /* HERO */
+    .hero-section {
+        padding: 40px 15px !important;
+    }
+
+    .hero-content h1,
+    .hero-inner h1 {
+        font-size: 28px !important;
+        line-height: 1.2 !important;
+        text-align: center !important;
+    }
+
+    .hero-content p,
+    .hero-sub {
+        font-size: 15px !important;
+        text-align: center !important;
+    }
+
+    .hero-buttons {
+        flex-direction: column !important;
+        width: 100% !important;
+        gap: 10px !important;
+    }
+
+    .hero-buttons a,
+    .hero-buttons button {
+        width: 100% !important;
+    }
+
+    /* GRID TARJETAS */
+    .features-grid {
+        grid-template-columns: 1fr !important;
+        gap: 15px !important;
+    }
+
+    .feature-card {
+        width: 100% !important;
+        padding: 18px !important;
+        margin: 0 !important;
+    }
+
+    .feature-card h3 {
+        font-size: 18px !important;
+        line-height: 1.3 !important;
+        flex-wrap: wrap !important;
+    }
+
+    .feature-card p {
+        font-size: 14px !important;
+    }
+
+    /* FORMULARIOS */
+    form,
+    .form-container {
+        width: 100% !important;
+        padding: 0 !important;
+    }
+
+    input,
+    textarea,
+    select,
+    button {
         width: 100% !important;
         max-width: 100% !important;
-        padding: 0 !important;
-        margin: 10px 0 !important;
+        box-sizing: border-box !important;
+        font-size: 16px !important;
     }
-}
-/* =========================================
-   MOBILE EXTRA FIXES
-========================================= */
 
-@media (max-width:768px){
+    /* CHAT */
+    .chat-container {
+        width: calc(100% - 20px) !important;
+        height: 80vh !important;
+        right: 10px !important;
+        left: 10px !important;
+        bottom: 10px !important;
+    }
 
-  .tsf-hero-headline{
-    font-size:38px !important;
-    line-height:1.1 !important;
-  }
+    /* MENÚ / PESTAÑAS */
+    .main-nav-tab {
+        display: grid !important;
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 8px !important;
+        width: 100% !important;
+    }
 
-  .tsf-hero-sub{
-    font-size:15px !important;
-    line-height:1.6 !important;
-  }
+    .main-tab-btn {
+        width: 100% !important;
+        font-size: 12px !important;
+        padding: 10px 5px !important;
+        text-align: center !important;
+    }
 
-  .tsf-hero-actions{
-    flex-direction:column !important;
-    gap:12px !important;
-  }
+    .main-tab-btn i {
+        font-size: 16px !important;
+    }
 
-  .tsf-btn-primary,
-  .tsf-btn-ghost{
-    width:100% !important;
-  }
-
-  .tsf-pilares-grid{
-    grid-template-columns:1fr !important;
-  }
-
-  .tsf-tabs{
-    overflow-x:auto !important;
-    flex-wrap:nowrap !important;
-  }
-
-  .tsf-compose-footer{
-    flex-direction:column !important;
-    gap:15px !important;
-  }
-
-  .tsf-send-btn{
-    width:100% !important;
-  }
-
-  .tsf-register-btn{
-    width:100% !important;
-  }
-
-  section{
-    padding-left:20px !important;
-    padding-right:20px !important;
-  }
-
-}
-html,body{
-  overflow-x:hidden;
+    /* IMÁGENES */
+    img {
+        max-width: 100% !important;
+        height: auto !important;
+    }
 }
