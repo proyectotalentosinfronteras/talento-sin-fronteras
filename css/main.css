@@ -187,3 +187,57 @@ footer {
         margin: 10px 0 !important;
     }
 }
+/* =========================================
+   MOBILE EXTRA FIXES
+========================================= */
+
+@media (max-width:768px){
+
+  .tsf-hero-headline{
+    font-size:38px !important;
+    line-height:1.1 !important;
+  }
+
+  .tsf-hero-sub{
+    font-size:15px !important;
+    line-height:1.6 !important;
+  }
+
+  .tsf-hero-actions{
+    flex-direction:column !important;
+    gap:12px !important;
+  }
+
+  .tsf-btn-primary,
+  .tsf-btn-ghost{
+    width:100% !important;
+  }
+
+  .tsf-pilares-grid{
+    grid-template-columns:1fr !important;
+  }
+
+  .tsf-tabs{
+    overflow-x:auto !important;
+    flex-wrap:nowrap !important;
+  }
+
+  .tsf-compose-footer{
+    flex-direction:column !important;
+    gap:15px !important;
+  }
+
+  .tsf-send-btn{
+    width:100% !important;
+  }
+
+  .tsf-register-btn{
+    width:100% !important;
+  }
+
+  section{
+    padding-left:20px !important;
+    padding-right:20px !important;
+  }
+
+}
